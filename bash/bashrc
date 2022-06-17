@@ -1,0 +1,27 @@
+# This file is sourced when bash is invoked as an interactive non-login shell.
+
+# List aliases.
+alias ll="ls -l"
+alias la="ls -al"
+alias refresh="source ~/.bash_profile"
+alias tmp="cd $TMPDIR"
+
+# Disable MacOs warning on shell start.
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# Enable colors.
+export CLICOLOR=1
+
+# Create a tree like command on windows.
+if [[ "$OSTYPE" == "msys" ]]; then
+    alias tree="cmd //c tree"
+fi
+
+# Customize prompt. 
+function __git_branch() { git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'; }
+PS1="\e[0;31m\u\e[0m@\e[0;35m\h\e[0m -> \e[1;34m\w\e[0;34m\$(__git_branch)"$'\n'"\e[0;37m>\e[0m "
+
+# Go command.
+function go() { cd  ~/repos/$1; }
+function _go() { cd ~/repos; printf "%s\n" "$2"*; }
+complete -o nospace -C _go go

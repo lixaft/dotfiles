@@ -1,0 +1,9 @@
+[user]
+    name = Fabien Taxil
+    email = fabien.taxil@gmail.com
+
+[core]
+	symlinks = true
+
+[pull]
+	rebase = false
