@@ -16,6 +16,8 @@ symlink fish/ ~/.config/fish
 symlink git/gitconfig  ~/.gitconfig
 symlink tcsh/mycshrc/ ~/.mycshrc
 symlink vim/vimrc ~/.vimrc
+symlink zsh/zprofile ~/.zprofile
+symlink zsh/zshrc ~/.zshrc
 
 printf "\n\033[0;32m"
 printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' =
