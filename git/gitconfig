@@ -7,3 +7,6 @@
 
 [pull]
 	rebase = false
+
+[alias]
+        git = !git
