@@ -9,4 +9,4 @@
 	rebase = false
 
 [alias]
-        git = !git
+    git = !git
