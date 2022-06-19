@@ -4,12 +4,12 @@
 #
 #   Shell script that Bash will execute when it is started in an non-login
 #   mode (when your are already logged ans open a new terminal for example).
-#   It is used to determine and tell the shell how it should looks and act. 
-#   
+#   It is used to determine and tell the shell how it should looks and act.
+#
 #   Possible configuration include appearance, prompt, alias...
-#   
+#
 # Location:
-#   
+#
 #   ~/.bashrc
 #
 
@@ -35,7 +35,7 @@ function go() { cd  ~/repos/$1; }
 function _go() { cd ~/repos; printf "%s\n" "$2"*; }
 complete -o nospace -C _go go
 
-# Customize prompt. 
+# Customize prompt.
 function _git_branch() { git branch 2> /dev/null | sed '/^\s/d;s/^*\s\(.*\)/ (\1)/'; }
 PS1=                                    # Clear current prompt.
 PS1="$PS1\e[0;31m\u\e[0m"               # Add user.
@@ -45,4 +45,3 @@ PS1="$PS1 -> "                          # Add '->' separator.
 PS1="$PS1\e[1;34m\w\e[0m"               # Add working directory.
 PS1="$PS1\e[0;34m\$(_git_branch) \e[0m" # Add working directory.
 PS1="$PS1"$'\n'"> "                     # New line and add '>'.
-

@@ -5,11 +5,11 @@
 "   The VIMRC file contains a series of instructions that will be
 "   automatically executed to initialize VIM when the editor is opened.
 "
-"   This allow an user to customize the editor as he want including interface, 
+"   This allow an user to customize the editor as he want including interface,
 "   colors, hokeys...
 "
 " Location:
-"   
+"
 "   ~/.vimrc
 "
 
@@ -54,10 +54,10 @@ set nowrap       " Disable the wrap line.
 set linebreak    " Wrap lines at convenient points.
 
 set expandtab    " Replace tab by spaces.
-set shiftwidth=4 " The length of a tab. 
+set shiftwidth=4 " The length of a tab.
 set tabstop=4    " Make a tab visually look like 4 spaces.
 set autoindent   " Copy the indent from current line when starting a new one.
-set smarttab     " Go to the next indent level. 
+set smarttab     " Go to the next indent level.
 set smartindent  " Try to be smart on where an indent should be inserted :)
 
 " ================= Search =================
@@ -112,9 +112,8 @@ vnoremap <leader>" di"<esc>pa"<esc>
 " Split line.
 nnoremap K i<cr><esc>k==$
 
-" Natural Indent.                                                                      
+" Natural Indent.
 nnoremap <tab> >>
 nnoremap <s-tab> <<
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
-

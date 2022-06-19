@@ -4,7 +4,7 @@ function symlink() {
     local src="$PWD/$1"
     local tgt="$2"
     echo "$src --> $tgt"
-    ln -sf $src $tgt 
+    ln -sf $src $tgt
 }
 
 printf "Installing dotfiles..."
@@ -23,4 +23,3 @@ printf "\n\033[0;32m"
 printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' =
 printf "Dotfiles installed!"
 printf "\033[0m\n"
-
