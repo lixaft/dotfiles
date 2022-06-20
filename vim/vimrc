@@ -104,6 +104,8 @@ vnoremap <c-k> :move '<-2<cr>gv=gv
 " Move to the first/last character of the line.
 nnoremap L $
 nnoremap H ^
+vnoremap L $
+vnoremap H ^
 
 " Quote selection.
 vnoremap <leader>' di'<esc>pa'<esc>
