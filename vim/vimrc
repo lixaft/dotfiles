@@ -124,7 +124,7 @@ nnoremap <s-tab> <<
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
 
-" ================= Commands =================
+" ================= Command =================
 
 " Strip trailing white spaces.
 function! StripTrailingWhitespaces()
