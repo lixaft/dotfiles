@@ -15,6 +15,7 @@ symlink bash/bashrc ~/.bashrc
 symlink fish/ ~/.config/fish
 symlink git/gitconfig  ~/.gitconfig
 symlink tcsh/mycshrc/ ~/.mycshrc
+symlink vim/vim ~/.vim
 symlink vim/vimrc ~/.vimrc
 symlink zsh/zprofile ~/.zprofile
 symlink zsh/zshrc ~/.zshrc
