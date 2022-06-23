@@ -1,4 +1,5 @@
 #!/bin/bash
+# Install script for POSIX system.
 
 function symlink() {
     local src="$PWD/$1"
