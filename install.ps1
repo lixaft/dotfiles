@@ -1,3 +1,4 @@
+# Install script for Windows system.
 
 New-Item -ItemType SymbolicLink -Target "bash\bash_profile" -Path "$home\.bash_profile" -Force
 New-Item -ItemType SymbolicLink -Target "bash\bashrc" -Path "$home\.bashrc" -Force
