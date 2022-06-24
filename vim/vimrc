@@ -2,8 +2,8 @@
 "
 " Description:
 "
-"   The VIMRC file contains a series of instructions that will be
-"   automatically executed to initialize VIM when the editor is opened.
+"   The vimrc file contains a series of instructions that will be
+"   automatically executed to initialize Vim when the editor is opened.
 "
 "   This allow an user to customize the editor as he want including interface,
 "   colors, hokeys...
