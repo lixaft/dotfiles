@@ -49,10 +49,13 @@ syntax on
 set colorcolumn=79
 
 " Always show the status line.
-"     0: never
-"     1: only if there are at least two windows
-"     2: always
 set laststatus=2
+
+" cursor shape
+if &term =~? 'rxvt' || &term =~? 'xterm' || &term =~? 'st-'
+    let &t_SI .= "\<Esc>[6 q"
+    let &t_EI .= "\<Esc>[2 q"
+endif
 
 " ================= Editor =================
 
