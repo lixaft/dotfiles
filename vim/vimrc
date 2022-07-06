@@ -62,6 +62,9 @@ endif
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+" Hide files in the netrw explorer.
+let g:netrw_list_hide='.*\.py[cod]$'
+
 " ================= Editor =================
 
 set nowrap       " Disable the wrap line.
