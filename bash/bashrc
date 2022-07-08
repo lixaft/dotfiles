@@ -36,7 +36,7 @@ function _go() { cd ~/repos; printf "%s\n" "$2"*; }
 complete -o nospace -C _go go
 
 # Customize prompt.
-function _git_branch() { git branch 2> /dev/null | sed '/^\s/d;s/^*\s\(.*\)/ (\1)/'; }
+function _git_branch() { git branch 2> /dev/null | sed '/^ /d;s/* \(.*\)/ (\1)/'; }
 PS1=                                    # Clear current prompt.
 PS1="$PS1\e[0;31m\u\e[0m"               # Add user.
 PS1="$PS1@"                             # Add '@' separator.
