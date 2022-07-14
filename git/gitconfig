@@ -4,6 +4,7 @@
 
 [core]
 	symlinks = true
+	editor = vim
 
 [pull]
 	rebase = false
