@@ -1,9 +1,10 @@
 """Installation script."""
+import argparse
 import os
 import subprocess
 import sys
 from pathlib import Path
-from typing import List, NamedTuple
+from typing import List, NamedTuple, Sequence
 
 HERE = Path(__file__).parent.absolute()
 HOME = Path.home()
@@ -31,7 +32,7 @@ SYMLINKS: List[Symlink] = [
 ]
 
 
-def main() -> int:
+def install_symlinks() -> int:
     """Entry point of the command line interface."""
     print("Installing dotfiles...")
     print("=" * os.get_terminal_size().columns)
@@ -45,7 +46,32 @@ def main() -> int:
 
     print()
     print("=" * os.get_terminal_size().columns)
-    print("Dotfiles installed!\n")
+    print("Dotfiles installed!")
+    return 0
+
+
+def main(argv: Sequence[str] = None) -> int:
+    """Entry point of the command line interface."""
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-a",
+        "--all",
+        action="store_true",
+        help="Use every other action in one.",
+    )
+    parser.add_argument(
+        "-s",
+        "--symlinks",
+        action="store_true",
+        help="Install the symlinks between this file on the home files.",
+    )
+    args = parser.parse_args(argv)
+
+    if args.all or args.symlinks:
+        install_symlinks()
+    else:
+        parser.print_help()
+
     return 0
 
 
