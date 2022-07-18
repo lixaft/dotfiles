@@ -1,0 +1,13 @@
+# Configuration file for starship prompt.
+#
+# Description:
+#
+#   A minimal, blazing-fast, and infinitely customizable prompt for any shell!
+#
+# Location:
+#
+#   ~/.config/starship.toml
+#
+
+# Inserts a blank line between shell prompts.
+# add_newline = true
