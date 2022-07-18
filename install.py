@@ -29,6 +29,7 @@ SYMLINKS: List[Symlink] = [
     Symlink(HERE.joinpath("vim", "vimrc"), HOME.joinpath(".vimrc")),
     Symlink(HERE.joinpath("zsh", "zshrc"), HOME.joinpath(".zshrc")),
     Symlink(HERE.joinpath("fish"), HOME.joinpath(".config", "fish")),
+    Symlink(HERE.joinpath("starship", "starship.toml"), HOME.joinpath(".config", "starship.toml")),
 ]
 
 
