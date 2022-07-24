@@ -40,8 +40,7 @@ def install_symlinks() -> int:
     print()
 
     for symlink in SYMLINKS:
-        if symlink.target.exists():
-            subprocess.call(["rm", "-rf", str(symlink.target)])
+        subprocess.call(["rm", "-rf", str(symlink.target)])
         print(f"{symlink.source} -> {symlink.target}")
         if not symlink.target.parent.exists():
             os.makedirs(symlink.target.parent)
