@@ -5,7 +5,7 @@
 [core]
 	symlinks = true
 	editor = vim
-	autocrlf = true
+	autocrlf = input
 
 [pull]
 	rebase = false
