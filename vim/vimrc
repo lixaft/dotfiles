@@ -38,9 +38,9 @@ endif
 
 " ================ Interface ================
 
-set title   " Add the current file to the terminal title.
-set number  " Display the line number.
-set ruler   " Always show the cursor.
+set title           " Add the current file to the terminal title.
+set relativenumber          " Display the line number.
+set ruler           " Always show the cursor.
 
 " Turn on syntax highlighting.
 syntax on
@@ -50,6 +50,14 @@ set colorcolumn=79
 
 " Always show the status line.
 set laststatus=2
+
+" Customize the status line.
+"qfunction! StatuslineGitBranch()
+"     return system("git branch 2> /dev/null | sed '^\s/d;s/\*\s//'")
+" endfunction
+" set statusline=
+" set statusline+=%{StatuslineGitBranch()}
+" set statusline+=qwe
 
 " Define cursor shape.
 if &term =~? 'rxvt' || &term =~? 'xterm' || &term =~? 'st-'
@@ -100,8 +108,8 @@ set foldnestmax=3      " Deepest fold is 3 levels.
 set nofoldenable       " Dont fold by default.
 
 " ================= Mapping =================
-
 " Define leader keys.
+
 let mapleader=","
 let maplocalleader="-"
 
