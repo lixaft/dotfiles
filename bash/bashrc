@@ -14,10 +14,10 @@
 #
 
 # Aliases.
-alias ll="ls -l"
 alias la="ls -al"
-alias tmp="cd $TMPDIR"
+alias ll="ls -l"
 alias refresh="source ~/.bash_profile"
+alias tmp="cd $TMPDIR"
 
 # Disable MacOs warning on shell start.
 export BASH_SILENCE_DEPRECATION_WARNING=1
@@ -30,18 +30,13 @@ if [[ "$OSTYPE" == "msys" ]]; then
     alias tree="cmd //c tree"
 fi
 
-# Go command.
-function go() { cd  ~/repos/$1; }
-function _go() { cd ~/repos; printf "%s\n" "$2"*; }
-complete -o nospace -C _go go
-
 # Customize prompt.
 function _git_branch() { git branch 2> /dev/null | sed '/^ /d;s/* \(.*\)/ (\1)/'; }
-PS1=                                    # Clear current prompt.
-PS1="$PS1\e[0;31m\u\e[0m"               # Add user.
-PS1="$PS1@"                             # Add '@' separator.
-PS1="$PS1\e[0;35m\h\e[0m"               # Add host.
-PS1="$PS1 -> "                          # Add '->' separator.
-PS1="$PS1\e[1;34m\w\e[0m"               # Add working directory.
-PS1="$PS1\e[0;34m\$(_git_branch) \e[0m" # Add working directory.
-PS1="$PS1"$'\n'"> "                     # New line and add '>'.
+PS1=                                     # Clear current prompt.
+PS1="$PS1\e[0;31m\u\e[0m"                # Add user.
+PS1="$PS1@"                              # Add '@' separator.
+PS1="$PS1\e[0;35m\h\e[0m"                # Add host.
+PS1="$PS1 -> "                           # Add '->' separator.
+PS1="$PS1\e[1;34m\w\e[0m"                # Add working directory.
+PS1="$PS1\e[0;34m\$(_git_branch) \e[0m"  # Add the git branch name.
+PS1="$PS1"$'\n'"> "                      # New line and add '>'.
