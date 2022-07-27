@@ -1,0 +1,13 @@
+"""Configurate file for interactive python.
+
+Description:
+
+    File sourced when python in executed in an interactive mode.
+
+Location:
+
+    ~/.pythonrc
+
+"""
+from pprint import pprint as pp
+from json import dumps as jp

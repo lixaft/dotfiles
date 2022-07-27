@@ -22,14 +22,15 @@ class Symlink(NamedTuple):
 SYMLINKS: List[Symlink] = [
     Symlink(HERE.joinpath("bash", "bash_profile"), HOME.joinpath(".bash_profile")),
     Symlink(HERE.joinpath("bash", "bashrc"), HOME.joinpath(".bashrc")),
+    Symlink(HERE.joinpath("fish"), HOME.joinpath(".config", "fish")),
+    Symlink(HERE.joinpath("fish"), HOME.joinpath(".config", "fish")),
     Symlink(HERE.joinpath("git", "gitconfig"), HOME.joinpath(".gitconfig")),
+    Symlink(HERE.joinpath("python", "pythonrc"), HOME.joinpath(".pythonrc")),
     Symlink(HERE.joinpath("tcsh", "mycshrc"), HOME.joinpath(".mycshrc")),
     Symlink(HERE.joinpath("tmux", "tmux.conf"), HOME.joinpath(".tmux.conf")),
     Symlink(HERE.joinpath("vim", "vim"), HOME.joinpath(".vim")),
     Symlink(HERE.joinpath("vim", "vimrc"), HOME.joinpath(".vimrc")),
     Symlink(HERE.joinpath("zsh", "zshrc"), HOME.joinpath(".zshrc")),
-    Symlink(HERE.joinpath("fish"), HOME.joinpath(".config", "fish")),
-    Symlink(HERE.joinpath("starship", "starship.toml"), HOME.joinpath(".config", "starship.toml")),
 ]
 
 
