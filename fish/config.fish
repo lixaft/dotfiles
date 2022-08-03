@@ -1,10 +1,8 @@
-# Commands to run in interactive sessions can go here
-if status is-interactive
+# Remove the fish welcome message.
+set fish_greeting
 
-    # Remove the fish welcome message.
-    set fish_greeting
+# Load starship.
+starship init fish | source
 
-    # Load starship.
-    starship init fish | source
+set --export TEST qwe
 
-end
