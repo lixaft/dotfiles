@@ -67,6 +67,17 @@ set wildignore+=.DS_Store
 " Hide files in the netrw explorer.
 let g:netrw_list_hide='.*\.py[cod]$'
 
+" Function and command to clear all the register at once.
+function! ClearRegisters()
+    let regs = 'abcdefghijkpqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"'
+    let i = 0
+    while (i < strlen(regs))
+        exec 'let @'.regs[i].'=""'
+        let i = i + 1
+    endwhile
+endfunction
+command! ClearRegisters call ClearRegisters()
+
 " === Files ===
 
 filetype indent on  " Load indent associated with the buffer filetype.
