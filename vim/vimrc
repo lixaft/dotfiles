@@ -123,6 +123,9 @@ nnoremap <s-tab> <<
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
 
+" Make sure to not override an existing mapping.
+nnoremap <c-i> <tab>
+
 " === Search ===
 
 set hlsearch    " Highlight search results.
