@@ -49,9 +49,18 @@ endif
 "   4 -> solid underscore
 "   5 -> blinking vertical bar
 "   6 -> solid vertical bar
-let &t_EI .= "\<Esc>[2 q"  " Normal mode (else).
-let &t_RI .= "\<Esc>[2 q"  " Replace mode.
-let &t_SI .= "\<Esc>[6 q"  " Insert mode.
+let &t_EI.="\<Esc>[2 q"  " Normal mode (else).
+let &t_RI.="\<Esc>[2 q"  " Replace mode.
+let &t_SI.="\<Esc>[6 q"  " Insert mode.
+
+" Function and command to clear all the register at once.
+function! ClearRegisters()
+    let regs='abcdefghijkpqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"*'
+    for char in split(regs, '\zs')
+        exec 'let @' . char . '=""'
+    endfor
+endfunction
+command! ClearRegisters call ClearRegisters()
 
 " === Explorer ===
 
@@ -66,15 +75,6 @@ set wildignore+=.DS_Store
 
 " Hide files in the netrw explorer.
 let g:netrw_list_hide='.*\.py[cod]$'
-
-" Function and command to clear all the register at once.
-function! ClearRegisters()
-    let regs = 'abcdefghijkpqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"'
-    for char in split(regs, '\zs')
-        exec 'let @' . char . '=""'
-    endfor
-endfunction
-command! ClearRegisters call ClearRegisters()
 
 " === Files ===
 

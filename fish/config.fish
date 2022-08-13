@@ -3,5 +3,3 @@ set fish_greeting
 
 # Load starship.
 starship init fish | source
-
-set --export TEST qwe
