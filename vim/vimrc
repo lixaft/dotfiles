@@ -39,7 +39,7 @@ match ExtraWhitespace /\s\+$/
 
 " Support resizing in tmux.
 if exists('$TMUX')
-  set ttymouse=xterm2
+    set ttymouse=xterm2
 endif
 
 " Configure the cursor mode.
