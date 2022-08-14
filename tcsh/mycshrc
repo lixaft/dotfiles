@@ -9,10 +9,15 @@
 #   ~/.mycshrc
 #
 
+# Define aliases.
 alias la "ls -la"
 alias ll "ls -l"
 alias refresh "source ~/.mycshrc"
 alias tmp 'cd $TMPDIR'
 
+# Configure the prompt.
 alias _git_branch "sh -c 'git branch --no-color 2> /dev/null' | sed -e '/^\s/d;s/^*\s\(.*\)/(\1)/'"
 alias precmd 'set prompt="%{\033[1;36m%}%n@%m %{\033[1;34m%}%/%s%{\033[0m%} `_git_branch` \n> "'
+
+# Add executable to the PATH variable.
+export PATH $PATH:~/bin

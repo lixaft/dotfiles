@@ -30,6 +30,9 @@ if [[ "$OSTYPE" == "msys" ]]; then
     alias tree="cmd //c tree"
 fi
 
+# Add executable to PATH.
+export PATH+=:~/bin
+
 # Customize prompt.
 function _git_branch() { git branch 2> /dev/null | sed '/^ /d;s/* \(.*\)/ (\1)/'; }
 PS1=                                     # Clear current prompt.

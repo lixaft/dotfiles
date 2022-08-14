@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Highligh command."""
 import argparse
 import enum
 import re
@@ -20,8 +21,8 @@ class Colors(enum.Enum):
     NO = 0
 
 
-
 def main(argv: Sequence[str] = None) -> int:
+    """Entry point of the command line interface."""
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "expression",
@@ -30,15 +31,15 @@ def main(argv: Sequence[str] = None) -> int:
     parser.add_argument(
         "--color",
         "-c",
+        default="RED",
         help="The color on which the regex will be highlighted",
     )
     args = parser.parse_args(argv)
 
-    text = sys.stdin.read()
     text = re.sub(
         f"({args.expression})",
         rf"\033[{Colors[args.color.upper()].value}m\1\033[m",
-        text,
+        sys.stdin.read()
     )
     print(text)
     return 0

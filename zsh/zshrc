@@ -1,0 +1,13 @@
+# Configuration file for zsh shell.
+#
+# Description:
+#
+#   Oh My Zsh is a delightful, open source, community-driven framework for
+#   managing your Zsh configuration
+#
+# Location:
+#
+#   ~/.zshrc
+#
+
+export PATH=$PATH:~/bin

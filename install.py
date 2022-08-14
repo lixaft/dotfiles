@@ -27,6 +27,7 @@ SYMLINKS: List[Symlink] = [
     Symlink(HERE.joinpath("git", "gitconfig"), HOME.joinpath(".gitconfig")),
     Symlink(HERE.joinpath("python", "pythonrc"), HOME.joinpath(".pythonrc")),
     Symlink(HERE.joinpath("tcsh", "mycshrc"), HOME.joinpath(".mycshrc")),
+    Symlink(HERE.joinpath("bin", "hl"), HOME.joinpath("bin", "hl")),
     Symlink(HERE.joinpath("tmux", "tmux.conf"), HOME.joinpath(".tmux.conf")),
     Symlink(HERE.joinpath("vim", "vim"), HOME.joinpath(".vim")),
     Symlink(HERE.joinpath("vim", "vimrc"), HOME.joinpath(".vimrc")),
