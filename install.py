@@ -1,81 +1,68 @@
-"""Installation script."""
+"""Dotfiles installer."""
 import argparse
 import os
+import shutil
 import subprocess
 import sys
-from pathlib import Path
 from typing import List, NamedTuple, Sequence
 
-HERE = Path(__file__).parent.absolute()
-HOME = Path.home()
+
+class File(NamedTuple):
+    """File representation."""
+
+    source: str
+    target: str
 
 
-# Container to handle symlinks.
-class Symlink(NamedTuple):
-    """Data required to create a symlink."""
-
-    source: Path
-    target: Path
+def _clean(path: str) -> str:
+    return os.path.abspath(os.path.normpath(path))
 
 
-# Register the symlinks that should be created.
-SYMLINKS: List[Symlink] = [
-    Symlink(HERE.joinpath("bash", "bash_profile"), HOME.joinpath(".bash_profile")),
-    Symlink(HERE.joinpath("bash", "bashrc"), HOME.joinpath(".bashrc")),
-    Symlink(HERE.joinpath("fish"), HOME.joinpath(".config", "fish")),
-    Symlink(HERE.joinpath("fish"), HOME.joinpath(".config", "fish")),
-    Symlink(HERE.joinpath("git", "gitconfig"), HOME.joinpath(".gitconfig")),
-    Symlink(HERE.joinpath("python", "pythonrc"), HOME.joinpath(".pythonrc")),
-    Symlink(HERE.joinpath("tcsh", "mycshrc"), HOME.joinpath(".mycshrc")),
-    Symlink(HERE.joinpath("bin", "hl"), HOME.joinpath("bin", "hl")),
-    Symlink(HERE.joinpath("tmux", "tmux.conf"), HOME.joinpath(".tmux.conf")),
-    Symlink(HERE.joinpath("vim", "vim"), HOME.joinpath(".vim")),
-    Symlink(HERE.joinpath("vim", "vimrc"), HOME.joinpath(".vimrc")),
-    Symlink(HERE.joinpath("zsh", "zshrc"), HOME.joinpath(".zshrc")),
+def here(path: str) -> str:
+    return _clean(os.path.join(os.path.dirname(__file__), path))
+
+
+def home(path: str) -> str:
+    return _clean(os.path.expanduser(os.path.join("~", path)))
+
+
+FILES: List[File] = [
+    File(here("bash/bash_profile"), home(".bash_profile")),
+    File(here("bash/bashrc"), home(".bashrc")),
+    File(here("bin/hl"), home("bin/hl")),
+    File(here("fish"), home(".config/fish")),
+    File(here("git/gitconfig"), home(".gitconfig")),
+    File(here("python/pythonrc"), home(".pythonrc")),
+    File(here("tcsh/mycshrc"), home(".mycshrc")),
+    File(here("tmux/tmux.conf"), home(".tmux.conf")),
+    File(here("vim/vim"), home(".vim")),
+    File(here("vim/vimrc"), home(".vimrc")),
+    File(here("zsh/zshrc"), home(".zshrc")),
 ]
 
 
-def install_symlinks() -> int:
-    """Entry point of the command line interface."""
-    print("Installing dotfiles...")
-    print("=" * os.get_terminal_size().columns)
-    print()
+def install_file(file: File, symlink=False):
+    """Install the specified file."""
+    directory = os.path.dirname(file.target)
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
-    for symlink in SYMLINKS:
-        subprocess.call(["rm", "-rf", str(symlink.target)])
-        print(f"{symlink.source} -> {symlink.target}")
-        if not symlink.target.parent.exists():
-            os.makedirs(symlink.target.parent)
-        symlink.target.symlink_to(symlink.source)
-
-    print()
-    print("=" * os.get_terminal_size().columns)
-    print("Dotfiles installed!")
-    return 0
+    if symlink:
+        subprocess.call(["ln", "-sf", file.source, file.target])
+    else:
+        subprocess.call(["cp", "-rf", file.source, file.target])
 
 
 def main(argv: Sequence[str] = None) -> int:
     """Entry point of the command line interface."""
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-a",
-        "--all",
-        action="store_true",
-        help="Use every other action in one.",
-    )
-    parser.add_argument(
-        "-s",
-        "--symlinks",
-        action="store_true",
-        help="Install the symlinks between this file on the home files.",
-    )
     args = parser.parse_args(argv)
-
-    if args.all or args.symlinks:
-        install_symlinks()
-    else:
-        parser.print_help()
-
+    for file in FILES:
+        install_file(file, symlink=True)
+        print(f"{file.source} \033[33m->\033[m {file.target}")
+    line = " SUCCESS ".center(os.get_terminal_size().columns, "=")
+    print(f"\033[32m{line}\033[m")
+    print(f"{len(FILES)} files have been successfully copied.")
     return 0
 
 
