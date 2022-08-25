@@ -1,24 +1,41 @@
 #!/usr/bin/python3
 """Highligh command."""
 import argparse
-import enum
 import re
 import sys
 from typing import Sequence
 
+FOREGROUNDS = {
+    "black": 30,
+    "red": 31,
+    "green": 32,
+    "yellow": 33,
+    "blue": 34,
+    "magenta": 35,
+    "cyan": 36,
+    "white": 37,
+}
 
-class Colors(enum.Enum):
-    """Color code."""
+BACKGROUNDS = {
+    "black": 40,
+    "red": 41,
+    "green": 42,
+    "yellow": 43,
+    "blue": 44,
+    "magenta": 45,
+    "cyan": 46,
+    "white": 47,
+}
 
-    BLACK = 30
-    RED = 31
-    GREEN = 32
-    YELLOW = 33
-    BLUE = 34
-    MAGENTA = 35
-    CYAN = 36
-    WHITE = 37
-    NO = 0
+EFFECTS = {
+    "bold": 1,
+    "dark": 2,
+    "italic": 3,
+    "underline": 4,
+    "blink": 5,
+    "crossed_out": 9,
+    "double_underline": 21,
+}
 
 
 def main(argv: Sequence[str] = None) -> int:
@@ -29,19 +46,71 @@ def main(argv: Sequence[str] = None) -> int:
         help="The regular expression to highlight",
     )
     parser.add_argument(
-        "--color",
-        "-c",
-        default="RED",
+        "filename",
+        nargs="?",
+        help="The file to highlight",
+        type=argparse.FileType("r"),
+    )
+    parser.add_argument(
+        "--foreground",
+        "-f",
+        choices=FOREGROUNDS,
+        default="",
         help="The color on which the regex will be highlighted",
+        metavar="C",
+    )
+    parser.add_argument(
+        "--background",
+        "-b",
+        choices=BACKGROUNDS,
+        default="",
+        help="The color on which the regex will be highlighted",
+        metavar="C",
+    )
+    parser.add_argument(
+        "--effects",
+        "-e",
+        action="append",
+        choices=EFFECTS,
+        default=[],
+        help="The color on which the regex will be highlighted",
+        metavar="E",
+    )
+    parser.add_argument(
+        "--ignore-case",
+        "-i",
+        action="store_const",
+        const=re.IGNORECASE,
+        default=0,
+        help="Ignore the casse",
     )
     args = parser.parse_args(argv)
 
+    source = args.filename
+    if not source:
+        source = sys.stdin
+
+    flags = []
+    if args.foreground:
+        flags.append(FOREGROUNDS[args.foreground])
+    if args.background:
+        flags.append(BACKGROUNDS[args.background])
+    if args.effects:
+        flags.extend(EFFECTS[x] for x in args.effects)
+    if not flags:
+        flags = [FOREGROUNDS["red"]]
+
+    color = f'\033[{";".join(map(str, flags))}m'
+    reset = "\033[m"
+
     text = re.sub(
-        f"({args.expression})",
-        rf"\033[{Colors[args.color.upper()].value}m\1\033[m",
-        sys.stdin.read()
+        rf"({args.expression})",
+        rf"{color}\1{reset}",
+        source.read(),
+        flags=args.ignore_case,
     )
-    print(text)
+
+    print(text, flush=True)
     return 0
 
 
