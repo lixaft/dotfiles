@@ -57,9 +57,9 @@ def main(argv: Sequence[str] = None) -> int:
     args = parser.parse_args(argv)
     for file in FILES:
         install_file(file, symlink=True)
-        print(f"{file.source} \033[33m->\033[m {file.target}")
+        print(f"{file.source} \033[33;1m->\033[m {file.target}")
     line = " SUCCESS ".center(os.get_terminal_size().columns, "=")
-    print(f"\033[32m{line}\033[m")
+    print(f"\033[32;1m{line}\033[m")
     print(f"{len(FILES)} files have been successfully copied.")
     return 0
 
