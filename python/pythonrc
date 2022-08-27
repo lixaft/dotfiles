@@ -10,4 +10,11 @@ Location:
 
 """
 from pprint import pprint as pp
-from json import dumps as jp
+
+
+def jp(*args, **kwargs):
+    """JSON style print function."""
+    import json
+
+    kwargs.setdefault("indent", 2)
+    print(json.dumps(*args, **kwargs))

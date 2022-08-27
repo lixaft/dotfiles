@@ -25,6 +25,9 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # Enable colors.
 export CLICOLOR=1
 
+# Add some facility to the interactive python interpreter.
+export PYTHONSTARTUP="$PWD/.pythonrc"
+
 # Create a tree like command on windows.
 if [[ "$OSTYPE" == "msys" ]]; then
     alias tree="cmd //c tree"
