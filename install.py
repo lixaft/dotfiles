@@ -33,11 +33,9 @@ FILES: List[File] = [
     File(here("fish"), home(".config/fish")),
     File(here("git/gitconfig"), home(".gitconfig")),
     File(here("python/pythonrc"), home(".pythonrc")),
-    File(here("tcsh/mycshrc"), home(".mycshrc")),
     File(here("tmux/tmux.conf"), home(".tmux.conf")),
     File(here("vim/vim"), home(".vim")),
     File(here("vim/vimrc"), home(".vimrc")),
-    File(here("zsh/zshrc"), home(".zshrc")),
 ]
 
 

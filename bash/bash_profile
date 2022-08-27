@@ -1,2 +1,4 @@
 # Source the .bashrc file to make the login and non-login shells identical.
-if [ -f ~/.bashrc ]; then source  ~/.bashrc; fi
+if [ -f ~/.bashrc ];
+    then source  ~/.bashrc
+fi
