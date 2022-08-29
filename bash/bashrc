@@ -26,7 +26,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export CLICOLOR=1
 
 # Add some facility to the interactive python interpreter.
-export PYTHONSTARTUP="$PWD/.pythonrc"
+export PYTHONSTARTUP="$HOME/.pythonrc"
 
 # Create a tree like command on windows.
 if [[ "$OSTYPE" == "msys" ]]; then

@@ -12,18 +12,19 @@
 #   ~/.config/fish/config.fish
 #
 
-# Remove the fish welcome message.
+# Remove welcome message.
 set fish_greeting
+
+# Define aliases.
+alias refresh="source ~/.config/fish/config.fish"
+alias tree="tree -C"
+
+# Extend $PATH.
+fish_add_path "$HOME/bin"
+
+# Define environment variables.
+set -x VISUAL "vim"
+set -x PYTHONSTARTUP "$HOME/.pythonrc"
 
 # Load starship.
 starship init fish | source
-
-# Add executable to PATH.
-fish_add_path "~/bin"
-
-# Add some facility to the interactive python interpreter.
-set -x PYTHONSTARTUP "~/.pythonrc"
-
-# Define aliases.
-alias tree="tree -C"
-alias refresh="source ~/.config/fish/config.fish"
