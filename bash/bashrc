@@ -44,5 +44,5 @@ PS1="$PS1@"                              # Add '@' separator.
 PS1="$PS1\e[0;35m\h\e[0m"                # Add host.
 PS1="$PS1 -> "                           # Add '->' separator.
 PS1="$PS1\e[1;34m\w\e[0m"                # Add working directory.
-PS1="$PS1\e[0;34m\$(_git_branch) \e[0m"  # Add the git branch name.
-PS1="$PS1"$'\n'"> "                      # New line and add '>'.
+PS1="$PS1\e[30m\$(_git_branch) \e[0m"  # Add the git branch name.
+PS1="$PS1"$'\n'"$ "                      # New line and add '$'.
