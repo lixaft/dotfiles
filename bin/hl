@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Highligh command."""
 import argparse
 import re
@@ -84,11 +84,8 @@ def main(argv: Sequence[str] = None) -> int:
         default=0,
         help="Ignore the casse",
     )
-    args = parser.parse_args(argv)
 
-    source = args.filename
-    if not source:
-        source = sys.stdin
+    args = parser.parse_args(argv)
 
     flags = []
     if args.foreground:
@@ -106,11 +103,11 @@ def main(argv: Sequence[str] = None) -> int:
     text = re.sub(
         rf"({args.expression})",
         rf"{color}\1{reset}",
-        source.read(),
+        (args.filename or sys.stdin).read(),
         flags=args.ignore_case,
     )
 
-    print(text, flush=True)
+    print(text)
     return 0
 
 
