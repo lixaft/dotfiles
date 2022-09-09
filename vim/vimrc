@@ -127,8 +127,8 @@ vnoremap <s-tab> <gv
 nnoremap <c-i> <tab>
 
 " Global folding.
-noremap <leader>O ggVGzO<c-o><c-o>
-noremap <leader>C ggVGzC<c-o><c-o>
+nnoremap <leader>O ggVGzO<c-o><c-o>
+nnoremap <leader>C ggVGzC<c-o><c-o>
 
 " === Search ===
 
