@@ -130,6 +130,11 @@ nnoremap <c-i> <tab>
 nnoremap <leader>O ggVGzO<c-o><c-o>
 nnoremap <leader>C ggVGzC<c-o><c-o>
 
+" Restore the increse number overriden by tmux.
+if exists('$TMUX')
+    nnoremap <c-b> <c-a>
+endif
+
 " === Search ===
 
 set hlsearch    " Highlight search results.
