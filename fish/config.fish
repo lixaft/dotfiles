@@ -16,6 +16,7 @@
 set fish_greeting
 
 # Define aliases.
+alias docker="podman"
 alias refresh="source ~/.config/fish/config.fish"
 alias tree="tree -C"
 
