@@ -34,6 +34,7 @@ FILES: List[File] = [
     File(here("fish"), home(".config/fish")),
     File(here("git/gitconfig"), home(".gitconfig")),
     File(here("python/pythonrc"), home(".pythonrc")),
+    File(here("starship/starship.toml"), home(".config/starship.toml")),
     File(here("tmux/tmux.conf"), home(".tmux.conf")),
     File(here("vim/vim"), home(".vim")),
     File(here("vim/vimrc"), home(".vimrc")),
