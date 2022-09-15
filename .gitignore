@@ -3,5 +3,5 @@
 .DS_Store
 .netrwhist
 .vscode/
-venv/
 fish_variables
+venv/

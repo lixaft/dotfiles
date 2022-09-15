@@ -11,18 +11,20 @@
 #   ~/.gitconfig
 #
 
-[user]
-name = Fabien Taxil
-email = fabien.taxil@gmail.com
+[alias]
+git = !git
+plog = log --graph --abbrev-commit --decorate --format=format:'%C(bold yellow)%h%C(reset) - %C(bold blue)(%ar)%C(reset) %s %C(bold black)%an%C(reset)%C(bold green)%d%C(reset)'
 
 [core]
 symlinks = true
 editor = vim
-autocrlf = input
 
-[pull]
-rebase = false
+[completion]
+commands = -gitk
 
-[alias]
-git = !git
-plog = log --graph --abbrev-commit --decorate --format=format:'%C(bold yellow)%h%C(reset) - %C(bold blue)(%ar)%C(reset) %s %C(bold black)%an%C(reset)%C(bold green)%d%C(reset)'
+[fetch]
+prune = true
+
+[user]
+name = Fabien Taxil
+email = fabien.taxil@gmail.com

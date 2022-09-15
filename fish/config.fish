@@ -23,9 +23,13 @@ alias tree="tree -C"
 # Extend $PATH.
 fish_add_path "$HOME/bin"
 
-# Define environment variables.
+# Make sure we pick vim as editor.
 set -x VISUAL "vim"
+set -x EDITOR "vim"
+
+# Python variables.
 set -x PYTHONSTARTUP "$HOME/.pythonrc"
+set -x PIP_DISABLE_PIP_VERSION_CHECK "1"
 
 # Load starship.
 starship init fish | source
