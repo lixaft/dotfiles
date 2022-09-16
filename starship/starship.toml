@@ -16,6 +16,6 @@
 add_newline = true
 
 [shell]
-disabled = false
+disabled = true
 fish_indicator = ""
 powershell_indicator = "_"
