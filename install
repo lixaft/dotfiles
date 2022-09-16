@@ -57,9 +57,10 @@ def install_file(file: File, symlink=False):
 def main(argv: Sequence[str] = None) -> int:
     """Entry point of the command line interface."""
     parser = argparse.ArgumentParser()
+    parser.add_argument("--copy", "-c", action="store_true")
     args = parser.parse_args(argv)
     for file in FILES:
-        install_file(file, symlink=True)
+        install_file(file, symlink=not args.copy)
         print(f"{file.source} \033[33;1m->\033[m {file.target}")
     line = " SUCCESS ".center(os.get_terminal_size().columns, "=")
     print(f"\033[32;1m{line}\033[m")
