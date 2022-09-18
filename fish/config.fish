@@ -33,3 +33,6 @@ set -x PIP_DISABLE_PIP_VERSION_CHECK "1"
 
 # Load starship.
 starship init fish | source
+
+# Load completion.
+podman completion fish | source
