@@ -49,6 +49,7 @@ def install_file(file: File, symlink=False):
     if not os.path.exists(directory):
         os.makedirs(directory)
 
+    subprocess.call(["rm", "-rf", file.target])
     if symlink:
         subprocess.call(["ln", "-sf", file.source, file.target])
     else:
