@@ -31,6 +31,7 @@ FILES: List[File] = [
     File(here("bash/bash_profile"), home(".bash_profile")),
     File(here("bash/bashrc"), home(".bashrc")),
     File(here("bin/hl"), home("bin/hl")),
+    File(here("bin/pytree"), home("bin/pytree")),
     File(here("fish"), home(".config/fish")),
     File(here("git/gitconfig"), home(".gitconfig")),
     File(here("python/pdbrc"), home(".pdbrc")),
