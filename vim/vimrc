@@ -10,10 +10,6 @@
 "   ~/.vimrc
 "
 
-set belloff=all   " Completly turn off the bell.
-set noerrorbells  " Turn off the ring bells.
-set novisualbell  " Turn off the visual bell.
-
 " === Editor ===
 
 set autoindent         " Keep the current indent level on a new line.
@@ -32,6 +28,13 @@ set smartindent        " Be smart on the indentation of new lines ;)
 set smarttab           " Automatically use the next indent level.
 set tabstop=4          " Define one tab equal 4 spaces.
 syntax on              " Turn on syntax highlighting.
+
+" Prevents all annoying noises.
+set noerrorbells     " Turn off the ring bell.
+set novisualbell     " Turn off the visual bell.
+if exists("belloff") " Completly turn off the bell.
+    set belloff=all
+endif
 
 " Highlight the trailing white spaces.
 highlight ExtraWhitespace ctermbg=red guibg=red
