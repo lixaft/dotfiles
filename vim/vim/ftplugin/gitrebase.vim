@@ -1,4 +1,4 @@
-nnoremap <leader>p 0cwpickup<esc>0
+nnoremap <leader>p 0cwpick<esc>0
 nnoremap <leader>r 0cwreword<esc>0
 nnoremap <leader>e 0cwedit<esc>0
 nnoremap <leader>s 0cwsquash<esc>0
