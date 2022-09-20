@@ -1,4 +1,4 @@
-# Configuration file for starship prompt.
+# Starship configuration file.
 #
 # Description:
 #
@@ -12,10 +12,5 @@
 # Get editor completions based on the config schema.
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# Inserts a blank line between shell prompts.
+# Insert a new blank line bedore the prompt.
 add_newline = true
-
-[shell]
-disabled = true
-fish_indicator = ""
-powershell_indicator = "_"

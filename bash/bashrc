@@ -1,23 +1,14 @@
-# Settings used for Bash shell (non-login).
+# Bash configuration file.
 #
 # Description:
 #
-#   Shell script that Bash will execute when it is started in an non-login
-#   mode (when your are already logged ans open a new terminal for example).
-#   It is used to determine and tell the shell how it should looks and act.
-#
-#   Possible configuration include appearance, prompt, alias...
+#   Bash is the shell, or command language interpreter, for the GNU operating
+#   system. The name is an acronym for the ‘Bourne-Again SHell’.
 #
 # Location:
 #
 #   ~/.bashrc
 #
-
-# Aliases.
-alias la="ls -al"
-alias ll="ls -l"
-alias refresh="source ~/.bash_profile"
-alias tmp="cd $TMPDIR"
 
 # Disable MacOs warning on shell start.
 export BASH_SILENCE_DEPRECATION_WARNING=1
@@ -25,16 +16,20 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # Enable colors.
 export CLICOLOR=1
 
-# Add some facility to the interactive python interpreter.
+# Define aliases.
+alias docker="podman"
+alias la="ls -al"
+alias ll="ls -l"
+alias refresh="source $HOME/.bash_profile"
+alias tree="tree -C"
+alias vim="nvim"
+
+# Extend $PATH.
+export PATH+=":$HOME/bin"
+
+# Python variables.
+export PIP_DISABLE_PIP_VERSION_CHECK=1
 export PYTHONSTARTUP="$HOME/.pythonrc"
 
-# Create a tree like command on windows.
-if [[ "$OSTYPE" == "msys" ]]; then
-    alias tree="cmd //c tree"
-fi
-
-# Add executable to PATH.
-export PATH+=:~/bin
-
-# Load starship.
+# Initialize starship.
 eval "$(starship init bash)"

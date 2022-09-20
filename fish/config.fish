@@ -1,4 +1,4 @@
-# Configuration file for fish shell.
+# Fish configuration file.
 #
 # Description:
 #
@@ -17,22 +17,23 @@ set fish_greeting
 
 # Define aliases.
 alias docker="podman"
-alias refresh="source ~/.config/fish/config.fish"
+alias refresh="source $HOME/.config/fish/config.fish"
 alias tree="tree -C"
+alias vim="nvim"
 
 # Extend $PATH.
 fish_add_path "$HOME/bin"
 
-# Make sure we pick vim as editor.
-set -x VISUAL "vim"
-set -x EDITOR "vim"
+# Make sure we pick Neovim as editor.
+set -x EDITOR "nvim"
+set -x VISUAL "nvim"
 
 # Python variables.
-set -x PYTHONSTARTUP "$HOME/.pythonrc"
 set -x PIP_DISABLE_PIP_VERSION_CHECK "1"
+set -x PYTHONSTARTUP "$HOME/.pythonrc"
 
-# Load starship.
+# Initialize starship.
 starship init fish | source
 
-# Load completion.
+# Source completions.
 podman completion fish | source

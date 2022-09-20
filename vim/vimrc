@@ -1,4 +1,4 @@
-" Settings file used by Vim.
+" Vim configuration file.
 "
 " Description:
 "
@@ -91,7 +91,7 @@ set nobackup        " Don't use backup file.
 " === Mapping ===
 
 " Define leader keys.
-let mapleader=","
+let mapleader=" "
 let maplocalleader="-"
 
 " Quickly edit and source .vimrc file.
