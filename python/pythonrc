@@ -11,7 +11,6 @@ Location:
 """
 import readline
 import rlcompleter
-from pprint import pprint as pp
 
 readline.parse_and_bind("tab: complete")
 del readline, rlcompleter
@@ -23,3 +22,10 @@ def jp(*args, **kwargs):
 
     kwargs.setdefault("indent", 2)
     print(json.dumps(*args, **kwargs))
+
+
+def pp(*args, **kwargs):
+    """Use PrettyPrint to print the given object."""
+    import pprint
+
+    pprint.pprint(*args, **kwargs)
