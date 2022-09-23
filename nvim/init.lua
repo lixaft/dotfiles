@@ -20,3 +20,12 @@ require("lualine").setup {
         theme = "palenight"
     }
 }
+
+-- Initialize telescope.
+require("telescope").setup {
+    defaults = {
+        file_ignore_patterns = {
+            "node_modules"
+        }
+    }
+}

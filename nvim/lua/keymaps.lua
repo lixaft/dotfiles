@@ -31,3 +31,7 @@ normal("<leader>x", "<cmd>!chmod +x %<cr>")
 
 -- Open telescope.
 normal("<C-p>", ":Telescope find_files<cr>")
+
+-- Global folding.
+normal("<leader>O", "ggVGzO<c-o>")
+normal("<leader>C", "ggVGzC<c-o>")

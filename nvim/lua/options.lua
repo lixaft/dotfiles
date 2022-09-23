@@ -37,6 +37,11 @@ vim.opt.smartindent = true
 vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
 
+-- Define the folding properties.
+vim.opt.foldlevelstart = 99
+vim.opt.foldmethod = "indent"
+vim.opt.foldnestmax = 99
+
 -- Use the system clipboard for yanking and pasting operations.
 vim.opt.clipboard = "unnamed"
 

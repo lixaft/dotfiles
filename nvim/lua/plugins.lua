@@ -9,8 +9,10 @@ return require("packer").startup(function(use)
     -- Filetype support.
     use {"dag/vim-fish"}
 
+    use {"nvim-treesitter/nvim-treesitter"}
+
     -- Vim Better Whitespace: Highlight trailing whiltespaces.
-    use {"https://github.com/ntpeters/vim-better-whitespace"}
+    use {"ntpeters/vim-better-whitespace"}
 
     -- Telescope: highly extendable fuzzy finder over lists.
     use {
