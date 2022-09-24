@@ -1,20 +1,7 @@
--- Define keymaps for Noevim
-
-local wrapper = function(mode)
-    local internal = function(key, command)
-        vim.api.nvim_set_keymap(
-            mode,
-            key,
-            command,
-            {noremap = true, silent = true}
-        )
-    end
-    return internal
-end
-
-local insert = wrapper("i")
-local normal = wrapper("n")
-local visual = wrapper("v")
+local Remap = require("lixaft.utilities.remap")
+local insert = Remap.insert
+local normal = Remap.normal
+local visual = Remap.visual
 
 -- Move line around.
 normal("<c-j>", ":move .+1<cr>==")
@@ -29,9 +16,9 @@ normal("<leader>sv", ":source $MYVIMRC<cr>")
 -- Make the current file executable.
 normal("<leader>x", "<cmd>!chmod +x %<cr>")
 
--- Open telescope.
-normal("<C-p>", ":Telescope find_files<cr>")
-
 -- Global folding.
 normal("<leader>O", "ggVGzO<c-o>")
 normal("<leader>C", "ggVGzC<c-o>")
+
+-- Launch Netrw.
+normal("<leader>ps", ":Explore<cr>")

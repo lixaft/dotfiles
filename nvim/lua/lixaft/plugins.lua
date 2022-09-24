@@ -1,6 +1,4 @@
--- Setup the plugins using packer.
-
-return require("packer").startup(function(use)
+return require("packer").startup(function()
     use {"wbthomason/packer.nvim"}
 
     -- Color scheme.
@@ -9,15 +7,12 @@ return require("packer").startup(function(use)
     -- Filetype support.
     use {"dag/vim-fish"}
 
-    use {"nvim-treesitter/nvim-treesitter"}
-
     -- Vim Better Whitespace: Highlight trailing whiltespaces.
     use {"ntpeters/vim-better-whitespace"}
 
     -- Telescope: highly extendable fuzzy finder over lists.
     use {
         "nvim-telescope/telescope.nvim",
-        tag = "0.1.0",
         requires = {
             {"nvim-lua/plenary.nvim"},
         },

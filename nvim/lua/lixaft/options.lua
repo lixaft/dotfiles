@@ -1,15 +1,8 @@
--- Define general options.
-
 -- Allow the mouse to interact with the editor.
 vim.opt.mouse = "a"
 
 -- Enable true colors support.
 vim.opt.termguicolors = true
-
--- Set the color scheme (and disable the background color).
-vim.cmd("autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE")
-vim.cmd("colorscheme palenight")
-vim.cmd("highlight ExtraWhitespace ctermbg=LightRed guibg=LightRed")
 
 -- Enable syntax highlighting.
 vim.opt.syntax = "on"
@@ -25,9 +18,6 @@ vim.opt.relativenumber = true
 
 -- Keep a minimum number of lines above and below the cursor.
 vim.opt.scrolloff = 8
-
--- Set the leader key on the space bar, laziness is the key!
-vim.g.mapleader = " "
 
 -- Indent using 4 spaces and enable smart indentation options.
 vim.opt.autoindent = true
@@ -58,5 +48,8 @@ vim.opt.wrap = false
 -- Searching options.
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
-vim.opt.incsearch = truea
+vim.opt.incsearch = true
 vim.opt.smartcase = true
+
+-- Set the leader key on the space bar, laziness is the key!
+vim.g.mapleader = " "
