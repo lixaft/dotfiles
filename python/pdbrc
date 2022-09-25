@@ -1,21 +1,21 @@
-"""Python Debugger configuration file.
+# Python Debugger configuration file.
+#
+# Description:
+#
+#   The module pdb defines an interactive source code debugger for Python
+#   programs. It supports setting (conditional) breakpoints and single stepping
+#   at the source line level, inspection of stack frames, source code listing,
+#   and evaluation of arbitrary Python code in the context of any stack frame.
+#
+#   If a file .pdbrc exists in the user’s home directory or in the current
+#   directory, it is read in and executed as if it had been typed at the
+#   debugger prompt. This is particularly useful for aliases.
+#
+# Location:
+#
+#   ~/.pdbrc
+#
 
-Description:
-
-    The module pdb defines an interactive source code debugger for Python
-    programs. It supports setting (conditional) breakpoints and single stepping
-    at the source line level, inspection of stack frames, source code listing,
-    and evaluation of arbitrary Python code in the context of any stack frame.
-
-    If a file .pdbrc exists in the user’s home directory or in the current
-    directory, it is read in and executed as if it had been typed at the
-    debugger prompt. This is particularly useful for aliases.
-
-Location:
-
-    ~/.pdbrc
-
-"""
 import pdb
 import rlcompleter
 
