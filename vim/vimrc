@@ -138,6 +138,9 @@ if exists('$TMUX')
     nnoremap <c-b> <c-a>
 endif
 
+" Turn off highlighting.
+nnoremap <leader>h :noh
+
 " === Search ===
 
 set hlsearch    " Highlight search results.

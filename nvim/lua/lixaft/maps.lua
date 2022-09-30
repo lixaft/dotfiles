@@ -22,3 +22,6 @@ normal("<leader>C", "ggVGzC<c-o>")
 
 -- Launch Netrw.
 normal("<leader>ps", ":Explore<cr>")
+
+-- Turn off highlighting.
+normal("<leader>h", ":noh<cr>")

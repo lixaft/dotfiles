@@ -1,4 +1,4 @@
--- Allow the mouse to interact with the editor.
+-- Enable mouse interactions.
 vim.opt.mouse = "a"
 
 -- Enable true colors support.
@@ -7,7 +7,7 @@ vim.opt.termguicolors = true
 -- Enable syntax highlighting.
 vim.opt.syntax = "on"
 
--- Yes I know, you can shut up vim... <3
+-- Don't be anoying vim... <3
 vim.opt.errorbells = false
 vim.opt.visualbell = false
 
@@ -27,25 +27,26 @@ vim.opt.smartindent = true
 vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
 
--- Define the folding properties.
+-- Define the fold options.
 vim.opt.foldlevelstart = 99
 vim.opt.foldmethod = "indent"
 vim.opt.foldnestmax = 99
 
--- Use the system clipboard for yanking and pasting operations.
+-- Use the system clipboard for yank and past operations.
 vim.opt.clipboard = "unnamed"
 
--- A bit of backup, but swapfile can be annoying sometimes.
-vim.opt.backup = false
+-- A bit of backup, but swapfile can be annoying sometimes...
+vim.opt.backup = true
+vim.opt.backupdir = os.getenv("HOME") .. "/.tmp/nvim/backupdir"
 vim.opt.swapfile = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim2/undodir"
+vim.opt.undodir = os.getenv("HOME") .. "/.tmp/nvim/undodir"
 vim.opt.undofile = true
 
 -- Disable line wrapping and set smart wrapping for when it is activated.
 vim.opt.linebreak = true
 vim.opt.wrap = false
 
--- Searching options.
+-- Search options.
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.incsearch = true

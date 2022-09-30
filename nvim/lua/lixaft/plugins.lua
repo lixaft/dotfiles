@@ -1,21 +1,22 @@
-local use = require("packer").use
-
 return require("packer").startup(function()
     use {"wbthomason/packer.nvim"}
 
-    -- Color scheme.
-    use {"drewtempelmeyer/palenight.vim"}
-    use {"folke/lsp-colors.nvim"}
+    -- Neovim lua utilities.
+    use {"nvim-lua/plenary.nvim"}
 
-    -- Filetype support.
+    -- Palenight color scheme.
+    use {"drewtempelmeyer/palenight.vim"}
+
+    -- Support for editing fish scripts.
     use {"dag/vim-fish"}
 
-    -- Vim Better Whitespace: Highlight trailing whiltespaces.
+    -- Trailing whitespace highlight.
     use {"ntpeters/vim-better-whitespace"}
 
-    -- Telescope: highly extendable fuzzy finder over lists.
+    -- File explorer.
     use {"nvim-telescope/telescope.nvim"}
-    use {"nvim-lua/plenary.nvim"}
+
+
     use {"nvim-treesitter/nvim-treesitter"}
 
     -- Lualine: A blazing fast and easy to configure statusline.
@@ -40,5 +41,8 @@ return require("packer").startup(function()
     -- code actions, and more via Lua.
     use {"jose-elias-alvarez/null-ls.nvim"}
     use {"folke/trouble.nvim"}
+
+    -- Missing LSP diagnostics highlight groups.
+    use {"folke/lsp-colors.nvim"}
 
 end)
