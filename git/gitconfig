@@ -12,25 +12,26 @@
 #
 
 [advice]
-statusHints = false
+    statusHints = false
 
 [alias]
-git = !git
-plog = log --graph --abbrev-commit --decorate --format=format:'%C(bold yellow)%h%C(reset) - %C(bold blue)(%ar)%C(reset) %s %C(bold black)%an%C(reset)%C(bold green)%d%C(reset)'
+    git = !git
+    plog = log --graph --abbrev-commit --decorate --format=format:'%C(bold yellow)%h%C(reset) - %C(bold blue)(%ar)%C(reset) %s %C(bold black)%an%C(reset)%C(bold green)%d%C(reset)'
+    tree = !git ls-tree -r --name-only HEAD | tree --fromfile -C
 
 [color]
-ui = true
+    ui = true
 
 [core]
-symlinks = true
-editor = nvim
+    editor = nvim
+    symlinks = true
 
 [completion]
-commands = -gitk
+    commands = -gitk
 
 [fetch]
-prune = true
+    prune = true
 
 [user]
-name = Fabien Taxil
-email = fabien.taxil@gmail.com
+    email = fabien.taxil@gmail.com
+    name = Fabien Taxil
