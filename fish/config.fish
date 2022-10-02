@@ -37,3 +37,8 @@ starship init fish | source
 
 # Source completions.
 podman completion fish | source
+
+# Local configuration.
+if test -e "$HOME/.config/fish/config.local.fish"
+    source "$HOME/.config/fish/config.local.fish"
+end

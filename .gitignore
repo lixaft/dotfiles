@@ -3,6 +3,7 @@
 .DS_Store
 .netrwhist
 .vscode/
+fish/config.local.fish
 fish_variables
 nvim/plugin
 venv/
