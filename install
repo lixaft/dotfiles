@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-"""Dotfiles installer."""
 import argparse
 import os
 import shutil
@@ -9,15 +8,11 @@ from typing import List, NamedTuple, Optional, Sequence
 
 
 class File(NamedTuple):
-    """File representation."""
-
     source: str
     target: str
 
 
 class Repository(NamedTuple):
-    """Repository representation."""
-
     remote: str
     local: str
 
@@ -47,7 +42,6 @@ def shell(args: Sequence[str]) -> str:
 
 
 FILES: List[File] = [
-    File(here("bash/bash_profile"), home(".bash_profile")),
     File(here("bash/bashrc"), home(".bashrc")),
     File(here("bin/hl"), home("bin/hl")),
     File(here("bin/pytree"), home("bin/pytree")),
@@ -76,7 +70,6 @@ REPOSITORIES: List[Repository] = [
 
 
 def install_file(file: File, symlink=False):
-    """Install the specified file."""
     directory = os.path.dirname(file.target)
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -89,14 +82,12 @@ def install_file(file: File, symlink=False):
 
 
 def clone_repository(repository: Repository):
-    """Install the specified directory."""
     if os.path.exists(repository.local):
         shell(["rm", "-rf", repository.local])
     shell(["git", "clone", repository.remote, repository.local])
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
-    """Entry point of the command line interface."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--copy", "-c", action="store_true")
     args = parser.parse_args(argv)
