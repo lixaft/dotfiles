@@ -33,12 +33,17 @@ set -x PIP_DISABLE_PIP_VERSION_CHECK "1"
 set -x PYTHONSTARTUP "$HOME/.pythonrc"
 
 # Initialize starship.
-starship init fish | source
+if type -q "starship"
+    starship init fish | source
+end
 
 # Source completions.
-podman completion fish | source
+if type -q "podman"
+    podman completion fish | source
+end
 
 # Local configuration.
-if test -e "$HOME/.config/fish/config.local.fish"
-    source "$HOME/.config/fish/config.local.fish"
+set local "$HOME/.config/fish/config.local.fish"
+if test -e "$local"
+    source "$local"
 end
