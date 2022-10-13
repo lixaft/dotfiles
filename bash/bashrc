@@ -20,7 +20,7 @@ export CLICOLOR=1
 alias docker="podman"
 alias la="ls -al"
 alias ll="ls -l"
-alias refresh="source $HOME/.bash_profile"
+alias refresh="source $HOME/.bashrc"
 alias tree="tree -C"
 alias vim="nvim"
 
