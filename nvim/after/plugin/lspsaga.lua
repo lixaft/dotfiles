@@ -14,4 +14,4 @@ Saga.init_lsp_saga(
     }
 )
 
-Remap.normal("<leader>lf", "<cmd>Lspsaga lsp_finder<cr>")
+Remap.normal("<c-k>", "<cmd>Lspsaga lsp_finder<cr>")
