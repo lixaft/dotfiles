@@ -24,8 +24,6 @@ return require("packer").startup(function()
     use {"kyazdani42/nvim-web-devicons"}
 
 
-    -- Tabnine: AI assistant for software developers.
-    use {"tzachar/cmp-tabnine", run = "./install.sh"}
     use {"hrsh7th/nvim-cmp"}
 
     -- lspkind: vscode-like pictograms for neovim lsp completion items.
