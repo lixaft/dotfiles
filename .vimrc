@@ -107,10 +107,10 @@ nnoremap { :<c-u>execute "keepjumps norm! " . v:count1 . "{"<cr>
 nnoremap } :<c-u>execute "keepjumps norm! " . v:count1 . "}"<cr>
 
 " Remove highlight.
-nnormap <leader>h :noh<cr>
+nnoremap <leader>h :noh<cr>
 
 " Open explorer.
-nnormap <leader>ps :Explorer<cr>
+nnoremap <leader>ps :Exp<cr>
 
 " Restore the increse number overriden by tmux.
 if exists('$TMUX')
