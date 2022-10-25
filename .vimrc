@@ -98,37 +98,6 @@ let maplocalleader="-"
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" Easy access to normal mode.
-inoremap jk <esc>
-
-" Move line up and down.
-nnoremap <c-j> :move .+1<cr>==
-nnoremap <c-k> :move .-2<cr>==
-vnoremap <c-j> :move '>+1<cr>gv=gv
-vnoremap <c-k> :move '<-2<cr>gv=gv
-
-" Move to the first/last character of the line.
-nnoremap L $
-nnoremap H ^
-vnoremap L $
-vnoremap H ^
-
-" Quote selection.
-vnoremap <leader>' di'<esc>pa'<esc>
-vnoremap <leader>" di"<esc>pa"<esc>
-
-" Split line.
-nnoremap K i<cr><esc>k==$
-
-" Use tab for indenting line.
-nnoremap <tab> >>
-nnoremap <s-tab> <<
-vnoremap <tab> >gv
-vnoremap <s-tab> <gv
-
-" Make sure to not override an existing mapping.
-nnoremap <c-i> <tab>
-
 " Global folding.
 nnoremap <leader>O ggVGzO<c-o><c-o>
 nnoremap <leader>C ggVGzC<c-o><c-o>
@@ -136,6 +105,12 @@ nnoremap <leader>C ggVGzC<c-o><c-o>
 " Preserve the jump list using { and } motions.
 nnoremap { :<c-u>execute "keepjumps norm! " . v:count1 . "{"<cr>
 nnoremap } :<c-u>execute "keepjumps norm! " . v:count1 . "}"<cr>
+
+" Remove highlight.
+nnormap <leader>h :noh<cr>
+
+" Open explorer.
+nnormap <leader>ps :Explorer<cr>
 
 " Restore the increse number overriden by tmux.
 if exists('$TMUX')
@@ -164,6 +139,7 @@ set statusline+=\ %f            " The path to the edited file.
 set statusline+=\ %r            " Whether the file is read-only or not.
 set statusline+=\ %m            " Whether the file is edited or not.
 set statusline+=%=              " Go to the right side.
+set statusline+=\ %p%%          " Show the percentage.
 set statusline+=\ Ln\ %l/%L     " Number of current/total line.
 set statusline+=\ Col\ %02c%V   " Column number.
 set statusline+=\ Char\ 0x%04B  " Whether the file is read-only or not.
