@@ -42,18 +42,18 @@ def shell(args: Sequence[str]) -> str:
 
 
 FILES: List[File] = [
-    File(here("bash/bashrc"), home(".bashrc")),
+    File(here(".bashrc"), home(".bashrc")),
     File(here("bin/hl"), home("bin/hl")),
     File(here("bin/pytree"), home("bin/pytree")),
-    File(here("fish"), home(".config/fish")),
-    File(here("git/gitconfig"), home(".gitconfig")),
-    File(here("python/pdbrc"), home(".pdbrc")),
-    File(here("python/pythonrc"), home(".pythonrc")),
-    File(here("starship/starship.toml"), home(".config/starship.toml")),
-    File(here("tmux/tmux.conf"), home(".tmux.conf")),
-    File(here("vim/vim"), home(".vim")),
-    File(here("vim/vimrc"), home(".vimrc")),
-    File(here("nvim"), home(".config/nvim")),
+    File(here(".config/fish"), home(".config/fish")),
+    File(here(".gitconfig"), home(".gitconfig")),
+    File(here(".pdbrc"), home(".pdbrc")),
+    File(here(".pythonrc"), home(".pythonrc")),
+    File(here(".config/starship.toml"), home(".config/starship.toml")),
+    File(here(".tmux.conf"), home(".tmux.conf")),
+    File(here(".vim"), home(".vim")),
+    File(here(".vimrc"), home(".vimrc")),
+    File(here(".config/nvim"), home(".config/nvim")),
 ]
 
 
