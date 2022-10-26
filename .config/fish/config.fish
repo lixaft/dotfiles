@@ -20,6 +20,9 @@ alias docker="podman"
 alias refresh="source $HOME/.config/fish/config.fish"
 alias tree="tree -C"
 alias vim="nvim"
+alias ls="exa"
+alias ll="exa --long --git --group-directories-first"
+alias la="exa --long --git --group-directories-first --all"
 
 # Extend $PATH.
 fish_add_path "$HOME/bin"
