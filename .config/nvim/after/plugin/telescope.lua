@@ -1,5 +1,4 @@
-local remap = require("lixaft.utilities.remap")
-local telescope = require("telescope")
+local map = require("lixaft.utilities.map")
 local telescope_builtin = require("telescope.builtin")
 local telescope_config = require("telescope.config")
 
@@ -8,11 +7,11 @@ table.insert(vimgrep_arguments, "--hidden")
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!.git/*")
 
-remap.normal("<c-p>", function() telescope_builtin.find_files() end)
-remap.normal("<c-g>", function() telescope_builtin.live_grep() end)
-remap.normal("<leader>comm", function() telescope_builtin.git_commits() end)
+map.normal("<c-p>", function() telescope_builtin.find_files() end)
+map.normal("<c-g>", function() telescope_builtin.live_grep() end)
+map.normal("<leader>comm", function() telescope_builtin.git_commits() end)
 
-telescope.setup({
+require("telescope").setup({
 	defaults = {
 		vimgrep_arguments = vimgrep_arguments,
 	},

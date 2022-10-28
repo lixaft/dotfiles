@@ -1,3 +1,3 @@
-local Remap = require("lixaft.utilities.remap")
+local map = require("lixaft.utilities.map")
 
-Remap.normal("<leader>t", "<cmd>TroubleToggl<cr>")
+map.normal("<leader>t", "<cmd>TroubleToggl<cr>")

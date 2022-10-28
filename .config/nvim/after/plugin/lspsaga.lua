@@ -1,7 +1,7 @@
-local Remap = require("lixaft.utilities.remap")
-local Saga = require("lspsaga")
+local lspsaga = require("lspsaga")
+local map = require("lixaft.utilities.map")
 
-Saga.init_lsp_saga(
+lspsaga.init_lsp_saga(
     {
         border_style = "rounded",
         finder_action_keys = {
@@ -14,4 +14,4 @@ Saga.init_lsp_saga(
     }
 )
 
-Remap.normal("<c-k>", "<cmd>Lspsaga lsp_finder<cr>")
+map.normal("<c-k>", "<cmd>Lspsaga lsp_finder<cr>")
