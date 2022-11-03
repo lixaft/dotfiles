@@ -23,14 +23,15 @@ alias tree="tree -C"
 fish_add_path "$HOME/bin"
 
 # Python variables.
-set --export PIP_DISABLE_PIP_VERSION_CHECK "1"
-set --export PYTHONSTARTUP "$HOME/.pythonrc"
+set -x PIP_DISABLE_PIP_VERSION_CHECK "1"
+set -x PYTHONSTARTUP "$HOME/.pythonrc"
 
 # Replace `ls` by `exa` if available.
 if type --query "exa"
     alias ls="exa"
     alias ll="exa --long --git --group-directories-first"
     alias la="ll --all"
+    alias tree="la --tree"
 end
 
 # Pick neovim as editor <3

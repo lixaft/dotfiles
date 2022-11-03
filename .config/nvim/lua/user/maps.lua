@@ -1,4 +1,7 @@
-local map = require("lixaft.utilities.map")
+local map = require("user.utilities.map")
+
+-- Set the leader key on the space bar, laziness is the key!
+vim.g.mapleader = " "
 
 -- Easy configuration reloads.
 map.normal("<leader>ev", ":split $MYVIMRC<cr>")

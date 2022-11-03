@@ -1,4 +1,4 @@
-local map = require("lixaft.utilities.map")
+local map = require("user.utilities.map")
 
 local function config(_config)
     return vim.tbl_deep_extend(
@@ -8,7 +8,7 @@ local function config(_config)
                 vim.lsp.protocol.make_client_capabilities()
             ),
             on_attach = function()
-                map.normal("<leader>ca", vim.lsp.buf.code_action)
+                map.normal("<leader>ac", vim.lsp.buf.code_action)
                 map.normal("<leader>f", vim.lsp.buf.formatting)
                 map.normal("<leader>re", vim.lsp.buf.rename)
                 map.normal("<leader>wa", vim.lsp.buf.add_workspace_folder)

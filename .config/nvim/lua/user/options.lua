@@ -51,6 +51,3 @@ vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.incsearch = true
 vim.opt.smartcase = true
-
--- Set the leader key on the space bar, laziness is the key!
-vim.g.mapleader = " "

@@ -9,4 +9,6 @@
 --    ~/.config/nvim/init.lua
 --
 
-require("lixaft")
+require("user.maps")
+require("user.options")
+require("user.plugins")
