@@ -6,3 +6,6 @@ vim.cmd("colorscheme palenight")
 
 -- Change the background color for extra whitespace.
 vim.cmd("highlight ExtraWhitespace ctermbg=LightRed guibg=LightRed")
+
+-- Change ruler color.
+vim.cmd("highlight ColorColumn guifg=#292d3e guibg=#434758")

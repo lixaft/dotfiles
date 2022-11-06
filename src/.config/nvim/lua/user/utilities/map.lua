@@ -1,7 +1,7 @@
 local M = {}
 
 local noremap = function(mode)
-    local internal = function(key, command)
+    return function(key, command)
         vim.keymap.set(
             mode,
             key,
@@ -9,7 +9,6 @@ local noremap = function(mode)
             {noremap = true, silent = true}
         )
     end
-    return internal
 end
 
 M.insert = noremap("i")

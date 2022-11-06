@@ -23,8 +23,8 @@ alias tree="tree -C"
 fish_add_path "$HOME/bin"
 
 # Python variables.
-set -x PIP_DISABLE_PIP_VERSION_CHECK "1"
-set -x PYTHONSTARTUP "$HOME/.pythonrc"
+set --export PIP_DISABLE_PIP_VERSION_CHECK "1"
+set --export PYTHONSTARTUP "$HOME/.pythonrc"
 
 # Replace `ls` by `exa` if available.
 if type --query "exa"
