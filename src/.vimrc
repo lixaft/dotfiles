@@ -99,8 +99,8 @@ nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Global folding.
-nnoremap <leader>O ggVGzO<c-o><c-o>
-nnoremap <leader>C ggVGzC<c-o><c-o>
+nnoremap <leader>zO ggVGzO<c-o><c-o>
+nnoremap <leader>zC ggVGzC<c-o><c-o>
 
 " Preserve the jump list using { and } motions.
 nnoremap { :<c-u>execute "keepjumps norm! " . v:count1 . "{"<cr>

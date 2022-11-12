@@ -2,12 +2,12 @@ local map = require("user.utilities.map")
 
 -- Mappings.
 map.normal("<c-k>", ":Lspsaga lsp_finder<cr>")
-map.normal("<leader>ca", ":Lspsaga code_action<cr>")
+map.normal("<leader>a", ":Lspsaga code_action<cr>")
 map.normal("<leader>re", ":Lspsaga rename<cr>")
 map.normal("K", ":Lspsaga hover_doc<cr>")
 map.normal("[e", ":Lspsaga diagnostic_jump_prev<cr>")
 map.normal("]e", ":Lspsaga diagnostic_jump_next<cr>")
-map.visual("<leader>ca", ":Lspsaga code_action<cr>")
+map.visual("<leader>a", ":Lspsaga code_action<cr>")
 
 require("lspsaga").init_lsp_saga({
 
