@@ -15,6 +15,9 @@
 # Remove welcome message.
 set fish_greeting ""
 
+# Source colors.
+source "$HOME/.config/fish/colors.fish"
+
 # Define aliases.
 alias refresh="source $HOME/.config/fish/config.fish"
 alias tree="tree -C"

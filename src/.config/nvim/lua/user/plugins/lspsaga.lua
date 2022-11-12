@@ -1,7 +1,13 @@
 local map = require("user.utilities.map")
 
--- Launch hotkeys.
-map.normal("<c-k>", "<cmd>Lspsaga lsp_finder<cr>")
+-- Mappings.
+map.normal("<c-k>", ":Lspsaga lsp_finder<cr>")
+map.normal("<leader>ca", ":Lspsaga code_action<cr>")
+map.normal("<leader>re", ":Lspsaga rename<cr>")
+map.normal("K", ":Lspsaga hover_doc<cr>")
+map.normal("[e", ":Lspsaga diagnostic_jump_prev<cr>")
+map.normal("]e", ":Lspsaga diagnostic_jump_next<cr>")
+map.visual("<leader>ca", ":Lspsaga code_action<cr>")
 
 require("lspsaga").init_lsp_saga({
 
@@ -15,7 +21,7 @@ require("lspsaga").init_lsp_saga({
     -- When cursor in saga window you config these to move.
     move_in_saga = {
         prev = "<c-p>",
-        next = "<c-n>"
+        next = "<c-n>",
     },
 
     -- Error, Warn, Info, Hint
@@ -47,9 +53,9 @@ require("lspsaga").init_lsp_saga({
 
     -- Finder icons.
     finder_icons = {
-      def = "  ",
-      ref = "諭 ",
-      link = "  ",
+        def = "  ",
+        ref = "諭 ",
+        link = "  ",
     },
 
     -- Finder do lsp request timeout.
@@ -62,18 +68,18 @@ require("lspsaga").init_lsp_saga({
         vsplit = "s",
         split = "i",
         table = "t",
-        quit = "<esc>",
+        quit = "q",
     },
     code_action_keys = {
         quit = "q",
         exec = "<cr>",
     },
     definition_action_keys = {
-      edit = "<c-c>o",
-      vsplit = "<c-c>v",
-      split = "<c-c>i",
-      tabe = "<c-c>t",
-      quit = "q",
+        edit = "<c-c>o",
+        vsplit = "<c-c>v",
+        split = "<c-c>i",
+        tabe = "<c-c>t",
+        quit = "q",
     },
     rename_action_quit = "<c-c>",
     rename_in_select = true,
@@ -97,17 +103,17 @@ require("lspsaga").init_lsp_saga({
 
     -- show outline
     show_outline = {
-      win_position = "right",
-      --set special filetype win that outline window split.like NvimTree neotree
-      -- defx, db_ui
-      win_with = "",
-      win_width = 30,
-      auto_enter = true,
-      auto_preview = true,
-      virt_text = "┃",
-      jump_key = "o",
-      -- auto refresh when change buffer
-      auto_refresh = true,
+        win_position = "right",
+        --set special filetype win that outline window split.like NvimTree neotree
+        -- defx, db_ui
+        win_with = "",
+        win_width = 30,
+        auto_enter = true,
+        auto_preview = true,
+        virt_text = "┃",
+        jump_key = "o",
+        -- auto refresh when change buffer
+        auto_refresh = true,
     },
 
     -- custom lsp kind

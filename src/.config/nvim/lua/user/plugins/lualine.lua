@@ -1,18 +1,18 @@
 require("lualine").setup({
     options = {
         -- Lualine theme.
-        theme = "palenight",
+        theme = "tokyonight",
 
         -- Enables the display of icons alongside the component.
         icons_enabled = true,
 
         component_separators = {
             left = "",
-            right = ""
+            right = "",
         },
         section_separators = {
             left = "",
-            right = ""
+            right = "",
         },
 
         -- Filetypes to disable lualine for.
@@ -44,7 +44,7 @@ require("lualine").setup({
             tabline = 1000,
             -- Arises that lualine needs to refresh itself before this time it'll do it.
             winbar = 1000,
-        }
+        },
     },
 
     -- Available components:
@@ -55,7 +55,7 @@ require("lualine").setup({
         lualine_c = { "filename" },
         lualine_x = { "encoding", "fileformat", "filetype" },
         lualine_y = { "progress" },
-        lualine_z = { "location" }
+        lualine_z = { "location" },
     },
     inactive_sections = {
         lualine_a = {},
@@ -63,7 +63,7 @@ require("lualine").setup({
         lualine_c = { "filename" },
         lualine_x = { "location" },
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
     },
 
     -- You can use lualine to display components in tabline. The configuration

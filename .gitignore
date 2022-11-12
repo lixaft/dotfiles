@@ -1,7 +1,6 @@
 *.pyc
 *.swp
 .DS_Store
-.vscode/
 src/.config/fish/config.local.fish
 src/.config/fish/fish_variables
 src/.config/nvim/.netrwhist

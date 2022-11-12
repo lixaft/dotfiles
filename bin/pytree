@@ -5,7 +5,8 @@ from __future__ import annotations
 import argparse
 import ast
 import sys
-from typing import Optional, Sequence
+from typing import Optional
+from typing import Sequence
 
 INDENT = 4
 
@@ -54,7 +55,9 @@ class Visitor(ast.NodeVisitor):
 
     def _is_last(self, node: ast.AST) -> bool:
         for sibling in reversed(self.parents[-1].body):
-            if isinstance(sibling, (ast.FunctionDef, ast.ClassDef, ast.Assign)):
+            if isinstance(
+                sibling, (ast.FunctionDef, ast.ClassDef, ast.Assign)
+            ):
                 return node == sibling
         return False
 

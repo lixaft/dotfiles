@@ -1,10 +1,10 @@
 local map = require("user.utilities.map")
 
 -- Define hotkeys.
-map.normal("<leader>t", "<cmd>TroubleToggl<cr>")
+map.normal("<leader>t", ":TroubleToggl<cr>")
 
 require("trouble").setup({
-     -- Position of the list can be: bottom, top, left, right.
+    -- Position of the list can be: bottom, top, left, right.
     position = "bottom",
 
     -- Height of the trouble list when position is top or bottom.
@@ -31,7 +31,7 @@ require("trouble").setup({
     -- Add an extra new line on top of the list.
     padding = true,
 
-     -- Key mappings for actions in the trouble list.
+    -- Key mappings for actions in the trouble list.
     action_keys = {
         -- Close the list.
         -- Map to `{}` to remove a mapping.
@@ -44,7 +44,7 @@ require("trouble").setup({
         refresh = "r",
 
         -- Jump to the diagnostic or open / close folds.
-        jump = {"<cr>", "<tab>"},
+        jump = { "<cr>", "<tab>" },
 
         -- Open buffer in new split.
         open_split = { "<c-x>" },
@@ -56,7 +56,7 @@ require("trouble").setup({
         open_tab = { "<c-t>" },
 
         -- Jump to the diagnostic and close the list.
-        jump_close = {"o"},
+        jump_close = { "o" },
 
         -- Toggle between "workspace" and "document" diagnostics mode.
         toggle_mode = "m",
@@ -71,21 +71,20 @@ require("trouble").setup({
         preview = "p",
 
         -- Close all folds.
-        close_folds = {"zM", "zm"},
+        close_folds = { "zM", "zm" },
 
         -- Open all folds.
-        open_folds = {"zR", "zr"},
+        open_folds = { "zR", "zr" },
 
         -- Toggle fold of current file.
-        toggle_fold = {"zA", "za"},
+        toggle_fold = { "zA", "za" },
 
         -- Previous item.
         previous = "k",
 
         -- Next item.
-        next = "j"
+        next = "j",
     },
-
 
     -- Add an indent guide below the fold icons.
     indent_lines = true,
@@ -104,7 +103,7 @@ require("trouble").setup({
     auto_fold = false,
 
     -- For the given modes, automatically jump if there is only a single result.
-    auto_jump = {"lsp_definitions"},
+    auto_jump = { "lsp_definitions" },
 
     -- Icons / text used for a diagnostic.
     signs = {
@@ -112,7 +111,7 @@ require("trouble").setup({
         warning = "",
         hint = "",
         information = "",
-        other = "﫠"
+        other = "﫠",
     },
 
     -- Enabling this will use the signs defined in your lsp client.

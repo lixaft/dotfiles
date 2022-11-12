@@ -1,53 +1,55 @@
--- Enable mouse interactions.
-vim.opt.mouse = "a"
+require("user.utilities.option").update({
+    -- Enable mouse interactions.
+    mouse = "a",
 
--- Enable true colors support.
-vim.opt.termguicolors = true
+    -- Enable true colors support.
+    termguicolors = true,
 
--- Enable syntax highlighting.
-vim.opt.syntax = "on"
+    -- Enable syntax highlighting.
+    syntax = "on",
 
--- Don't be anoying vim... <3
-vim.opt.errorbells = false
-vim.opt.visualbell = false
+    -- Don't be anoying vim... <3
+    errorbells = false,
+    visualbell = false,
 
--- Add some visual indications so we know where we are :)
-vim.opt.colorcolumn = {"80", "100"}
-vim.opt.number = true
-vim.opt.relativenumber = true
+    -- Add some visual indications so we know where we are :)
+    colorcolumn = { "80", "100" },
+    number = true,
+    relativenumber = true,
 
--- Keep a minimum number of lines above and below the cursor.
-vim.opt.scrolloff = 8
+    -- Keep a minimum number of lines above and below the cursor.
+    scrolloff = 8,
 
--- Indent using 4 spaces and enable smart indentation options.
-vim.opt.autoindent = true
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
-vim.opt.smartindent = true
-vim.opt.softtabstop = 4
-vim.opt.tabstop = 4
+    -- Indent using 4 spaces and enable smart indentation options.
+    autoindent = true,
+    expandtab = true,
+    shiftwidth = 4,
+    smartindent = true,
+    softtabstop = 4,
+    tabstop = 4,
 
--- Define the fold options.
-vim.opt.foldlevelstart = 99
-vim.opt.foldmethod = "indent"
-vim.opt.foldnestmax = 99
+    -- Define the fold options.
+    foldlevelstart = 99,
+    foldmethod = "indent",
+    foldnestmax = 99,
 
--- Use the system clipboard for yank and past operations.
-vim.opt.clipboard = "unnamed"
+    -- Use the system clipboard for yank and past operations.
+    clipboard = "unnamed",
 
--- A bit of backup, but swapfile can be annoying sometimes...
-vim.opt.backup = true
-vim.opt.backupdir = os.getenv("HOME") .. "/.tmp/nvim/backupdir"
-vim.opt.swapfile = false
-vim.opt.undodir = os.getenv("HOME") .. "/.tmp/nvim/undodir"
-vim.opt.undofile = true
+    -- A bit of backup, but swapfile can be annoying sometimes...
+    backup = true,
+    backupdir = os.getenv("HOME") .. "/.tmp/nvim/backupdir",
+    swapfile = false,
+    undodir = os.getenv("HOME") .. "/.tmp/nvim/undodir",
+    undofile = true,
 
--- Disable line wrapping and set smart wrapping for when it is activated.
-vim.opt.linebreak = true
-vim.opt.wrap = false
+    -- Disable line wrapping and set smart wrapping for when it is activated.
+    linebreak = true,
+    wrap = false,
 
--- Search options.
-vim.opt.hlsearch = true
-vim.opt.ignorecase = true
-vim.opt.incsearch = true
-vim.opt.smartcase = true
+    -- Search options.
+    hlsearch = true,
+    ignorecase = true,
+    incsearch = true,
+    smartcase = true,
+})
