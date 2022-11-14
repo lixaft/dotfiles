@@ -1,14 +1,3 @@
--- -- Disable background color.
-
--- vim.cmd("autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE")
--- -- Use palenight colorsheme.
--- vim.cmd("colorscheme palenight")
---
---
--- -- Change ruler color.
--- vim.cmd("highlight ColorColumn guifg=#292d3e guibg=#434758")
---
-
 require("tokyonight").setup({
     -- The theme comes in three styles, `storm`, `moon`,
     -- a darker variant `night` and `day`.
@@ -69,8 +58,8 @@ require("tokyonight").setup({
     ---@param colors ColorScheme
     on_highlights = function(highlights, colors)
         highlights.ExtraWhitespace = { bg = colors.red }
-        highlights.ColorColumn = { bg = colors.bg }
-        highlights.LineNr = { fg = colors.fg_gutter }
+        highlights.ColorColumn = { bg = colors.dark3 }
+        highlights.LineNr = { fg = colors.dark3 }
     end,
 })
 

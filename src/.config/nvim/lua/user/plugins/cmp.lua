@@ -28,7 +28,7 @@ require("cmp").setup({
         ["<c-e>"] = cmp.mapping.abort(),
         -- Accept currently selected item. Set `select` to `false` to only
         -- confirm explicitly selected items.
-        ["<cR>"] = cmp.mapping.confirm({ select = true }),
+        -- ["<cr>"] = cmp.mapping.confirm({ select = true }),
     }),
     formatting = {
         fields = { "kind", "abbr", "menu" },

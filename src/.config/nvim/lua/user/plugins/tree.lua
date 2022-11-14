@@ -23,6 +23,12 @@ require("nvim-tree").setup({
             quit_on_open = true,
         },
 
+        -- Configuration for various actions.
+        change_dir = {
+            -- Change the working directory when changing directories in the tree.
+            enable = false,
+        },
+
         remove_file = {
             -- Close any window displaying a file when removing the file from
             -- the tree.
@@ -40,5 +46,8 @@ require("nvim-tree").setup({
     view = {
         -- Resize the window on each draw based on the longest line.
         adaptive_size = true,
+
+        -- Print the line number in front of each line.
+        number = true,
     },
 })

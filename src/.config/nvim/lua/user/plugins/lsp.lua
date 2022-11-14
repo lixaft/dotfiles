@@ -15,7 +15,7 @@ vim.diagnostic.config({
     signs = true,
 
     -- If false, diagnostics are only updated on InsertLeave.
-    update_in_insert = true,
+    update_in_insert = false,
 
     -- Use virtual text for diagnostics.
     virtual_text = {
