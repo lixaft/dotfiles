@@ -11,6 +11,100 @@
 
 # Get editor completions based on the config schema.
 "$schema" = 'https://starship.rs/config-schema.json'
-
 # Insert a new blank line bedore the prompt.
 add_newline = true
+
+format = """
+[╭─](bold black)\
+[ ﮊ ](bg:cyan fg:black)\
+[](fg:cyan bg:none) \
+\
+$username\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+\
+$fill \
+\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$c\
+$cmake\
+$cobol\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$haskell\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$buf\
+$nix_shell\
+$conda\
+$meson\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$env_var\
+$crystal\
+$custom\
+$sudo\
+$cmd_duration\
+$jobs\
+$battery\
+$time\
+$status\
+$container\
+$shell\
+\
+[](fg:cyan bg:none)\
+[ ﮊ ](bg:cyan fg:black)
+[╰──────](bold black)\
+$character"""
+
+[fill]
+symbol = "─"
+style = "bold black"
+
+[character]
+success_symbol = "[●](bold black)"
+error_symbol = "[●](bold red)"
