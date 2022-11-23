@@ -1,8 +1,11 @@
 *.pyc
 *.swp
 .DS_Store
+src/.config/fish/completions/
+src/.config/fish/conf.d/
 src/.config/fish/config.local.fish
 src/.config/fish/fish_variables
+src/.config/fish/functions/
 src/.config/nvim/.netrwhist
 src/.config/nvim/plugin/packer_compiled.lua
 venv/
