@@ -56,8 +56,8 @@ if type --query "starship"
     starship init fish | source
 end
 
-# Source local configuration.
-set local "$HOME/.config/fish/config.local.fish"
-if test -e "$local"
-    source "$local"
+# Setup fisher.
+function fisher_install
+    curl -sL https://git.io/fisher | source
+    fisher update
 end
