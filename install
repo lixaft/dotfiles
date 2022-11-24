@@ -45,6 +45,7 @@ def shell(args: Sequence[str]) -> bytes:
 FILES: List[File] = [
     File(here("src/.bashrc"), home(".bashrc")),
     File(here("src/.config/awesome"), home(".config/awesome")),
+    File(here("src/.config/bat"), home(".config/bat")),
     File(here("src/.config/fish"), home(".config/fish")),
     File(here("src/.config/kitty"), home(".config/kitty")),
     File(here("src/.config/nvim"), home(".config/nvim")),

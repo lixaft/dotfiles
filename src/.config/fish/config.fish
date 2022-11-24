@@ -16,7 +16,7 @@
 set fish_greeting ""
 
 # Source colors.
-source "$HOME/.config/fish/colors.fish"
+source "$HOME/.config/fish/themes/tokyonight_night.fish"
 
 # Define aliases.
 alias python="python3"
@@ -36,6 +36,11 @@ if type --query "exa"
     alias ll="exa --long --git --group-directories-first"
     alias la="ll --all"
     alias tree="la --tree"
+end
+
+# Replace `cat` by `bat` if available.
+if type --query "bat"
+    alias cat="bat"
 end
 
 # Pick neovim as editor <3
