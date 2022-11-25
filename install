@@ -3,9 +3,13 @@ from __future__ import annotations
 
 import argparse
 import os
+import shutil
 import subprocess
 import sys
-from typing import List, NamedTuple, Optional, Sequence
+from typing import List
+from typing import NamedTuple
+from typing import Optional
+from typing import Sequence
 
 
 class File(NamedTuple):
@@ -14,7 +18,7 @@ class File(NamedTuple):
 
 
 class Repository(NamedTuple):
-    remote: str
+    url: str
     local: str
 
 
@@ -30,24 +34,20 @@ def home(path: str) -> str:
     return _clean(os.path.expanduser(os.path.join("~", path)))
 
 
-def shell(args: Sequence[str]) -> bytes:
+def shell(cmd: Sequence[str]) -> tuple[int, bytes, bytes]:
     process = subprocess.Popen(
-        args,
+        cmd,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
     )
     stdout, stderr = process.communicate()
-    if process.returncode > 0:
-        raise RuntimeError(stderr.strip())
-    return stdout.strip()
+    return (process.returncode, stdout, stderr)
 
 
 FILES: List[File] = [
     File(here("src/.bashrc"), home(".bashrc")),
-    File(here("src/.config/awesome"), home(".config/awesome")),
     File(here("src/.config/bat"), home(".config/bat")),
     File(here("src/.config/fish"), home(".config/fish")),
-    File(here("src/.config/kitty"), home(".config/kitty")),
     File(here("src/.config/nvim"), home(".config/nvim")),
     File(here("src/.config/starship.toml"), home(".config/starship.toml")),
     File(here("src/.gitconfig"), home(".gitconfig")),
@@ -56,8 +56,6 @@ FILES: List[File] = [
     File(here("src/.tmux.conf"), home(".tmux.conf")),
     File(here("src/.vim"), home(".vim")),
     File(here("src/.vimrc"), home(".vimrc")),
-    File(here("bin/hl"), home("bin/hl")),
-    File(here("bin/pytree"), home("bin/pytree")),
 ]
 
 
@@ -73,45 +71,84 @@ REPOSITORIES: List[Repository] = [
 ]
 
 
-def install_file(file: File, symlink=False):
+def install_file(file: File, force: bool = False) -> None:
     directory = os.path.dirname(file.target)
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-    shell(["rm", "-rf", file.target])
-    if symlink:
-        shell(["ln", "-sf", file.source, file.target])
-    else:
-        shell(["cp", "-rf", file.source, file.target])
+    if force and os.path.exists(file.target):
+        if os.path.islink(file.target):
+            os.unlink(file.target)
+        elif os.path.isdir(file.target):
+            shutil.rmtree(file.target)
+        else:
+            os.remove(file.target)
+
+    os.symlink(
+        file.source,
+        file.target,
+        target_is_directory=os.path.isdir(file.source),
+    )
 
 
 def clone_repository(repository: Repository):
     if os.path.exists(repository.local):
         shell(["rm", "-rf", repository.local])
-    shell(["git", "clone", repository.remote, repository.local])
+    shell(["git", "clone", repository.url, repository.local])
+
+
+def _header(msg: str) -> None:
+    print(f"\033[34;1m~~>\033[m \033[2;3m{msg}\033[m", flush=True)
+
+
+def _message(msg, error=False) -> None:
+    status, color = ("FAIL", "31") if error else ("OK", "32")
+    print(f"[\033[{color};1m{status}\033[m] {msg}", flush=True)
+
+
+def _summary(name: str, length: int, failed: Sequence[str]) -> None:
+    print(
+        f"[{name}]: "
+        f"\033[32;1m{length - len(failed)}\033[m success, "
+        f"\033[31;1m{len(failed)}\033[m failures",
+        flush=True,
+    )
+    for each in failed:
+        print(f"\t\033[2;3m{each}\033[m", flush=True)
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--copy", "-c", action="store_true")
+    parser.add_argument("--force", "-f", action="store_true")
     args = parser.parse_args(argv)
 
     # Install files.
+    fail_symlink: list[str] = []
+    _header("Symlink files...")
     for file in FILES:
-        install_file(file, symlink=not args.copy)
-        print(f"{file.source} \033[33;1m->\033[m {file.target}")
-    print()
+        name = os.path.relpath(file.source, start=here("src"))
+        try:
+            install_file(file, force=args.force)
+            _message(name, error=False)
+        except IOError:
+            fail_symlink.append(name)
+            _message(name, error=True)
+    print(flush=True)
 
     # Clone repositories.
+    fail_clone: list[str] = []
+    _header("Clone repositories...")
     for repository in REPOSITORIES:
         clone_repository(repository)
-        print(f"{repository.remote} \033[33;1m->\033[m {repository.local}")
-    print()
+        _message(repository.url)
+    print(flush=True)
 
-    line = " SUCCESS ".center(os.get_terminal_size().columns, "=")
-    print(f"\033[32;1m{line}\033[m")
-    print(f"{len(FILES)} files have been successfully copied.")
-    print(f"{len(REPOSITORIES)} repositories have been successfully cloned.")
+    line = " Summary ".center(shutil.get_terminal_size().columns, "─")
+    color = 31 if fail_symlink or fail_clone else 32
+    print(f"\033[{color};1m{line}\033[m", flush=True)
+    _summary("Symlink", len(FILES), fail_symlink)
+    _summary("Clone", len(REPOSITORIES), fail_clone)
+
     return 0
 
 
