@@ -25,6 +25,7 @@ alias tree="tree -C"
 
 # Extend $PATH.
 fish_add_path "$HOME/bin"
+fish_add_path "$HOME/.cargo/bin"
 
 # Python variables.
 set --export PIP_DISABLE_PIP_VERSION_CHECK "1"

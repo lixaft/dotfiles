@@ -1,3 +1,4 @@
+# type: ignore
 # Python Debugger configuration file.
 #
 # Description:
@@ -15,6 +16,8 @@
 #
 #   ~/.pdbrc
 #
+
+from __future__ import annotations
 
 import pdb
 import rlcompleter

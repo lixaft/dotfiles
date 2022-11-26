@@ -6,9 +6,7 @@ import os
 import shutil
 import subprocess
 import sys
-from typing import List
 from typing import NamedTuple
-from typing import Optional
 from typing import Sequence
 
 
@@ -44,7 +42,7 @@ def shell(cmd: Sequence[str]) -> tuple[int, bytes, bytes]:
     return (process.returncode, stdout, stderr)
 
 
-FILES: List[File] = [
+FILES: list[File] = [
     File(here("src/.bashrc"), home(".bashrc")),
     File(here("src/.config/bat"), home(".config/bat")),
     File(here("src/.config/fish"), home(".config/fish")),
@@ -59,7 +57,7 @@ FILES: List[File] = [
 ]
 
 
-REPOSITORIES: List[Repository] = [
+REPOSITORIES: list[Repository] = [
     Repository(
         "https://github.com/tmux-plugins/tpm",
         home(".tmux/plugins/tpm"),
@@ -117,7 +115,7 @@ def _summary(name: str, length: int, failed: Sequence[str]) -> None:
         print(f"\t\033[2;3m{each}\033[m", flush=True)
 
 
-def main(argv: Optional[Sequence[str]] = None) -> int:
+def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--force", "-f", action="store_true")
     args = parser.parse_args(argv)
@@ -130,7 +128,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         try:
             install_file(file, force=args.force)
             _message(name, error=False)
-        except IOError:
+        except OSError:
             fail_symlink.append(name)
             _message(name, error=True)
     print(flush=True)
