@@ -1,7 +1,7 @@
 local map = require("user.utilities.map")
 
 -- Mappings.
-map.normal("<leader>ps", ":NvimTreeFindFileToggle<cr>")
+map.normal("<leader>e", ":NvimTreeFindFileToggle<cr>")
 
 require("nvim-tree").setup({
     -- Completely disable netrw.

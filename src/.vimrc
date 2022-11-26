@@ -95,7 +95,7 @@ let mapleader=" "
 let maplocalleader="-"
 
 " Quickly edit and source .vimrc file.
-nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>ov :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Global folding.
@@ -110,7 +110,7 @@ nnoremap } :<c-u>execute "keepjumps norm! " . v:count1 . "}"<cr>
 nnoremap <leader>h :noh<cr>
 
 " Open explorer.
-nnoremap <leader>ps :Exp<cr>
+nnoremap <leader>e :Exp<cr>
 
 " Restore the increse number overriden by tmux.
 if exists('$TMUX')
