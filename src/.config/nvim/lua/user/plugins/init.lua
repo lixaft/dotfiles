@@ -2,6 +2,7 @@
 require("user.plugins.better_whitespace")
 require("user.plugins.cmp")
 require("user.plugins.comment")
+require("user.plugins.easy_align")
 require("user.plugins.lsp")
 require("user.plugins.lspsaga")
 require("user.plugins.lualine")

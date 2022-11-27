@@ -32,10 +32,10 @@ def home(path: str) -> str:
     return _clean(os.path.expanduser(os.path.join("~", path)))
 
 
-
-
 FILES: list[File] = [
     File(here("src/.bashrc"), home(".bashrc")),
+    File(here("src/.config/alacritty"), home(".config/alacritty")),
+    File(here("src/.config/kitty"), home(".config/kitty")),
     File(here("src/.config/bat"), home(".config/bat")),
     File(here("src/.config/fish"), home(".config/fish")),
     File(here("src/.config/nvim"), home(".config/nvim")),
@@ -124,7 +124,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         try:
             symlink_file(file, force=args.force)
             _step(name)
-        except IOError:
+        except OSError:
             fail_symlink.append(name)
             _step(name, error=True)
     print(flush=True)

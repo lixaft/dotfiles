@@ -48,7 +48,7 @@ local on_attach = function()
     -- Most of the lsp mappings are mapped on lspsaga.
     map.normal(
         "<leader>f",
-        function() vim.lsp.buf.format({ async = true }) end
+        function() vim.lsp.buf.formatting({ async = true }) end
     )
 end
 

@@ -29,6 +29,9 @@ return require("packer").startup(function(use)
     -- and more via Lua.
     use({ "jose-elias-alvarez/null-ls.nvim" })
 
+    -- A Vim alignment plugin.
+    use("junegunn/vim-easy-align")
+
     -- Display a character as the colorcolumn.
     use({ "lukas-reineke/virt-column.nvim" })
 
