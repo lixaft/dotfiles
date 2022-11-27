@@ -32,6 +32,9 @@
 [fetch]
     prune = true
 
+[init]
+	defaultBranch = main
+
 [user]
     email = lixaft@gmail.com
     name = Fabien Taxil
