@@ -108,4 +108,4 @@ style = "bright-black"
 
 [character]
 success_symbol = "[●](bright-black)"
-error_symbol = "[●](bright-black)"
+error_symbol = "[●](bright-red)"
