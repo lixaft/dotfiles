@@ -15,7 +15,7 @@
 add_newline = true
 
 format = """
-[╭─](bold black)\
+[╭─](bright-black)\
 [ ﮊ ](bg:cyan fg:black)\
 [](fg:cyan bg:none) \
 \
@@ -98,13 +98,14 @@ $shell\
 \
 [](fg:cyan bg:none)\
 [ ﮊ ](bg:cyan fg:black)
-[╰──────](bold black)\
-$character"""
+[╰──────](bright-black)\
+$character\
+"""
 
 [fill]
 symbol = "─"
-style = "bold black"
+style = "bright-black"
 
 [character]
-success_symbol = "[●](bold black)"
-error_symbol = "[●](bold red)"
+success_symbol = "[●](bright-black)"
+error_symbol = "[●](bright-black)"
