@@ -12,16 +12,16 @@ from typing import Sequence
 
 class File(NamedTuple):
     source: str
-    target: str
+    destination: str
 
 
 class Repository(NamedTuple):
     url: str
-    local: str
+    path: str
 
 
 def _clean(path: str) -> str:
-    return os.path.abspath(os.path.normpath(path))
+    return os.path.abspath(path)
 
 
 def here(path: str) -> str:
@@ -32,14 +32,6 @@ def home(path: str) -> str:
     return _clean(os.path.expanduser(os.path.join("~", path)))
 
 
-def shell(cmd: Sequence[str]) -> tuple[int, bytes, bytes]:
-    process = subprocess.Popen(
-        cmd,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-    )
-    stdout, stderr = process.communicate()
-    return (process.returncode, stdout, stderr)
 
 
 FILES: list[File] = [
@@ -69,37 +61,41 @@ REPOSITORIES: list[Repository] = [
 ]
 
 
-def install_file(file: File, force: bool = False) -> None:
-    directory = os.path.dirname(file.target)
+def symlink_file(file: File, force: bool = False) -> None:
+    directory = os.path.dirname(file.destination)
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-    if force and os.path.exists(file.target):
-        if os.path.islink(file.target):
-            os.unlink(file.target)
-        elif os.path.isdir(file.target):
-            shutil.rmtree(file.target)
+    if force and os.path.exists(file.destination):
+        if os.path.islink(file.destination):
+            os.unlink(file.destination)
+        elif os.path.isdir(file.destination):
+            shutil.rmtree(file.destination)
         else:
-            os.remove(file.target)
+            os.remove(file.destination)
 
     os.symlink(
         file.source,
-        file.target,
+        file.destination,
         target_is_directory=os.path.isdir(file.source),
     )
 
 
-def clone_repository(repository: Repository):
-    if os.path.exists(repository.local):
-        shell(["rm", "-rf", repository.local])
-    shell(["git", "clone", repository.url, repository.local])
+def clone_repository(repository: Repository, force: bool = False) -> None:
+    if force and os.path.exists(repository.path):
+        shutil.rmtree(repository.path)
+    subprocess.check_call(
+        ["git", "clone", repository.url, repository.path],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
 
 
-def _header(msg: str) -> None:
+def _task(msg: str) -> None:
     print(f"\033[34;1m~~>\033[m \033[2;3m{msg}\033[m", flush=True)
 
 
-def _message(msg, error=False) -> None:
+def _step(msg, error=False) -> None:
     status, color = ("FAIL", "31") if error else ("OK", "32")
     print(f"[\033[{color};1m{status}\033[m] {msg}", flush=True)
 
@@ -122,23 +118,27 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     # Install files.
     fail_symlink: list[str] = []
-    _header("Symlink files...")
+    _task("Symlink files...")
     for file in FILES:
         name = os.path.relpath(file.source, start=here("src"))
         try:
-            install_file(file, force=args.force)
-            _message(name, error=False)
-        except OSError:
+            symlink_file(file, force=args.force)
+            _step(name)
+        except IOError:
             fail_symlink.append(name)
-            _message(name, error=True)
+            _step(name, error=True)
     print(flush=True)
 
     # Clone repositories.
     fail_clone: list[str] = []
-    _header("Clone repositories...")
+    _task("Clone repositories...")
     for repository in REPOSITORIES:
-        clone_repository(repository)
-        _message(repository.url)
+        try:
+            clone_repository(repository, force=args.force)
+            _step(repository.url)
+        except subprocess.CalledProcessError:
+            _step(repository.url, error=True)
+
     print(flush=True)
 
     line = " Summary ".center(shutil.get_terminal_size().columns, "─")
