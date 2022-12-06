@@ -13,6 +13,7 @@ require("user.plugins.tree")
 require("user.plugins.treesitter")
 require("user.plugins.treesitter_context")
 require("user.plugins.trouble")
+require("user.plugins.undotree")
 
 -- Load simple plugins.
 require("colorizer").setup()

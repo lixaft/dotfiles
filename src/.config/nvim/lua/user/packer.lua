@@ -30,10 +30,13 @@ return require("packer").startup(function(use)
     use({ "jose-elias-alvarez/null-ls.nvim" })
 
     -- A Vim alignment plugin.
-    use("junegunn/vim-easy-align")
+    use({ "junegunn/vim-easy-align" })
 
     -- Display a character as the colorcolumn.
     use({ "lukas-reineke/virt-column.nvim" })
+
+    -- The undo history visualizer for VIM.
+    use({ "mbbill/undotree" })
 
     -- Quickstart configs for Nvim LSP.
     use({ "neovim/nvim-lspconfig" })
