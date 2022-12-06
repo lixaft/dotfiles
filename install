@@ -34,8 +34,6 @@ def home(path: str) -> str:
 
 FILES: list[File] = [
     File(here("src/.bashrc"), home(".bashrc")),
-    File(here("src/.config/alacritty"), home(".config/alacritty")),
-    File(here("src/.config/kitty"), home(".config/kitty")),
     File(here("src/.config/bat"), home(".config/bat")),
     File(here("src/.config/fish"), home(".config/fish")),
     File(here("src/.config/nvim"), home(".config/nvim")),
@@ -92,7 +90,7 @@ def clone_repository(repository: Repository, force: bool = False) -> None:
 
 
 def _task(msg: str) -> None:
-    print(f"\033[34;1m~~>\033[m \033[2;3m{msg}\033[m", flush=True)
+    print(f"\033[34;1m~~>\033[m \033[2m{msg}\033[m", flush=True)
 
 
 def _step(msg, error=False) -> None:
@@ -108,7 +106,7 @@ def _summary(name: str, length: int, failed: Sequence[str]) -> None:
         flush=True,
     )
     for each in failed:
-        print(f"\t\033[2;3m{each}\033[m", flush=True)
+        print(f"\t\033[2m{each}\033[m", flush=True)
 
 
 def main(argv: Sequence[str] | None = None) -> int:
