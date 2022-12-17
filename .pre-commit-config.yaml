@@ -9,7 +9,6 @@ repos:
       - id: debug-statements
         exclude: pdbrc
       - id: end-of-file-fixer
-      - id: requirements-txt-fixer
       - id: trailing-whitespace
   - repo: https://github.com/lunarmodules/luacheck
     rev: v1.0.0

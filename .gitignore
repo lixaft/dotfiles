@@ -1,6 +1,7 @@
 *.pyc
 *.swp
 .DS_Store
+.mypy_cache/
 src/.config/fish/completions/
 src/.config/fish/conf.d/
 src/.config/fish/fish_variables
