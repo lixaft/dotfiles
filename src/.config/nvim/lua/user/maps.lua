@@ -17,5 +17,10 @@ map.normal("<leader>s", ":set spell!<cr>")
 -- Change single quote to double quote.
 map.visual("<leader>", [[:s/'/"/g<cr>:noh<cr>]])
 
+-- Move line(s) up and down.
+map.visual("J", ":move '>+1<cr>gv=gv")
+map.visual("K", ":move '<-2<cr>gv=gv")
+
+-- Better vertical navigation.
 map.normal("<c-d>", "10j")
 map.normal("<c-u>", "10k")

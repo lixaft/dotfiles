@@ -1,7 +1,11 @@
 local cmp = require("cmp")
+
 require("cmp").setup({
     sources = {
+        { name = "buffer" },
+        { name = "luasnip" },
         { name = "nvim_lsp" },
+        { name = "path" },
     },
     window = {
         completion = {
@@ -22,17 +26,20 @@ require("cmp").setup({
         },
     },
     mapping = cmp.mapping.preset.insert({
+        ["<c-y>"] = cmp.mapping.confirm({ select = false }),
+        ["<c-e>"] = cmp.mapping.abort(),
+
+        ["<c-p>"] = cmp.mapping.select_prev_item(),
+        ["<c-n>"] = cmp.mapping.select_next_item(),
+        ["<s-tab>"] = cmp.mapping.select_prev_item(),
+        ["<tab>"] = cmp.mapping.select_next_item(),
+
         ["<c-b>"] = cmp.mapping.scroll_docs(-4),
         ["<c-f>"] = cmp.mapping.scroll_docs(4),
-        ["<c-space>"] = cmp.mapping.complete(),
-        ["<c-e>"] = cmp.mapping.abort(),
-        -- Accept currently selected item. Set `select` to `false` to only
-        -- confirm explicitly selected items.
-        -- ["<cr>"] = cmp.mapping.confirm({ select = true }),
     }),
     formatting = {
         fields = { "kind", "abbr", "menu" },
-        format = function(_, vim_item)
+        format = function(entry, item)
             local icons = {
                 Text = "",
                 Method = "",
@@ -60,12 +67,19 @@ require("cmp").setup({
                 Operator = "",
                 TypeParameter = "",
             }
-            vim_item.kind =
-                string.format("%s %s", icons[vim_item.kind], vim_item.kind)
-            local str = vim.split(vim_item.kind, "%s", { trimempty = true })
-            vim_item.kind = str[1] .. " "
-            vim_item.menu = "    (" .. str[2] .. ")"
-            return vim_item
+            local sources = {
+                path = "Path",
+                buffer = "Buffer",
+                nvim_lsp = "LSP",
+                luasnip = "LuaSnip",
+                nvim_lua = "Lua",
+                latex_symbols = "LaTeX",
+            }
+            local source = sources[entry.source.name] or entry.source.name
+
+            item.kind = icons[item.kind] or "?"
+            item.menu = "        [" .. source .. "]"
+            return item
         end,
     },
 })

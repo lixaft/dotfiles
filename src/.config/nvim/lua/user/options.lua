@@ -1,5 +1,5 @@
-require("user.utilities.option").update({
-    -- Enable mouse interactions.
+require("user.utilities.option").setup({
+    -- Enable all mouse interactions.
     mouse = "a",
 
     -- Enable true colors support.
@@ -16,6 +16,9 @@ require("user.utilities.option").update({
     colorcolumn = { "80", "100" },
     number = true,
     relativenumber = true,
+
+    -- Always display the sign column.
+    signcolumn = "yes",
 
     -- Keep a minimum number of lines above and below the cursor.
     scrolloff = 8,
@@ -34,11 +37,10 @@ require("user.utilities.option").update({
     foldnestmax = 99,
 
     -- Use the system clipboard for yank and past operations.
-    clipboard = "unnamed",
+    -- clipboard = "unnamed",
 
     -- A bit of backup, but swapfile can be annoying sometimes...
-    backup = true,
-    backupdir = os.getenv("HOME") .. "/.tmp/nvim/backupdir",
+    backup = false,
     swapfile = false,
     undodir = os.getenv("HOME") .. "/.tmp/nvim/undodir",
     undofile = true,

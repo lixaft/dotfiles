@@ -14,5 +14,6 @@ end
 M.insert = noremap("i")
 M.normal = noremap("n")
 M.visual = noremap("v")
+M.x = noremap("x")
 
 return M

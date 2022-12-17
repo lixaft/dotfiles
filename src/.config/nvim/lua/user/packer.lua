@@ -16,11 +16,17 @@ return require("packer").startup(function(use)
     -- location list to help you solve all the trouble your code is causing.
     use({ "folke/trouble.nvim" })
 
-    -- Neovim lsp plugin.
-    use({ "glepnir/lspsaga.nvim" })
+    -- nvim-cmp source for buffer words.
+    use({ "hrsh7th/cmp-buffer" })
 
     -- nvim-cmp source for neovim builtin LSP client.
     use({ "hrsh7th/cmp-nvim-lsp" })
+
+    -- nvim-cmp source for nvim lua.
+    use({ "hrsh7th/cmp-nvim-lua" })
+
+    -- nvim-cmp source for path.
+    use({ "hrsh7th/cmp-path" })
 
     -- A completion plugin for neovim coded in Lua.
     use({ "hrsh7th/nvim-cmp" })
@@ -31,6 +37,9 @@ return require("packer").startup(function(use)
 
     -- A Vim alignment plugin.
     use({ "junegunn/vim-easy-align" })
+
+    -- Snippet Engine for Neovim written in Lua.
+    use({ "L3MON4D3/LuaSnip" })
 
     -- Display a character as the colorcolumn.
     use({ "lukas-reineke/virt-column.nvim" })
@@ -76,4 +85,28 @@ return require("packer").startup(function(use)
 
     -- Show code context.
     use({ "nvim-treesitter/nvim-treesitter-context" })
+
+    -- Set of preconfigured snippets for different languages.
+    use({ "rafamadriz/friendly-snippets" })
+
+    -- luasnip completion source for nvim-cmp.
+    use({ "saadparwaiz1/cmp_luasnip" })
+
+    -- A Git wrapper so awesome, it should be illegal.
+    use({ "tpope/vim-fugitive" })
+
+    -- Getting you where you want with the fewest keystrokes.
+    use({ "theprimeagen/harpoon" })
+
+    -- A starting point to setup some lsp related features in neovim.
+    use({ "VonHeikemen/lsp-zero.nvim" })
+
+    -- Portable package manager for Neovim that runs everywhere Neovim runs.
+    -- Easily install and manage LSP servers, DAP servers, linters,
+    -- and formatters.
+    use({ "williamboman/mason.nvim" })
+
+    -- Extension to mason.nvim that makes it easier to use lspconfig with
+    -- mason.nvim. Strongly recommended for Windows users.
+    use({ "williamboman/mason-lspconfig.nvim" })
 end)
