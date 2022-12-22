@@ -1,0 +1,148 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import argparse
+import os
+import shutil
+import subprocess
+import sys
+from typing import NamedTuple
+from typing import Sequence
+
+
+class File(NamedTuple):
+    source: str
+    destination: str
+
+
+class Repository(NamedTuple):
+    url: str
+    path: str
+
+
+def here(path: str) -> str:
+    return os.path.abspath(os.path.join(os.path.dirname(__file__), path))
+
+
+def home(path: str) -> str:
+    return os.path.abspath(os.path.expanduser(os.path.join("~", path)))
+
+
+FILES: list[File] = [
+    File(here("src/.bashrc"), home(".bashrc")),
+    File(here("src/.config/bat"), home(".config/bat")),
+    File(here("src/.config/fish"), home(".config/fish")),
+    File(here("src/.config/nvim"), home(".config/nvim")),
+    File(here("src/.config/starship.toml"), home(".config/starship.toml")),
+    File(here("src/.gitconfig"), home(".gitconfig")),
+    File(here("src/.pdbrc"), home(".pdbrc")),
+    File(here("src/.pythonrc"), home(".pythonrc")),
+    File(here("src/.tmux.conf"), home(".tmux.conf")),
+    File(here("src/.vim"), home(".vim")),
+    File(here("src/.vimrc"), home(".vimrc")),
+]
+
+
+REPOSITORIES: list[Repository] = [
+    Repository(
+        "https://github.com/tmux-plugins/tpm",
+        home(".tmux/plugins/tpm"),
+    ),
+    Repository(
+        "https://github.com/wbthomason/packer.nvim",
+        home(".local/share/nvim/site/pack/packer/start/packer.nvim"),
+    ),
+]
+
+
+def symlink_file(file: File, force: bool = False) -> None:
+    directory = os.path.dirname(file.destination)
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+    if force and os.path.exists(file.destination):
+        if os.path.islink(file.destination):
+            os.unlink(file.destination)
+        elif os.path.isdir(file.destination):
+            shutil.rmtree(file.destination)
+        else:
+            os.remove(file.destination)
+
+    os.symlink(
+        file.source,
+        file.destination,
+        target_is_directory=os.path.isdir(file.source),
+    )
+
+
+def clone_repository(repository: Repository, force: bool = False) -> None:
+    if force and os.path.exists(repository.path):
+        shutil.rmtree(repository.path)
+    subprocess.check_call(
+        ["git", "clone", repository.url, repository.path],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+
+def _task(msg: str) -> None:
+    print(f"\033[34;1m~~>\033[m \033[2m{msg}\033[m", flush=True)
+
+
+def _step(msg: str, error: bool = False) -> None:
+    status, color = ("FAIL", "31") if error else ("OK", "32")
+    print(f"[\033[{color};1m{status}\033[m] {msg}", flush=True)
+
+
+def _summary(name: str, length: int, failed: Sequence[str]) -> None:
+    print(
+        f"[{name}]: "
+        f"\033[32;1m{length - len(failed)}\033[m success, "
+        f"\033[31;1m{len(failed)}\033[m failures",
+        flush=True,
+    )
+    for each in failed:
+        print(f"\t\033[2m{each}\033[m", flush=True)
+
+
+def main(argv: Sequence[str] | None = None) -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--force", "-f", action="store_true")
+    args = parser.parse_args(argv)
+
+    # Install files.
+    fail_symlink: list[str] = []
+    _task("Symlink files...")
+    for file in FILES:
+        name = os.path.relpath(file.source, start=here("src"))
+        try:
+            symlink_file(file, force=args.force)
+            _step(name)
+        except OSError:
+            fail_symlink.append(name)
+            _step(name, error=True)
+    print(flush=True)
+
+    # Clone repositories.
+    fail_clone: list[str] = []
+    _task("Clone repositories...")
+    for repository in REPOSITORIES:
+        try:
+            clone_repository(repository, force=args.force)
+            _step(repository.url)
+        except subprocess.CalledProcessError:
+            _step(repository.url, error=True)
+
+    print(flush=True)
+
+    line = " Summary ".center(shutil.get_terminal_size().columns, "─")
+    color = 31 if fail_symlink or fail_clone else 32
+    print(f"\033[{color};1m{line}\033[m", flush=True)
+    _summary("Symlink", len(FILES), fail_symlink)
+    _summary("Clone", len(REPOSITORIES), fail_clone)
+
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

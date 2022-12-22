@@ -1,0 +1,59 @@
+---
+ci:
+  autofix_commit_msg: "style(pre-commit): autofix"
+  autoupdate_commit_msg: "chore(pre-commit): autoupdate"
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-ast
+      - id: check-builtin-literals
+      - id: check-docstring-first
+      - id: check-executables-have-shebangs
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-yaml
+      - id: debug-statements
+        exclude: pdbrc
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: pretty-format-json
+      - id: trailing-whitespace
+  - repo: https://github.com/asottile/add-trailing-comma
+    rev: v2.4.0
+    hooks:
+      - id: add-trailing-comma
+        args: [--py36-plus]
+  - repo: https://github.com/pycqa/isort
+    rev: 5.11.4
+    hooks:
+      - id: isort
+  - repo: https://github.com/pre-commit/mirrors-autopep8
+    rev: v2.0.1
+    hooks:
+      - id: autopep8
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.3.1
+    hooks:
+      - id: pyupgrade
+        args: [--py38-plus]
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.0.0
+    hooks:
+      - id: flake8
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.991
+    hooks:
+      - id: mypy
+        additional_dependencies: [types-all]
+  - repo: https://github.com/JohnnyMorganz/StyLua
+    rev: v0.15.3
+    hooks:
+      - id: stylua
+  - repo: https://github.com/lunarmodules/luacheck
+    rev: v1.1.0
+    hooks:
+      - id: luacheck

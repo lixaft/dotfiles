@@ -1,0 +1,31 @@
+"""Python configuration file."""
+import readline
+import rlcompleter
+
+# Enable the completion.
+readline.parse_and_bind("tab: complete")
+del readline, rlcompleter
+
+
+# Allow to exit python using `exit` instead of `exit()`.
+try:
+    type(exit).__repr__ = type(exit).__call__
+# As `exit` is not a builtin and comes from the `site` module, in some cases it
+# will not be available (when python is run with the `-S` argument).
+except NameError:
+    pass
+
+
+def jp(*args, **kwargs):
+    """JSON style print function."""
+    import json
+
+    kwargs.setdefault("indent", 2)
+    print(json.dumps(*args, **kwargs))
+
+
+def pp(*args, **kwargs):
+    """Use PrettyPrint to print the given object."""
+    import pprint
+
+    pprint.pprint(*args, **kwargs)

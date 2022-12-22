@@ -1,0 +1,9 @@
+# type: ignore
+# Python Debugger configuration file.
+
+from __future__ import annotations
+
+import pdb
+import rlcompleter
+
+pdb.Pdb.complete = rlcompleter.Completer(locals()).complete
