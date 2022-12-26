@@ -59,5 +59,3 @@
 4. tmux is setup using [`tpm`](https://github.com/tmux-plugins/tpm). To initialize it, press `<prefix>I` (by defaults)
 5. In the same way, [neovim](https://github.com/neovim/neovim) is setup using [packer](). Run the command `PackerSync` to fetch all the plugins
 6. finally, initialize fish by typing `fisher_update`
-
-
