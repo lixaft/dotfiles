@@ -37,7 +37,7 @@
 
 - Colors - [tokyonight (night)](https://github.com/folke/tokyonight.nvim)
 - Font - [fira code](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
-- Wallpaper - [wallpaperflare](https://www.wallpaperflare.com/astronaut-space-black-background-artwork-wallpaper-gjfku)
+- Wallpaper - [wallpaperflare](https://www.wallpaperflare.com/astronaut-space-black-background-artwork-wallpaper-gjfku)[^1]
 
 
 </br>
@@ -63,3 +63,7 @@
     * [tmux](https://github.com/tmux/tmux) - initialize [tpm](https://github.com/tmux-plugins/tpm) by using `<prefix>I` hotkey
     * [fish](https://github.com/fish-shell/fish-shell) - initialize [fisher](https://github.com/jorgebucaran/fisher) by running `fisher_update` (see [config.fish](https://github.com/lixaft/dotfiles/blob/main/src/.config/fish/config.fish) for details)
     * [neovim](https://github.com/neovim/neovim) - initialize [packer](https://github.com/wbthomason/packer.nvim) using `:PackerSync` command
+
+</br>
+
+[^1]: If anyone knows the name of the artist who painted this wallpaper, please let me know and I'll update the link!
