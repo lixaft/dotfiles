@@ -65,7 +65,7 @@ If you have any suggestion, improvement or question, do not hesitate to open an 
    ```shell
    ./install
    ```
-   
+
    You will probably get errors the first time you run the script. This is because it will not delete or overwrite any existing files by default. To change this behavior, use the `--force` option (⚠ the original files will be permanently lost)
 
 4. Initialize tools
