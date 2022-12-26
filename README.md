@@ -48,19 +48,18 @@
    ```shell
    git clone https://github.com/lixaft/dotfiles
    ```
-   
+
 2. `cd` into the clonned directories
    ```shell
    cd dotfiles
    ```
-   
+
 3. Run the `install` script. In case where a file already exists you can use the `--force` option to override it (⚠️ the original files will be lost forever)
    ```shell
    ./install
    ```
-   
+
 4. Initialize tools:
     * [tmux](https://github.com/tmux/tmux) - initialize [tpm](https://github.com/tmux-plugins/tpm) by using `<prefix>I` hotkey
     * [fish](https://github.com/fish-shell/fish-shell) - initialize [fisher](https://github.com/jorgebucaran/fisher) by running `fisher_update` (see [config.fish](https://github.com/lixaft/dotfiles/blob/main/src/.config/fish/config.fish) for details)
     * [neovim](https://github.com/neovim/neovim) - initialize [packer](https://github.com/wbthomason/packer.nvim) using `:PackerSync` command
-
