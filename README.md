@@ -36,7 +36,7 @@
    ```shell
    ./install
    ```
-   
+
 4. tmux: enter tmux and fetch the plugins using `prefix+I`
 
 5. nvim: eneter nvim and execute the command: `PackerSync`
