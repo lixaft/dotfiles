@@ -5,13 +5,7 @@
 </h1>
 
 <div align="center">
-    My personal set of configuration files!
-</div>
-
-</br>
-
-<div align="center">
-    <a href="#tool">tool</a>
+    <a href="#setup">setup</a>
     ·
     <a href="#theme">theme</a>
     ·
@@ -20,16 +14,29 @@
 
 </br>
 
-
 ![preview](https://user-images.githubusercontent.com/61330762/209485333-1860e82d-f8f3-43e9-854b-353d7603005d.png)
 
-## <samp><b>tool</b></samp>
+</br>
+
+> “Look again at that dot. That's here. That's home. That's us.“ [^1]
+
+</br>
+
+This repository contains my personal configuration files (also known as [dotfiles](https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments)) for most of the programs I use on a daily basis. I mainly use macOS, but they should work on any other Unix based operating system.
+
+Feel free to try them or get inspired, but be aware that if you decide to install them as is, it will be at your own risk!
+
+If you have any suggestion, improvement or question, do not hesitate to open an issue or PR :)
+
+</br>
+
+## <samp><b>setup</b></samp>
 
 - Editor - [neovim](https://github.com/neovim/neovim)
+- Multiplexer - [tmux](https://github.com/tmux/tmux)
 - Prompt - [starship](https://github.com/starship/starship)
 - Shell - [fish](https://github.com/fish-shell/fish-shell)
 - Terminal - [iterm2](https://iterm2.com/index.html)
-- Terminal Multiplexer - [tmux](https://github.com/tmux/tmux)
 
 </br>
 
@@ -37,7 +44,7 @@
 
 - Colors - [tokyonight (night)](https://github.com/folke/tokyonight.nvim)
 - Font - [fira code](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
-- Wallpaper - [wallpaperflare](https://www.wallpaperflare.com/astronaut-space-black-background-artwork-wallpaper-gjfku)[^1]
+- Wallpaper[^2] - [wallpaperflare](https://www.wallpaperflare.com/astronaut-space-black-background-artwork-wallpaper-gjfku)
 
 
 </br>
@@ -49,21 +56,24 @@
    git clone https://github.com/lixaft/dotfiles
    ```
 
-2. `cd` into the clonned directories
+2. `cd` inside the clonned directory
    ```shell
    cd dotfiles
    ```
 
-3. Run the `install` script. In case where a file already exists you can use the `--force` option to override it (⚠️ the original files will be lost forever)
+3. Run the [install](https://github.com/lixaft/dotfiles/blob/main/install) script
    ```shell
    ./install
    ```
+   
+   You will probably get errors the first time you run the script. This is because it will not delete or overwrite any existing files by default. To change this behavior, use the `--force` option (⚠ the original files will be permanently lost)
 
-4. Initialize tools:
+4. Initialize tools
     * [tmux](https://github.com/tmux/tmux) - initialize [tpm](https://github.com/tmux-plugins/tpm) by using `<prefix>I` hotkey
     * [fish](https://github.com/fish-shell/fish-shell) - initialize [fisher](https://github.com/jorgebucaran/fisher) by running `fisher_update` (see [config.fish](https://github.com/lixaft/dotfiles/blob/main/src/.config/fish/config.fish) for details)
     * [neovim](https://github.com/neovim/neovim) - initialize [packer](https://github.com/wbthomason/packer.nvim) using `:PackerSync` command
 
 </br>
 
-[^1]: If anyone knows the name of the artist who painted this wallpaper, please let me know and I'll update the link!
+[^1]: From "Pale Blue Dot: A Vision of the Human Future in Space" by Carl Sagan
+[^2]: If anyone knows the name of the artist who painted this wallpaper, please let me know and I'll update the link!
