@@ -22,7 +22,7 @@
 
 </br>
 
-This repository contains my personal configuration files (also known as [dotfiles](https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments)) for most of the programs I use on a daily basis. I mainly use macOS, but they should work on any other Unix based operating system.
+This repository contains my personal configuration files (also known as [dotfiles](https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments)) for most of the programs I use on a daily basis. I mainly use macOS, but they should work on any other Unix-like operating system.
 
 Feel free to try them or get inspired, but be aware that if you decide to install and use them, it will be at your own risk!
 
