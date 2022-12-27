@@ -75,4 +75,4 @@ If you have any suggestion, improvement or question, do not hesitate to open an 
 </br>
 
 [^1]: From "Pale Blue Dot: A Vision of the Human Future in Space" by Carl Sagan
-[^2]: If anyone knows the name of the artist who painted this wallpaper, please let me know and I'll update the link!
+[^2]: If you know the name of the artist who painted this image, please let me know and I'll update the link!
