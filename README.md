@@ -46,7 +46,6 @@ If you have any suggestion, improvement or question, do not hesitate to open an 
 - Font - [fira code](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
 - Wallpaper[^2] - [wallpaperflare](https://www.wallpaperflare.com/astronaut-space-black-background-artwork-wallpaper-gjfku)
 
-
 </br>
 
 ## <samp><b>installation</b></samp>
