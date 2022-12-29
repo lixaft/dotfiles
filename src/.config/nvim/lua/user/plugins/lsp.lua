@@ -110,18 +110,16 @@ require("mason-lspconfig").setup_handlers({
 
                 -- LSP actions.
                 map.normal("K", vim.lsp.buf.hover, options)
-                map.normal("gd", vim.lsp.buf.definition, options)
                 map.normal("gD", vim.lsp.buf.declaration, options)
+                map.normal("gd", vim.lsp.buf.definition, options)
                 map.normal("gi", vim.lsp.buf.implementation, options)
                 map.normal("go", vim.lsp.buf.type_definition, options)
                 map.normal("gr", vim.lsp.buf.references, options)
                 map.normal("<c-k>", vim.lsp.buf.signature_help, options)
-                map.normal("gr", vim.lsp.buf.rename, options)
-                map.normal("ga", vim.lsp.buf.code_action, options)
-                map.x("<F4>", vim.lsp.buf.range_code_action, options)
+                map.normal("<leader>ca", vim.lsp.buf.code_action, options)
 
                 -- Diagnostics.
-                map.normal("gl", vim.diagnostic.open_float, options)
+                map.normal("<leader>d", vim.diagnostic.open_float, options)
                 map.normal("[d", vim.diagnostic.goto_prev, options)
                 map.normal("]d", vim.diagnostic.goto_next, options)
 
