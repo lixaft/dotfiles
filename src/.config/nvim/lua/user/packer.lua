@@ -43,9 +43,6 @@ return require("packer").startup(function(use)
     -- A Vim alignment plugin.
     use({ "junegunn/vim-easy-align" })
 
-    -- Snippet Engine for Neovim written in Lua.
-    use({ "L3MON4D3/LuaSnip" })
-
     -- Display a character as the colorcolumn.
     use({ "lukas-reineke/virt-column.nvim" })
 
