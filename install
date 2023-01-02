@@ -55,19 +55,30 @@ REPOSITORIES: list[Repository] = [
 ]
 
 
+class StepError(Exception):
+    pass
+
+
+def _delete(path: str) -> None:
+    if os.path.islink(path):
+        os.unlink(path)
+    elif os.path.isdir(path):
+        shutil.rmtree(path)
+    else:
+        os.remove(path)
+
+
 def symlink_file(file: File, force: bool = False) -> None:
+    if os.path.exists(file.destination):
+        if os.path.samefile(file.source, file.destination):
+            return
+        if not force:
+            raise StepError("Destination exists")
+        _delete(file.destination)
+
     directory = os.path.dirname(file.destination)
     if not os.path.exists(directory):
         os.makedirs(directory)
-
-    if force and os.path.exists(file.destination):
-        if os.path.islink(file.destination):
-            os.unlink(file.destination)
-        elif os.path.isdir(file.destination):
-            shutil.rmtree(file.destination)
-        else:
-            os.remove(file.destination)
-
     os.symlink(
         file.source,
         file.destination,
@@ -76,33 +87,47 @@ def symlink_file(file: File, force: bool = False) -> None:
 
 
 def clone_repository(repository: Repository, force: bool = False) -> None:
-    if force and os.path.exists(repository.path):
-        shutil.rmtree(repository.path)
-    subprocess.check_call(
-        ["git", "clone", repository.url, repository.path],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-    )
+    if os.path.exists(repository.path):
+        if not force:
+            raise StepError("Destination path exists")
+        _delete(repository.path)
+
+    try:
+        subprocess.check_call(
+            ("git", "clone", repository.url, repository.path),
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+    except subprocess.CalledProcessError:
+        raise StepError("Fail to execute the clone command")
+
+
+NORMAL = "\033[m"
+BOLD = f"{NORMAL}\033[1m"
+GRAY = f"{NORMAL}\033[2m"
+RED = f"{NORMAL}\033[31;1m"
+GREEN = f"{NORMAL}\033[32;1m"
+BLUE = f"{NORMAL}\033[34;1m"
 
 
 def _task(msg: str) -> None:
-    print(f"\033[34;1m~~>\033[m \033[2m{msg}\033[m", flush=True)
+    print(f"{BLUE}~~> {GRAY}{msg}{NORMAL}", flush=True)
 
 
 def _step(msg: str, error: bool = False) -> None:
-    status, color = ("FAIL", "31") if error else ("OK", "32")
-    print(f"[\033[{color};1m{status}\033[m] {msg}", flush=True)
+    status, color = ("FAIL", RED) if error else ("OK", GREEN)
+    print(f"[{color}{status}{NORMAL}] {msg}", flush=True)
 
 
 def _summary(name: str, length: int, failed: Sequence[str]) -> None:
     print(
         f"[{name}]: "
-        f"\033[32;1m{length - len(failed)}\033[m success, "
-        f"\033[31;1m{len(failed)}\033[m failures",
+        f"{GREEN}{length - len(failed)}{NORMAL} success, "
+        f"{RED}{len(failed)}{NORMAL} failures",
         flush=True,
     )
     for each in failed:
-        print(f"\t\033[2m{each}\033[m", flush=True)
+        print(f"\t{GRAY}{each}{NORMAL}", flush=True)
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -110,36 +135,35 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--force", "-f", action="store_true")
     args = parser.parse_args(argv)
 
-    # Install files.
-    fail_symlink: list[str] = []
+    failed_files: list[str] = []
+    failed_repositories: list[str] = []
+
     _task("Symlink files...")
     for file in FILES:
-        name = os.path.relpath(file.source, start=here("src"))
         try:
+            name = os.path.relpath(file.source, start=here("src"))
             symlink_file(file, force=args.force)
             _step(name)
-        except OSError:
-            fail_symlink.append(name)
+        except StepError:
+            failed_files.append(name)
             _step(name, error=True)
     print(flush=True)
 
-    # Clone repositories.
-    fail_clone: list[str] = []
     _task("Clone repositories...")
     for repository in REPOSITORIES:
         try:
             clone_repository(repository, force=args.force)
             _step(repository.url)
-        except subprocess.CalledProcessError:
+        except StepError:
+            failed_repositories.append(repository.url)
             _step(repository.url, error=True)
-
     print(flush=True)
 
     line = " Summary ".center(shutil.get_terminal_size().columns, "─")
-    color = 31 if fail_symlink or fail_clone else 32
-    print(f"\033[{color};1m{line}\033[m", flush=True)
-    _summary("Symlink", len(FILES), fail_symlink)
-    _summary("Clone", len(REPOSITORIES), fail_clone)
+    color = RED if failed_files or failed_repositories else GREEN
+    print(f"{color}{line}{NORMAL}", flush=True)
+    _summary("Symlink", len(FILES), failed_files)
+    _summary("Clone", len(REPOSITORIES), failed_repositories)
 
     return 0
 
