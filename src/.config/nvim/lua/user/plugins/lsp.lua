@@ -117,9 +117,10 @@ require("mason-lspconfig").setup_handlers({
                 map.normal("gr", vim.lsp.buf.references, options)
                 map.normal("<c-k>", vim.lsp.buf.signature_help, options)
                 map.normal("<leader>ca", vim.lsp.buf.code_action, options)
+                map.normal("<leader>r", vim.lsp.buf.rename, options)
 
                 -- Diagnostics.
-                map.normal("<leader>d", vim.diagnostic.open_float, options)
+                map.normal("<leader>of", vim.diagnostic.open_float, options)
                 map.normal("[d", vim.diagnostic.goto_prev, options)
                 map.normal("]d", vim.diagnostic.goto_next, options)
 
