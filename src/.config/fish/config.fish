@@ -3,9 +3,6 @@
 # Remove welcome message.
 set fish_greeting ""
 
-# Source colors.
-source "$HOME/.config/fish/themes/tokyonight_night.fish"
-
 # Define aliases.
 alias python="python3"
 alias refresh="source $HOME/.config/fish/config.fish"
@@ -62,3 +59,38 @@ function __fish_prompt_event --on-event fish_prompt
         pre-commit install &> /dev/null
     end
 end
+
+# TokyoNight color palette.
+set --local foreground "#c0caf5"
+set --local selection "#33467c"
+set --local comment "#565f89"
+set --local red "#f7768e"
+set --local orange "#ff9e64"
+set --local yellow "#e0af68"
+set --local green "#9ece6a"
+set --local purple "#9d7cd8"
+set --local cyan "#7dcfff"
+set --local pink "#bb9af7"
+
+# Syntax highlighting colors.
+set --global fish_color_normal "$foreground"
+set --global fish_color_command "$cyan"
+set --global fish_color_keyword "$pink"
+set --global fish_color_quote "$yellow"
+set --global fish_color_redirection "$foreground"
+set --global fish_color_end "$orange"
+set --global fish_color_error "$red"
+set --global fish_color_param "$purple"
+set --global fish_color_comment "$comment"
+set --global fish_color_selection --background="$selection"
+set --global fish_color_search_match --background="$selection"
+set --global fish_color_operator "$green"
+set --global fish_color_escape "$pink"
+set --global fish_color_autosuggestion "$comment"
+
+# Completion pager colors.
+set --global fish_pager_color_progress "$comment"
+set --global fish_pager_color_prefix "$cyan"
+set --global fish_pager_color_completion "$foreground"
+set --global fish_pager_color_description "$comment"
+set --global fish_pager_color_selected_background --background="$selection"
