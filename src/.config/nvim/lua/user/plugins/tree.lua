@@ -5,7 +5,7 @@ map.normal("<leader>e", ":NvimTreeFindFileToggle<cr>")
 
 require("nvim-tree").setup({
     -- Completely disable netrw.
-    disable_netrw = true,
+    disable_netrw = false,
 
     -- Will automatically open the tree when running setup if startup buffer is
     -- a directory, is empty or is unnamed. nvim-tree window will be focused.
