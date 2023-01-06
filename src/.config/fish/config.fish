@@ -22,7 +22,7 @@ if type --query "exa"
     alias ls="exa"
     alias ll="exa --long --git --group-directories-first"
     alias la="ll --all"
-    alias tree="la --tree"
+    alias tree="la --git-ignore --ignore-glob .git --tree"
 end
 
 # Replace `cat` by `bat` if available.
