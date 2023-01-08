@@ -58,10 +58,6 @@ REPOSITORIES: list[Repository] = [
 ]
 
 
-class StepError(Exception):
-    pass
-
-
 def _delete(path: str) -> None:
     if os.path.islink(path):
         os.unlink(path)
@@ -122,50 +118,54 @@ class Step(NamedTuple):
     kwargs: dict[str, Any]
 
 
+class _TaskResult:
+    def __init__(self) -> None:
+        self.ok: list[Step] = []
+        self.fail: list[Step] = []
+
+
 class Runner:
 
     def __init__(self) -> None:
-        self._executed: dict[str, dict[str, list[Step]]] = {}
-        self._global_success = True
+        self._results: dict[str, _TaskResult] = {}
+        self._global_ok = True
 
     def run_task(self, name: str, steps: Iterable[Step]) -> None:
         print(f"{BLUE}~~> {GRAY}{name}...{NORMAL}", flush=True)
+        result = _TaskResult()
         for step in steps:
-            result = step.func(*step.args, **step.kwargs)
+            ret = step.func(*step.args, **step.kwargs)
 
-            if result:
+            if ret:
+                result.fail.append(step)
                 color = RED
-                status = "FAIL"
-                self._global_success = False
+                text = "FAIL"
+                self._global_ok = False
             else:
+                result.ok.append(step)
                 color = GREEN
-                status = "OK"
+                text = "OK"
 
-            print(f"[{color}{status}{NORMAL}] {step.name}", flush=True)
-            self._executed.setdefault(name, {}).setdefault(
-                status, [],
-            ).append(step)
+            print(f"[{color}{text}{NORMAL}] {step.name}", flush=True)
 
+        self._results[name] = result
         print("", flush=True)
 
     def summary(self) -> None:
         line = " Summary ".center(shutil.get_terminal_size().columns, "─")
         print(
-            f"{GREEN if {self._global_success} else RED}{line}{NORMAL}",
+            f"{GREEN if {self._global_ok} else RED}{line}{NORMAL}",
             flush=True,
         )
 
-        for task, data in self._executed.items():
-            ok = data.get("OK", [])
-            fail = data.get("FAIL", [])
-
+        for task, result in self._results.items():
             print(
                 f"[{task}]: "
-                f"{GREEN}{len(ok)}{NORMAL} success, "
-                f"{RED}{len(fail)}{NORMAL} failures",
+                f"{GREEN}{len(result.ok)}{NORMAL} ok, "
+                f"{RED}{len(result.fail)}{NORMAL} fail",
                 flush=True,
             )
-            for step in fail:
+            for step in result.fail:
                 print(f"\t{GRAY}{step.name}{NORMAL}", flush=True)
 
 
