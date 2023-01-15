@@ -17,6 +17,12 @@ fish_add_path "/usr/local/sbin"
 set --export PIP_DISABLE_PIP_VERSION_CHECK "1"
 set --export PYTHONSTARTUP "$HOME/.pythonrc"
 
+# Implement the equivalant of `!!`.
+function __bang_bang
+    echo $history[1]
+end
+abbr --add !! --position anywhere --function __bang_bang
+
 # Replace `ls` by `exa` if available.
 if type --query "exa"
     alias ls="exa"
