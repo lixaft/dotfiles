@@ -48,6 +48,6 @@ require("nvim-tree").setup({
         adaptive_size = true,
 
         -- Print the line number in front of each line.
-        number = true,
+        number = false,
     },
 })
