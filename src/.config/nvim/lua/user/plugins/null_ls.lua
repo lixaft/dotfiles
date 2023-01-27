@@ -26,5 +26,8 @@ null_ls.setup({
                 "--profile=black",
             },
         }),
+
+        -- Cmake.
+        null_ls.builtins.formatting.gersemi,
     },
 })
