@@ -130,7 +130,7 @@ class Runner:
         self._global_ok = True
 
     def run_task(self, name: str, steps: Iterable[Step]) -> None:
-        print(f"{BLUE}~~> {GRAY}{name}...{NORMAL}", flush=True)
+        print(f"{BLUE}~~> {BOLD}{name}...{NORMAL}", flush=True)
         result = _TaskResult()
         for step in steps:
             ret = step.func(*step.args, **step.kwargs)
