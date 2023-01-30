@@ -5,8 +5,10 @@
 
 [alias]
     git = !git
-    plog = log --graph --abbrev-commit --decorate --format=format:'%C(bold yellow)%h%C(reset) - %C(bold blue)(%ar)%C(reset) %s %C(bold black)%an%C(reset)%C(bold green)%d%C(reset)'
-    tree = !git ls-tree -r --name-only HEAD | tree --fromfile -C
+    l = !git ll -16
+    ll = log --all --topo-order --abbrev-commit --date=relative --pretty='%C(bold red)%h%C(reset) - %s %C(bold yellow)%d%C(reset) %C(bold green)(%cr) %C(bold blue)<%an>%C(reset)'
+    oops = commit --amend --no-edit
+    undo = reset --soft HEAD^
 
 [color]
     ui = true
@@ -18,11 +20,17 @@
 [completion]
     commands = -gitk
 
+[diff]
+    tool = nvimdiff
+
 [fetch]
     prune = true
 
 [init]
 	defaultBranch = main
+
+[merge]
+	tool = nvimdiff3
 
 [user]
     email = lixaft@gmail.com
