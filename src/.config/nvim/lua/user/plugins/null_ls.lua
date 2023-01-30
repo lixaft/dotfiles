@@ -29,5 +29,8 @@ null_ls.setup({
 
         -- Cmake.
         null_ls.builtins.formatting.gersemi,
+
+        -- C++.
+        null_ls.builtins.diagnostics.cpplint,
     },
 })
