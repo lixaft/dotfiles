@@ -4,6 +4,7 @@
 set fish_greeting ""
 
 # Define aliases.
+alias less="less -R"
 alias python="python3"
 alias refresh="source $HOME/.config/fish/config.fish"
 alias tree="tree -C"
