@@ -7,10 +7,6 @@ require("nvim-tree").setup({
     -- Completely disable netrw.
     disable_netrw = false,
 
-    -- Will automatically open the tree when running setup if startup buffer is
-    -- a directory, is empty or is unnamed. nvim-tree window will be focused.
-    open_on_setup = true,
-
     -- Opens in place of the unnamed buffer if it's empty.
     hijack_unnamed_buffer_when_opening = true,
 
@@ -51,3 +47,17 @@ require("nvim-tree").setup({
         number = false,
     },
 })
+
+-- Open on startup.
+local function open_nvim_tree(data)
+    local is_directory = vim.fn.isdirectory(data.file) == 1
+    local is_no = data.file == "" and vim.bo[data.buf].buftype == ""
+
+    if not is_no and not is_directory then return end
+
+    if is_directory then vim.cmd.cd(data.file) end
+
+    require("nvim-tree.api").tree.open()
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
