@@ -7,7 +7,7 @@ null_ls.setup({
         null_ls.builtins.formatting.stylua.with({
             extra_args = {
                 "--call-parentheses=Always",
-                "--collapse-simple-statement=Always",
+                "--collapse-simple-statement=Never",
                 "--column-width=79",
                 "--indent-type=Spaces",
                 "--indent-width=4",

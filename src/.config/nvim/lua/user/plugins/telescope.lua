@@ -9,8 +9,12 @@ table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!.git/*")
 
 -- Define hotkeys.
-map.normal("<c-p>", function() telescope_builtin.find_files() end)
-map.normal("<c-g>", function() telescope_builtin.live_grep() end)
+map.normal("<c-p>", function()
+    telescope_builtin.find_files()
+end)
+map.normal("<c-g>", function()
+    telescope_builtin.live_grep()
+end)
 
 telescope.setup({
 
