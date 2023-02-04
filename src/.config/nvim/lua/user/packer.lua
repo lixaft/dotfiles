@@ -94,14 +94,8 @@ return require("packer").startup(function(use)
     -- luasnip completion source for nvim-cmp.
     use({ "saadparwaiz1/cmp_luasnip" })
 
-    -- A Git wrapper so awesome, it should be illegal.
-    use({ "tpope/vim-fugitive" })
-
     -- Getting you where you want with the fewest keystrokes.
     use({ "theprimeagen/harpoon" })
-
-    -- A starting point to setup some lsp related features in neovim.
-    use({ "VonHeikemen/lsp-zero.nvim" })
 
     -- Portable package manager for Neovim that runs everywhere Neovim runs.
     -- Easily install and manage LSP servers, DAP servers, linters,
