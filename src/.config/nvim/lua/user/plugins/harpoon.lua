@@ -1,19 +1,52 @@
-local map = require("user.utilities.map")
-local mark = require("harpoon.mark")
-local ui = require("harpoon.ui")
+-- Getting you where you want with the fewest keystrokes.
+--
+-- https://github.com/ThePrimeagen/harpoon
 
-map.normal("<leader>a", mark.add_file)
-map.normal("<leader>0", ui.toggle_quick_menu)
-
-map.normal("<leader>1", function()
-    ui.nav_file(1)
-end)
-map.normal("<leader>2", function()
-    ui.nav_file(2)
-end)
-map.normal("<leader>3", function()
-    ui.nav_file(3)
-end)
-map.normal("<leader>4", function()
-    ui.nav_file(4)
-end)
+return {
+  "ThePrimeagen/harpoon",
+  lazy = true,
+  keys = {
+    {
+      "<leader>a",
+      function()
+        require("harpoon.mark").add_file()
+      end,
+      desc = "Add the current file",
+    },
+    {
+      "<leader>0",
+      function()
+        require("harpoon.ui").toggle_quick_menu()
+      end,
+      desc = "Open the harpoon menu",
+    },
+    {
+      "<leader>1",
+      function()
+        require("harpoon.ui").nav_file(1)
+      end,
+      desc = "Add the current file",
+    },
+    {
+      "<leader>2",
+      function()
+        require("harpoon.ui").nav_file(2)
+      end,
+      desc = "Add the current file",
+    },
+    {
+      "<leader>3",
+      function()
+        require("harpoon.ui").nav_file(3)
+      end,
+      desc = "Add the current file",
+    },
+    {
+      "<leader>3",
+      function()
+        require("harpoon.ui").nav_file(4)
+      end,
+      desc = "Add the current file",
+    },
+  },
+}

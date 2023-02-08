@@ -51,8 +51,8 @@ REPOSITORIES: list[Repository] = [
         home(".tmux/plugins/tpm"),
     ),
     Repository(
-        "https://github.com/wbthomason/packer.nvim",
-        home(".local/share/nvim/site/pack/packer/start/packer.nvim"),
+        "https://github.com/folke/lazy.nvim",
+        home(".local/share/nvim/lazy/lazy.nvim"),
     ),
 ]
 
