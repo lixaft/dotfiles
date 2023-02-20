@@ -70,7 +70,6 @@ If you have any suggestion, improvement or question, do not hesitate to open an 
 4. Initialize tools
     * [bat](https://github.com/sharkdp/bat) - update the cache using `bat cache --build`
     * [fish](https://github.com/fish-shell/fish-shell) - initialize [fisher](https://github.com/jorgebucaran/fisher) by running `fisher_update` (see [config.fish](https://github.com/lixaft/dotfiles/blob/main/src/.config/fish/config.fish) for details)
-    * [neovim](https://github.com/neovim/neovim) - initialize [packer](https://github.com/wbthomason/packer.nvim) using `:PackerSync` command
     * [tmux](https://github.com/tmux/tmux) - initialize [tpm](https://github.com/tmux-plugins/tpm) by using `<prefix>I` hotkey
 
 </br>
