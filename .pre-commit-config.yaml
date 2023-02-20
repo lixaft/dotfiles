@@ -20,7 +20,6 @@ repos:
         exclude: pdbrc
       - id: end-of-file-fixer
       - id: mixed-line-ending
-      - id: pretty-format-json
       - id: trailing-whitespace
   - repo: https://github.com/asottile/add-trailing-comma
     rev: v2.4.0
