@@ -55,12 +55,6 @@ if type --query "starship"
     starship init fish | source
 end
 
-# Setup fisher.
-function fisher_update
-    curl -sL https://git.io/fisher | source
-    fisher update
-end
-
 # Automatially run `pre-commit install`.
 function __fish_prompt_event --on-event fish_prompt
     if test -e ".git" && type --query pre-commit && test -e ".pre-commit-config.yaml"
