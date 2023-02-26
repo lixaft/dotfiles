@@ -4,13 +4,13 @@
 set fish_greeting ""
 
 # Define aliases.
+alias tree="tree -C"
 alias less="less -R"
 alias python="python3"
 alias refresh="source $HOME/.config/fish/config.fish"
-alias tree="tree -C"
 
 # Extend $PATH.
-fish_add_path "$HOME/bin"
+fish_add_path "$HOME/.local/bin"
 fish_add_path "$HOME/.cargo/bin"
 fish_add_path "/usr/local/sbin"
 
@@ -20,15 +20,21 @@ set --export PYTHONSTARTUP "$HOME/.pythonrc"
 
 # Implement the equivalant of `!!`.
 function __bang_bang
-    echo $history[1]
+    echo -- "$history[1]"
 end
-abbr --add !! --position anywhere --function __bang_bang
+abbr --add "!!" --position anywhere --function __bang_bang
+
+# Quick `cd -`.
+function __cd_minus
+    echo -- "cd -"
+end
+abbr --add "-" --position command --function __cd_minus
 
 # Replace `ls` by `exa` if available.
 if type --query "exa"
     alias ls="exa"
     alias ll="exa --long --git --group-directories-first"
-    alias la="ll --all"
+    alias la="exa --long --git --group-directories-first --all"
     alias tree="exa --group-directories-first --git --all --tree"
 end
 
