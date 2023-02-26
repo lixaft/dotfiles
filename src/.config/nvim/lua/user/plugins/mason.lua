@@ -10,6 +10,7 @@ return {
     { "<leader>om", "<cmd>Mason<cr>", desc = "Open mason" },
   },
   opts = {
+    log_level = vim.log.levels.DEBUG,
     ui = {
       -- Whether to automatically check for new versions when opening the
       -- :mason window.

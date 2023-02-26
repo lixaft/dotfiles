@@ -8,11 +8,23 @@ return {
   "ggandor/leap.nvim",
   lazy = true,
   keys = {
-    { "<c-l>", "<Plug>(leap-forward-till)", desc = "Leap forward" },
-    { "<c-h>", "<Plug>(leap-backward-till)", desc = "Leap backward" },
+    {
+      "<c-l>",
+      function()
+        require("leap").leap({})
+      end,
+      desc = "Leap forward",
+    },
+    {
+      "<c-h>",
+      function()
+        require("leap").leap({ backward = true })
+      end,
+      desc = "Leap forward",
+    },
+    -- { "<c-h>", "<Plug>(leap-backward-till)", desc = "Leap backward" },
   },
   dependencies = {
-    "ggandor/flit.nvim",
     "tpope/vim-repeat",
   },
 }

@@ -2,34 +2,30 @@
 --
 -- https://github.com/nvim-telescope/telescope.nvim
 
+local function cmd(name)
+  return "<cmd>Telescope " .. name .. "<cr>"
+end
+
 return {
   "nvim-telescope/telescope.nvim",
   lazy = true,
   cmd = "Telescope",
   keys = {
     -- File pickers.
-    { "<c-p>", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-    { "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Grep" },
+    { "<c-p>", cmd("find_files"), desc = "Find files" },
+    { "<leader>/", cmd("live_grep"), desc = "Grep files" },
 
     -- Vim pickers.
-    { "<leader>sc", "<cmd>Telescope commands<cr>", desc = "Commands" },
-    { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
-    { "<leader>st", "<cmd>Telescope colorscheme<cr>", desc = "Pick colors" },
-    { "<leader>sr", "<cmd>Telescope registers<cr>", desc = "Copy register" },
-    { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "List keymaps" },
-    { "<leader>sl", "<cmd>Telescope filetypes<cr>", desc = "Select language" },
+    { "<leader>sc", cmd("commands"), desc = "Find commands" },
+    { "<leader>sh", cmd("help_tags"), desc = "Help Pages" },
+    { "<leader>st", cmd("colorscheme"), desc = "Pick colorscheme" },
+    { "<leader>sr", cmd("registers"), desc = "Copy register" },
+    { "<leader>sk", cmd("keymaps"), desc = "List keymaps" },
+    { "<leader>sl", cmd("filetypes"), desc = "Select language" },
 
     -- LSP pickers.
-    {
-      "<leader>sd",
-      "<cmd>Telescope lsp_document_symbols<cr>",
-      desc = "Pick document symbol",
-    },
-    {
-      "<leader>:",
-      "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-      desc = "Pick project symbol",
-    },
+    { "<leader>sl", cmd("lsp_references"), desc = "Find references" },
+    { "<leader>sd", cmd("diagnostics"), desc = "List diagnostics" },
   },
   opts = {
     defaults = {
@@ -70,7 +66,13 @@ return {
 
       -- Search for a string and get results live as you type, respects
       -- .gitignore.
-      live_grep = {},
+      live_grep = {
+        additional_args = {
+          "--hidden",
+          "--glob",
+          "!**/.git/*",
+        },
+      },
     },
   },
 }

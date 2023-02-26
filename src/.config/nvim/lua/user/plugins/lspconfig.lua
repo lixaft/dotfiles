@@ -74,7 +74,7 @@ return {
       function(server_name)
         require("lspconfig")[server_name].setup({
           settings = opts.servers[server_name] or {},
-          -- capabilities = require("cmp_nvim_lsp").default_capabilities(),
+          capabilities = require("cmp_nvim_lsp").default_capabilities(),
           on_attach = function(_, buffer)
             local options = { buffer = buffer }
 
