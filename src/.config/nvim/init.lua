@@ -1,3 +1,3 @@
 -- Neovim configuration file.
 
-require("user")
+require("lixaft")

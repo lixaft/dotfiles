@@ -1,4 +1,4 @@
-require("user.utilities.option").setup({
+require("lixaft.utilities.option").setup({
   -- Enable all mouse interactions.
   mouse = "a",
 

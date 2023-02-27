@@ -68,7 +68,7 @@ return {
       vim.fn.sign_define(hl, { text = text, texthl = hl, numhl = hl })
     end
 
-    local map = require("user.utilities.map")
+    local map = require("lixaft.utilities.map")
 
     require("mason-lspconfig").setup_handlers({
       function(server_name)

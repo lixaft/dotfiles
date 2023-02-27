@@ -21,7 +21,7 @@ return {
     { "<leader>st", cmd("colorscheme"), desc = "Pick colorscheme" },
     { "<leader>sr", cmd("registers"), desc = "Copy register" },
     { "<leader>sk", cmd("keymaps"), desc = "List keymaps" },
-    { "<leader>sl", cmd("filetypes"), desc = "Select language" },
+    { "<leader>sf", cmd("filetypes"), desc = "Select language" },
 
     -- LSP pickers.
     { "<leader>sl", cmd("lsp_references"), desc = "Find references" },

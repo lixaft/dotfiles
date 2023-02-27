@@ -1,4 +1,4 @@
-local map = require("user.utilities.map")
+local map = require("lixaft.utilities.map")
 
 -- Set the leader key on the space bar, laziness is the key!
 vim.g.mapleader = " " -- luacheck: ignore
