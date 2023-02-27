@@ -37,7 +37,7 @@ FILES: list[File] = [
     File(here("src/.config/nvim"), home(".config/nvim")),
     File(here("src/.config/starship.toml"), home(".config/starship.toml")),
     File(here("src/.config/tmux"), home(".config/tmux")),
-    File(here("src/.gitconfig"), home(".gitconfig")),
+    File(here("src/.config/git"), home(".config/git")),
     File(here("src/.pdbrc"), home(".pdbrc")),
     File(here("src/.pythonrc"), home(".pythonrc")),
     File(here("src/.vim"), home(".vim")),
