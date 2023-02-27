@@ -10,8 +10,8 @@ return {
       "ansiblels",
       "clangd",
       "jedi_language_server",
+      "lua_ls",
       "rust_analyzer",
-      "sumneko_lua",
     },
   },
 }

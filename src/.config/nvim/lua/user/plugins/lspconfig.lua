@@ -41,7 +41,7 @@ return {
     },
 
     servers = {
-      sumneko_lua = {
+      lua_ls = {
         Lua = {
           diagnostics = {
             enable = false,
