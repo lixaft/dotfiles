@@ -5,10 +5,12 @@
 
 [alias]
     git = !git
-    l = !git ll -16
+    l = ll -16
     ll = log --abbrev-commit --date=relative --pretty='%C(bold red)%h%C(reset) - %s %C(bold yellow)%d%C(reset) %C(bold green)(%cr) %C(bold blue)<%an>%C(reset)'
     oops = commit --amend --no-edit
     undo = reset --soft HEAD^
+    fuck = reset --hard HEAD
+    yolo = push --force-with-lease origin HEAD
 
 [color]
     ui = true
