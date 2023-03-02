@@ -28,11 +28,17 @@
 [fetch]
     prune = true
 
+[grep]
+    extendedRegexp = true
+
 [init]
 	defaultBranch = main
 
 [merge]
 	tool = nvimdiff
+
+[url "git@github.com:"]
+    insteadOf = gh:
 
 [user]
     email = lixaft@gmail.com
