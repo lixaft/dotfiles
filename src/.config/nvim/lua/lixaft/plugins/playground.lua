@@ -10,6 +10,11 @@ return {
       "<cmd>TSPlaygroundToggle<cr>",
       desc = "Toggle Treesitter Playground",
     },
+    {
+      "<leader>P",
+      "<cmd>TSHighlightCapturesUnderCursor<cr>",
+      desc = "Show the hightlight group under cursor",
+    },
   },
   require = {
     "nvim-treesitter/nvim-treesitter",
