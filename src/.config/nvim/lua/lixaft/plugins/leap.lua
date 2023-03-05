@@ -20,9 +20,8 @@ return {
       function()
         require("leap").leap({ backward = true })
       end,
-      desc = "Leap forward",
+      desc = "Leap backward",
     },
-    -- { "<c-h>", "<Plug>(leap-backward-till)", desc = "Leap backward" },
   },
   dependencies = {
     "tpope/vim-repeat",
