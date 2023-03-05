@@ -1,5 +1,7 @@
+; extends
+
 ; Module docstring.
-(module . (expression_statement (string) @comment))
+(module (comment)? . (expression_statement (string) @comment))
 
 ; Class docstring.
 (class_definition
