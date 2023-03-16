@@ -7,8 +7,12 @@ return {
   "williamboman/mason-lspconfig.nvim",
   opts = {
     ensure_installed = {
-      "ansiblels",
+      "bashls",
       "clangd",
+      "cmake",
+      "cssls",
+      "dockerls",
+      "html",
       "jedi_language_server",
       "lua_ls",
       "rust_analyzer",

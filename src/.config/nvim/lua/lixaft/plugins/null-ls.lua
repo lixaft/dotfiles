@@ -26,7 +26,7 @@ return {
         }),
 
         -- Python.
-        null_ls.builtins.diagnostics.ruff,
+        null_ls.builtins.diagnostics.flake8,
         null_ls.builtins.diagnostics.mypy,
         null_ls.builtins.formatting.autopep8,
         null_ls.builtins.formatting.isort.with({
@@ -39,8 +39,12 @@ return {
         -- Cmake.
         null_ls.builtins.formatting.gersemi,
 
-        -- C++.
+        -- C/C++.
         null_ls.builtins.diagnostics.cpplint,
+        null_ls.builtins.formatting.clang_format,
+
+        -- Well, let's say a lot.
+        null_ls.builtins.formatting.prettier,
       },
     }
   end,

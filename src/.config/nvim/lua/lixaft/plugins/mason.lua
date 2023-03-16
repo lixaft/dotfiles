@@ -39,5 +39,28 @@ return {
         apply_language_filter = "<c-f>",
       },
     },
+    ensure_installed = {
+      "autopep8",
+      "clang-format",
+      "cpplint",
+      "flake8",
+      "gersemi",
+      "isort",
+      "luacheck",
+      "mypy",
+      "prettier",
+      "stylua",
+    },
   },
+  config = function(_, opts)
+    require("mason").setup(opts)
+    local registry = require("mason-registry")
+
+    for _, name in ipairs(opts.ensure_installed) do
+      local package = registry.get_package(name)
+      if not package:is_installed() then
+        package:install()
+      end
+    end
+  end,
 }

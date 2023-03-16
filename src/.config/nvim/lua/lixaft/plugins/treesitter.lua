@@ -1,4 +1,4 @@
--- Nvim Treesitter configurations and abstraction layer
+-- Nvim Treesitter configurations and abstraction layer.
 --
 -- https://github.com/nvim-treesitter/nvim-treesitter
 
