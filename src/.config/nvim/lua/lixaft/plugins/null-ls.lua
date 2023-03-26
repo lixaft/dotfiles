@@ -11,6 +11,9 @@ return {
     local null_ls = require("null-ls")
     return {
       sources = {
+        -- Shell.
+        null_ls.builtins.formatting.shfmt,
+
         -- Lua.
         null_ls.builtins.diagnostics.luacheck,
         null_ls.builtins.formatting.stylua.with({

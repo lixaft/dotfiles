@@ -14,37 +14,30 @@ return {
       desc = "Add the current file",
     },
     {
-      "<leader>0",
+      "<c-h>",
       function()
         require("harpoon.ui").toggle_quick_menu()
       end,
       desc = "Open the harpoon menu",
     },
     {
-      "<leader>1",
+      "<c-j>",
       function()
         require("harpoon.ui").nav_file(1)
       end,
       desc = "Add the current file",
     },
     {
-      "<leader>2",
+      "<c-k>",
       function()
         require("harpoon.ui").nav_file(2)
       end,
       desc = "Add the current file",
     },
     {
-      "<leader>3",
+      "<c-l>",
       function()
         require("harpoon.ui").nav_file(3)
-      end,
-      desc = "Add the current file",
-    },
-    {
-      "<leader>3",
-      function()
-        require("harpoon.ui").nav_file(4)
       end,
       desc = "Add the current file",
     },

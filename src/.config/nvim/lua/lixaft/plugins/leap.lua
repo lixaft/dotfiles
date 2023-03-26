@@ -9,14 +9,14 @@ return {
   lazy = true,
   keys = {
     {
-      "<c-l>",
+      "<c-f>",
       function()
         require("leap").leap({})
       end,
       desc = "Leap forward",
     },
     {
-      "<c-h>",
+      "<c-b>",
       function()
         require("leap").leap({ backward = true })
       end,

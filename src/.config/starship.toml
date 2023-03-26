@@ -91,7 +91,7 @@ $shell\
 \
 [](fg:blue bg:none)\
 [ ◍ ](bg:blue fg:black)\
-[](fg:blue bg:none)
+[ ](fg:blue bg:none)
 [╰───────](bright-black)\
 $character\
 """

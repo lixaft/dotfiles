@@ -85,7 +85,7 @@ return {
             map.normal("gi", vim.lsp.buf.implementation, options)
             map.normal("go", vim.lsp.buf.type_definition, options)
             map.normal("gr", vim.lsp.buf.references, options)
-            map.normal("<c-k>", vim.lsp.buf.signature_help, options)
+            -- map.normal("<c-k>", vim.lsp.buf.signature_help, options)
             map.normal("<leader>ca", vim.lsp.buf.code_action, options)
             map.normal("<leader>r", vim.lsp.buf.rename, options)
 

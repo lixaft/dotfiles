@@ -10,6 +10,13 @@ require("lazy").setup({
   ui = {
     border = "rounded",
   },
+  dev = {
+    path = "~/dev",
+  },
+  install = {
+    missing = true,
+    colorscheme = { "tokyonight" },
+  },
   change_detection = {
     enable = true,
     notify = false,

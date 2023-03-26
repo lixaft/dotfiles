@@ -15,7 +15,7 @@ alias tree="tree -C"
 alias vim="nvim"
 
 # Extend $PATH.
-export PATH+=":$HOME/bin"
+export PATH+=":$HOME/.local/bin"
 export PATH+=":$HOME/.cargo/bin"
 
 # Python variables.
@@ -23,4 +23,6 @@ export PIP_DISABLE_PIP_VERSION_CHECK=1
 export PYTHONSTARTUP="$HOME/.pythonrc"
 
 # Initialize starship.
-eval "$(starship init bash)"
+if [[ -x "$(command -v starship)" ]]; then
+    eval "$(starship init bash)"
+fi

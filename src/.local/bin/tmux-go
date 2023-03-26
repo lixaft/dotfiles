@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+dirs=(
+	"$HOME/dev"
+)
+dir="$(find ${dirs[@]} -mindepth 1 -maxdepth 1 -type d | fzf)"
+name="$(basename "$dir" | tr "." "_")"
+
+if ! tmux has-session -t="$name" 2>"/dev/null"; then
+	tmux new-session -d -s "$name" -c "$dir"
+fi
+
+if [[ -z "$TMUX" ]]; then
+	tmux attach-session -t "$name"
+else
+	tmux switch-client -t "$name"
+fi

@@ -49,6 +49,7 @@ return {
       "luacheck",
       "mypy",
       "prettier",
+      "shfmt",
       "stylua",
     },
   },

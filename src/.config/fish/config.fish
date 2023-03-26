@@ -11,8 +11,6 @@ alias refresh="source $HOME/.config/fish/config.fish"
 
 # Extend $PATH.
 fish_add_path "$HOME/.local/bin"
-fish_add_path "$HOME/.cargo/bin"
-fish_add_path "/usr/local/sbin"
 
 # Python variables.
 set --export PIP_DISABLE_PIP_VERSION_CHECK "1"
@@ -29,6 +27,9 @@ function __cd_minus
     echo -- "cd -"
 end
 abbr --add "-" --position command --function __cd_minus
+
+# Tmux go binding.
+bind \cs "tmux-go; commandline -f execute"
 
 # Replace `ls` by `exa` if available.
 if type --query "exa"
@@ -61,6 +62,15 @@ if type --query "starship"
     starship init fish | source
 end
 
+# Quicly return to the tmux session path.
+function t
+    if not test -z $TMUX
+        cd (tmux display-message -p "#{session_path}")
+    else
+        echo not in a tmux session
+    end
+end
+
 # Automatially run `pre-commit install`.
 function __fish_prompt_event --on-event fish_prompt
     if test -e ".git" && type --query pre-commit && test -e ".pre-commit-config.yaml"
@@ -69,16 +79,18 @@ function __fish_prompt_event --on-event fish_prompt
 end
 
 # TokyoNight color palette.
+set --local background "#1a1b26"
 set --local foreground "#c0caf5"
 set --local selection "#33467c"
 set --local comment "#565f89"
-set --local red "#f7768e"
-set --local orange "#ff9e64"
-set --local yellow "#e0af68"
-set --local green "#9ece6a"
-set --local purple "#9d7cd8"
+set --local blue "#7aa2f7"
 set --local cyan "#7dcfff"
+set --local green "#9ece6a"
+set --local orange "#ff9e64"
 set --local pink "#bb9af7"
+set --local purple "#9d7cd8"
+set --local red "#f7768e"
+set --local yellow "#e0af68"
 
 # Syntax highlighting colors.
 set --global fish_color_normal "$foreground"
@@ -102,3 +114,21 @@ set --global fish_pager_color_prefix "$cyan"
 set --global fish_pager_color_completion "$foreground"
 set --global fish_pager_color_description "$comment"
 set --global fish_pager_color_selected_background --background="$selection"
+
+# Setup `fzf` colorscheme.
+set --export FZF_DEFAULT_OPTS "
+    $FZF_DEFAULT_OPTS
+    --color bg+:-1
+    --color bg:-1
+    --color border:$comment
+    --color fg+:$foreground
+    --color fg:$foreground
+    --color header:$comment
+    --color hl+:$blue
+    --color hl:$blue
+    --color info:$comment
+    --color marker:$green
+    --color pointer:$purple
+    --color prompt:$comment
+    --color spinner:$comment
+"

@@ -21,6 +21,14 @@ return {
         left = "",
         right = "",
       },
+
+      disabled_filetypes = {
+        statusline = {
+          "neo-tree",
+          "Trouble",
+        },
+        winbar = {},
+      },
     },
 
     -- Available components:

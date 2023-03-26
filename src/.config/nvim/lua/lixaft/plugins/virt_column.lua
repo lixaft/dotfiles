@@ -4,8 +4,7 @@
 
 return {
   "lukas-reineke/virt-column.nvim",
-  lazy = true,
-  event = { "BufReadPost", "BufNewFile" },
+  lazy = false,
   opts = {
     char = "│",
   },
