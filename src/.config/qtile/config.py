@@ -73,16 +73,16 @@ keys = [
     Key([SUPER], "k", lazy.layout.up(), desc="Focus up"),
 
     # Move window.
-    Key([SUPER, SHIFT], "h", lazy.layout.shuffle_left(), desc="Move left"),
-    Key([SUPER, SHIFT], "l", lazy.layout.shuffle_right(), desc="Move right"),
-    Key([SUPER, SHIFT], "j", lazy.layout.shuffle_down(), desc="Move down"),
-    Key([SUPER, SHIFT], "k", lazy.layout.shuffle_up(), desc="Move up"),
+    Key([SUPER, CTRL], "h", lazy.layout.shuffle_left(), desc="Move left"),
+    Key([SUPER, CTRL], "l", lazy.layout.shuffle_right(), desc="Move right"),
+    Key([SUPER, CTRL], "j", lazy.layout.shuffle_down(), desc="Move down"),
+    Key([SUPER, CTRL], "k", lazy.layout.shuffle_up(), desc="Move up"),
 
     # Resize window.
-    Key([SUPER, CTRL], "h", lazy.layout.grow_left(), desc="Grow left"),
-    Key([SUPER, CTRL], "l", lazy.layout.grow_right(), desc="Grow right"),
-    Key([SUPER, CTRL], "j", lazy.layout.grow_down(), desc="Grow down"),
-    Key([SUPER, CTRL], "k", lazy.layout.grow_up(), desc="Grow up"),
+    Key([SUPER, SHIFT], "h", lazy.layout.grow_left(), desc="Grow left"),
+    Key([SUPER, SHIFT], "l", lazy.layout.grow_right(), desc="Grow right"),
+    Key([SUPER, SHIFT], "j", lazy.layout.grow_down(), desc="Grow down"),
+    Key([SUPER, SHIFT], "k", lazy.layout.grow_up(), desc="Grow up"),
     Key([SUPER], "n", lazy.layout.normalize(), desc="Reset all sizes"),
     Key([SUPER, SHIFT], "Return", lazy.layout.toggle_split()),
 
