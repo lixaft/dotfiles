@@ -1,13 +1,6 @@
 *.pyc
-*.swp
-.DS_Store
 .mypy_cache/
-src/.config/fish/completions/
-src/.config/fish/conf.d/
-src/.config/fish/fish_variables
-src/.config/fish/functions/
-src/.config/nvim/.netrwhist
-src/.config/nvim/lazy-lock.json
-src/.config/nvim/plugin/packer_compiled.lua
-src/.vim/.netrwhist
+.netrwhist
+fish_variables
+lazy-lock.json
 venv/
