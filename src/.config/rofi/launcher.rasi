@@ -1,7 +1,7 @@
 configuration {
   display-drun: "";
   drun-display-format: "{name}";
-  font: "FiraCode Nerd Font 10";
+  font: "DejaVuSansMono Nerd Font 10";
   icon-theme: "Papirus";
   modi: ["drun"];
   show-icons: true;
@@ -23,7 +23,7 @@ mainbox {
 inputbar {
   background-color: @selected;
   border-radius: 8px;
-  font: "FiraCode Nerd Font 12";
+  font: "DejaVuSansMono Nerd Font 12";
   margin: 0% 16%;
   padding: 1.4%;
   spacing: 1.4%;

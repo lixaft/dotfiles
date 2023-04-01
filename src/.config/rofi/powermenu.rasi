@@ -25,7 +25,7 @@ inputbar {
 }
 
 prompt {
-  font: "FiraCode Nerd Font 48";
+  font: "DejaVuSansMono Nerd Font 48";
 }
 
 listview {
@@ -46,7 +46,7 @@ element {
 }
 
 element-text {
-  font: "FiraCode Nerd Font 72";
+  font: "DejaVuSansMono Nerd Font 72";
   horizontal-align: 0.5;
   vertical-align: 0.5;
 }
@@ -58,5 +58,5 @@ element selected {
 textbox {
   vertical-align: 0.5;
   horizontal-align: 0.5;
-  font: "FiraCode Nerd Font 12";
+  font: "DejaVuSansMono Nerd Font 12";
 }

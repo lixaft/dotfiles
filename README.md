@@ -43,7 +43,7 @@ If you have any suggestion, improvement or question, do not hesitate to open an 
 ## <samp><b>theme</b></samp>
 
 - Colors - [tokyonight (night)](https://github.com/folke/tokyonight.nvim)
-- Font - [fira code](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
+- Font - [fira code](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono)
 - Wallpaper[^2] - [wallpaperflare](https://www.wallpaperflare.com/astronaut-space-black-background-artwork-wallpaper-gjfku)
 
 </br>
@@ -51,16 +51,19 @@ If you have any suggestion, improvement or question, do not hesitate to open an 
 ## <samp><b>installation</b></samp>
 
 1. Clone this repository
+
    ```shell
    git clone https://github.com/lixaft/dotfiles
    ```
 
 2. `cd` inside the clonned directory
+
    ```shell
    cd dotfiles
    ```
 
 3. Run the [install](https://github.com/lixaft/dotfiles/blob/main/install) script
+
    ```shell
    ./install
    ```
@@ -68,8 +71,8 @@ If you have any suggestion, improvement or question, do not hesitate to open an 
    You will probably get errors the first time you run the script. This is because it will not delete or overwrite any existing files by default. To change this behavior, use the `--force` option (⚠ the original files will be permanently lost)
 
 4. Initialize tools
-    * [bat](https://github.com/sharkdp/bat) - update the cache using `bat cache --build`
-    * [tmux](https://github.com/tmux/tmux) - initialize [tpm](https://github.com/tmux-plugins/tpm) by using `<prefix>I` hotkey
+   - [bat](https://github.com/sharkdp/bat) - update the cache using `bat cache --build`
+   - [tmux](https://github.com/tmux/tmux) - initialize [tpm](https://github.com/tmux-plugins/tpm) by using `<prefix>I` hotkey
 
 </br>
 

@@ -52,7 +52,7 @@ MIDDLE = "Button2"
 RIGHT = "Button3"
 
 # Applications.
-TERMINAL = guess_terminal("wezterm")
+TERMINAL = guess_terminal("alacritty")
 WEB_BROWSER = "brave-browser"
 
 # Define the different group (aka workspace).
@@ -96,7 +96,7 @@ keys = [
 
     # Layouts.
     Key([SUPER], "Tab", lazy.next_layout(), desc="Cycle layouts"),
-    Key([SUPER], "f", lazy.window.toggle_fullscreen(), desc="Full screen"),
+    Key([SUPER], "f", lazy.hide_show_bar(), desc="Full screen"),
 
     # Miscellaneous.
     Key([SUPER], "w", lazy.window.kill(), desc="Kill focused window"),
@@ -155,7 +155,7 @@ layouts = [
 
 # Bar configuration.
 widget_defaults = {
-    "font": "FiraCode Nerd Font",
+    "font": "DejaVuSansMono Nerd Font",
     "foreground": FOREGROUND,
     "fontsize":  12,
     "padding":  5,
@@ -213,7 +213,13 @@ _widgets = [
     widget.Spacer(length=bar.STRETCH),
     _icon("", MAGENTA),
     widget.Net(format="{down}/s", prefix="M"),
+    widget.NetGraph(graph_color=MAGENTA, **_graph_defaults),
     _sep(),
+    _icon("", RED),
+    widget.KeyboardLayout(
+        configured_keyboards=["us", "dvorak"],
+        display_map={"us": "us", "dvorak": "dvorak"},
+    ),
     _icon("󰏗", PURPLE),
     widget.CheckUpdates(
         distro="Ubuntu",

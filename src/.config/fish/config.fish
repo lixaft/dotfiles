@@ -116,19 +116,19 @@ set --global fish_pager_color_description "$comment"
 set --global fish_pager_color_selected_background --background="$selection"
 
 # Setup `fzf` colorscheme.
-set --export FZF_DEFAULT_OPTS "
-    $FZF_DEFAULT_OPTS
-    --color bg+:-1
-    --color bg:-1
-    --color border:$comment
-    --color fg+:$foreground
-    --color fg:$foreground
-    --color header:$comment
-    --color hl+:$blue
-    --color hl:$blue
-    --color info:$comment
-    --color marker:$green
-    --color pointer:$purple
-    --color prompt:$comment
-    --color spinner:$comment
+set --export FZF_DEFAULT_OPTS "\
+    $FZF_DEFAULT_OPTS \
+    --color bg+:-1 \
+    --color bg:-1 \
+    --color border:$comment \
+    --color fg+:$foreground \
+    --color fg:$foreground \
+    --color header:$comment \
+    --color hl+:$blue \
+    --color hl:$blue \
+    --color info:$comment \
+    --color marker:$green \
+    --color pointer:$purple \
+    --color prompt:$comment \
+    --color spinner:$comment \
 "
