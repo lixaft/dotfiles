@@ -18,8 +18,8 @@ return {
         right = "।",
       },
       section_separators = {
-        left = "",
-        right = "",
+        left = "",
+        right = "",
       },
 
       disabled_filetypes = {
@@ -37,10 +37,10 @@ return {
       lualine_a = {
         {
           "mode",
-          separator = {
-            left = "",
-            right = "",
-          },
+          -- separator = {
+          --   left = "",
+          --   right = "",
+          -- },
         },
       },
       lualine_b = {
@@ -71,8 +71,8 @@ return {
         {
           "location",
           separator = {
-            left = "",
-            right = "",
+            -- left = "",
+            -- right = "",
           },
         },
       },
