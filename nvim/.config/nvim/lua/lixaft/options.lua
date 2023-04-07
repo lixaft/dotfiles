@@ -54,4 +54,7 @@ require("lixaft.utilities.option").setup({
 
   -- Time in milliseconds to wait for a mapped sequence to complete.
   timeoutlen = 500,
+
+  -- Hide intro message.
+  shortmess = "I",
 })

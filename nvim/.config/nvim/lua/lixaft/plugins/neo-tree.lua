@@ -4,7 +4,7 @@
 
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  lazy = true,
+  lazy = false,
   cmd = { "Neotree" },
   dependencies = {
     "MunifTanjim/nui.nvim",
@@ -20,6 +20,11 @@ return {
       desc = "Explorer NeoTree (root dir)",
     },
   },
+  init = function()
+    -- Disable netrw.
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
+  end,
   opts = {
     -- Close Neo-tree if it is the last window left in the tab.
     close_if_last_window = true,
@@ -41,6 +46,12 @@ return {
       -- This will find and focus the file in the active buffer every time the
       -- current file is changed while the tree is open.
       follow_current_file = true,
+
+      -- This will use the OS level file watchers to detect changes instead of
+      -- relying on nvim autocmd events.
+      use_libuv_file_watcher = true,
+
+      hijack_netrw_behavior = "open_current",
 
       filtered_items = {
         -- Do not hide dotfiles.
