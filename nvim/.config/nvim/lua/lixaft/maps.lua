@@ -33,3 +33,7 @@ map.n("J", "mzJ`z")
 
 -- Source current buffer.
 map.n("<leader><leader>", ":source<cr>")
+
+-- Quickly apply macro.
+map.n("Q", "@q")
+map.v("Q", ":norm @q<cr>")
