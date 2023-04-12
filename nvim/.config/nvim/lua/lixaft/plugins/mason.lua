@@ -7,7 +7,7 @@ return {
   "williamboman/mason.nvim",
   cmd = "Mason",
   keys = {
-    { "<leader>om", "<cmd>Mason<cr>", desc = "Open mason" },
+    { "<leader>m", "<cmd>Mason<cr>", desc = "Open mason" },
   },
   opts = {
     log_level = vim.log.levels.DEBUG,

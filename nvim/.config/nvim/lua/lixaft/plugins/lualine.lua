@@ -35,13 +35,7 @@ return {
     -- https://github.com/nvim-lualine/lualine.nvim#available-components
     sections = {
       lualine_a = {
-        {
-          "mode",
-          -- separator = {
-          --   left = "",
-          --   right = "",
-          -- },
-        },
+        "mode",
       },
       lualine_b = {
         "branch",
@@ -68,13 +62,7 @@ return {
         "progress",
       },
       lualine_z = {
-        {
-          "location",
-          separator = {
-            -- left = "",
-            -- right = "",
-          },
-        },
+        "location",
       },
     },
     inactive_sections = {

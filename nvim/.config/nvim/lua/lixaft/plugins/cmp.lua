@@ -24,13 +24,11 @@ return {
         documentation = cmp.config.window.bordered(),
       },
       mapping = cmp.mapping.preset.insert({
-        ["<c-y>"] = cmp.mapping.confirm({ select = false }),
+        ["<c-t>"] = cmp.mapping.confirm({ select = false }),
         ["<c-e>"] = cmp.mapping.abort(),
 
         ["<c-p>"] = cmp.mapping.select_prev_item(),
         ["<c-n>"] = cmp.mapping.select_next_item(),
-        ["<s-tab>"] = cmp.mapping.select_prev_item(),
-        ["<tab>"] = cmp.mapping.select_next_item(),
 
         ["<c-b>"] = cmp.mapping.scroll_docs(-4),
         ["<c-f>"] = cmp.mapping.scroll_docs(4),

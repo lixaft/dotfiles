@@ -7,7 +7,7 @@ return {
   lazy = true,
   keys = {
     {
-      "<leader>sr",
+      "<leader>r",
       function()
         require("spectre").open()
       end,

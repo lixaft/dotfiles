@@ -79,23 +79,22 @@ return {
             local options = { buffer = buffer }
 
             -- LSP actions.
+            map.insert("<c-h>", vim.lsp.buf.signature_help, options)
             map.normal("K", vim.lsp.buf.hover, options)
             map.normal("gD", vim.lsp.buf.declaration, options)
+            map.normal("gR", vim.lsp.buf.references, options)
+            map.normal("gca", vim.lsp.buf.code_action, options)
             map.normal("gd", vim.lsp.buf.definition, options)
             map.normal("gi", vim.lsp.buf.implementation, options)
-            map.normal("go", vim.lsp.buf.type_definition, options)
-            map.normal("gr", vim.lsp.buf.references, options)
-            -- map.normal("<c-k>", vim.lsp.buf.signature_help, options)
-            map.normal("<leader>ca", vim.lsp.buf.code_action, options)
-            map.normal("<leader>r", vim.lsp.buf.rename, options)
+            map.normal("gr", vim.lsp.buf.rename, options)
 
             -- Diagnostics.
-            map.normal("<leader>of", vim.diagnostic.open_float, options)
-            map.normal("[d", vim.diagnostic.goto_prev, options)
-            map.normal("]d", vim.diagnostic.goto_next, options)
+            map.normal("g<", vim.diagnostic.goto_prev, options)
+            map.normal("g>", vim.diagnostic.goto_next, options)
+            map.normal("gof", vim.diagnostic.open_float, options)
 
             -- Formatting.
-            map.normal("<leader>f", vim.lsp.buf.format)
+            map.normal("gF", vim.lsp.buf.format)
           end,
         })
       end,

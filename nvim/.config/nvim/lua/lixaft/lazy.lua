@@ -1,6 +1,7 @@
 -- A modern plugin manager for Neovim.
 --
 -- https://github.com/folke/lazy.nvim
+local map = require("lixaft.utilities.map")
 
 vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/lazy/lazy.nvim")
 
@@ -22,3 +23,5 @@ require("lazy").setup({
     notify = false,
   },
 })
+
+map.normal("<leader>l", ":Lazy<cr>")
