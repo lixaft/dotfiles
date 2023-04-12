@@ -8,9 +8,9 @@ local noremap = function(mode)
   end
 end
 
-M.insert = noremap("i")
-M.normal = noremap("n")
-M.visual = noremap("v")
+M.i = noremap("i")
+M.n = noremap("n")
+M.v = noremap("v")
 M.x = noremap("x")
 
 return M

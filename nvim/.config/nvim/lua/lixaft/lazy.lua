@@ -24,4 +24,4 @@ require("lazy").setup({
   },
 })
 
-map.normal("<leader>l", ":Lazy<cr>")
+map.n("<leader>l", ":Lazy<cr>")

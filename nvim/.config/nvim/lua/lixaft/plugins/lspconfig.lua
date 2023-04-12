@@ -79,22 +79,22 @@ return {
             local options = { buffer = buffer }
 
             -- LSP actions.
-            map.insert("<c-h>", vim.lsp.buf.signature_help, options)
-            map.normal("K", vim.lsp.buf.hover, options)
-            map.normal("gD", vim.lsp.buf.declaration, options)
-            map.normal("gR", vim.lsp.buf.references, options)
-            map.normal("gca", vim.lsp.buf.code_action, options)
-            map.normal("gd", vim.lsp.buf.definition, options)
-            map.normal("gi", vim.lsp.buf.implementation, options)
-            map.normal("gr", vim.lsp.buf.rename, options)
+            map.i("<c-h>", vim.lsp.buf.signature_help, options)
+            map.n("K", vim.lsp.buf.hover, options)
+            map.n("gD", vim.lsp.buf.declaration, options)
+            map.n("gR", vim.lsp.buf.references, options)
+            map.n("gca", vim.lsp.buf.code_action, options)
+            map.n("gd", vim.lsp.buf.definition, options)
+            map.n("gi", vim.lsp.buf.implementation, options)
+            map.n("gr", vim.lsp.buf.rename, options)
 
             -- Diagnostics.
-            map.normal("g<", vim.diagnostic.goto_prev, options)
-            map.normal("g>", vim.diagnostic.goto_next, options)
-            map.normal("gof", vim.diagnostic.open_float, options)
+            map.n("g<", vim.diagnostic.goto_prev, options)
+            map.n("g>", vim.diagnostic.goto_next, options)
+            map.n("gof", vim.diagnostic.open_float, options)
 
             -- Formatting.
-            map.normal("gF", vim.lsp.buf.format)
+            map.n("gF", vim.lsp.buf.format)
           end,
         })
       end,
