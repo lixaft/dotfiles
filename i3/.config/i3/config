@@ -137,12 +137,12 @@ bar {
     status_command i3status
 }
 
-# Keyboard.
-exec --no-startup-id "xset r rate 180 70"
-exec --no-startup-id "setxkbmap -layout 'us' -variant 'dvorak' -option 'caps:escape'"
-
 # Screen.
 exec --no-startup-id "xrandr -s 2560x1440"
+
+# Keyboard.
+exec --no-startup-id "xset r rate 180 70"
+exec --no-startup-id "setxkbmap lixaft -option caps:escape"
 
 # Start applications.
 exec --no-startup-id "nitrogen --set-zoom-fill --random"
