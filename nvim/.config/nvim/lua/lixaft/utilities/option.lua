@@ -1,7 +1,7 @@
 local M = {}
 
 function M.add(key, value, group)
-  vim[group or "opt"][key] = value -- luacheck: ignore
+  vim[group or "opt"][key] = value
 end
 
 function M.setup(options)
