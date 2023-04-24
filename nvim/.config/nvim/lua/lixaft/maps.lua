@@ -18,15 +18,17 @@ map.v("J", ":move '>+1<cr>gv=gv")
 map.v("K", ":move '<-2<cr>gv=gv")
 
 -- Better vertical navigation.
-map.n("<c-d>", "20jzz")
-map.n("<c-u>", "20kzz")
+map.n("<c-d>", "<c-d>zz")
+map.n("<c-u>", "<c-u>zz")
 map.n("n", "nzz")
-map.n("N", "nzz")
+map.n("N", "Nzz")
 
 -- Easy clipboapd common operations.
-map.x("gP", [[_dP]])
+map.n("gP", [["+P]])
 map.n("gp", [["+p]])
 map.v("gy", [["+y]])
+map.x("gP", [[_dP]])
+map.x("gp", [["+p]])
 
 -- Do not move cursor on J.
 map.n("J", "mzJ`z")
@@ -37,3 +39,9 @@ map.n("<leader><leader>", ":source<cr>")
 -- Quickly apply macro.
 map.n("Q", "@q")
 map.v("Q", ":norm @q<cr>")
+
+-- Move on "_".
+map.n("-", "f_")
+map.n("_", "F_")
+map.x("-", "f_")
+map.x("_", "F_")

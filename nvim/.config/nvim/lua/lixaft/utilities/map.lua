@@ -12,5 +12,6 @@ M.i = noremap("i")
 M.n = noremap("n")
 M.v = noremap("v")
 M.x = noremap("x")
+M.o = noremap("o")
 
 return M
