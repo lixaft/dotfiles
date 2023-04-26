@@ -34,9 +34,9 @@ bind \cs "tmux-go; commandline -f execute"
 # Replace `ls` by `exa` if available.
 if type --query "exa"
     alias ls="exa"
-    alias ll="exa --long --git --group-directories-first"
-    alias la="exa --long --git --group-directories-first --all"
-    alias tree="exa --group-directories-first --git --all --tree"
+    alias ll="exa --long --group-directories-first"
+    alias la="exa --long --group-directories-first --all"
+    alias tree="exa --group-directories-first --all --tree"
 end
 
 # Replace `cat` by `bat` if available.
