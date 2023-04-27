@@ -67,7 +67,7 @@ function t
     if not test -z $TMUX
         cd (tmux display-message -p "#{session_path}")
     else
-        echo not in a tmux session
+        echo "not in a tmux session"
     end
 end
 
