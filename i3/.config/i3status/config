@@ -48,9 +48,9 @@ cpu_usage {
 
 order += "memory"
 memory {
-        format = "󰍛 %percentage_used"
-        threshold_degraded = "10%"
-        format_degraded = "MEMORY: %free"
+    format = "󰍛 %percentage_used"
+    threshold_degraded = "10%"
+    format_degraded = "MEMORY: %free"
 }
 
 order += "disk /"
