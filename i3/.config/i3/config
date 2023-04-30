@@ -103,6 +103,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Sreen.
 bindsym $mod+b exec --no-startup-id "nitrogen --set-zoom-fill --random"
+bindsym Print exec --no-startup-id "flameshot gui"
 
 # Mouse.
 focus_follows_mouse no
@@ -145,6 +146,7 @@ exec --no-startup-id "xset r rate 180 70"
 exec --no-startup-id "setxkbmap lixaft -option caps:escape"
 
 # Start applications.
+exec --no-startup-id "flameshot"
 exec --no-startup-id "nitrogen --set-zoom-fill --random"
 exec --no-startup-id "nm-applet"
 exec --no-startup-id "picom -b"
