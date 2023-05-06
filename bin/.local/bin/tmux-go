@@ -6,8 +6,16 @@ dirs=(
 	"$HOME/dev"
 )
 
+function filter_dirs() {
+	for each in $(cat "/dev/stdin"); do
+		if [[ -e "$each/.git" ]]; then
+			printf "$each\n"
+		fi
+	done
+}
+
 if [[ -z "$1" ]]; then
-	dir="$(find ${dirs[@]} -mindepth 1 -maxdepth 1 -type d | fzf)"
+	dir="$(find ${dirs[@]} -mindepth 1 -maxdepth 1 -type d | filter_dirs | fzf)"
 else
 	dir="$1"
 fi
