@@ -102,6 +102,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Sreen.
+bindsym $mod+Shift+b exec --no-startup-id "nitrogen"
 bindsym $mod+b exec --no-startup-id "nitrogen --set-zoom-fill --random"
 bindsym Print exec --no-startup-id "flameshot gui"
 bindsym Shift+Print exec --no-startup-id "peek"
@@ -139,15 +140,13 @@ bar {
     status_command i3status
 }
 
-# Screen.
-exec --no-startup-id "xrandr -s 2560x1440"
-
 # Keyboard.
-exec --no-startup-id "xset r rate 180 70"
 exec --no-startup-id "setxkbmap lixaft -option caps:escape"
 
 # Start applications.
+exec --no-startup-id "1password --silent"
 exec --no-startup-id "flameshot"
 exec --no-startup-id "nitrogen --set-zoom-fill --random"
 exec --no-startup-id "nm-applet"
 exec --no-startup-id "picom -b"
+exec --no-startup-id "uncutter &"
