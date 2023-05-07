@@ -30,6 +30,7 @@ abbr --add "-" --position command --function __cd_minus
 
 # Tmux go binding.
 bind \cs "tmux-go; commandline -f execute"
+bind \ct "tmux-go /tmp; commandline -f execute"
 
 # Replace `ls` by `exa` if available.
 if type --query "exa"
