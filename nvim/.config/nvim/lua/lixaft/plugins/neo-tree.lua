@@ -51,8 +51,6 @@ return {
       -- relying on nvim autocmd events.
       use_libuv_file_watcher = true,
 
-      hijack_netrw_behavior = "open_current",
-
       filtered_items = {
         -- Do not hide dotfiles.
         hide_dotfiles = false,
