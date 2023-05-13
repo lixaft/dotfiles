@@ -14,6 +14,9 @@ return {
     -- Enabling this will use the signs defined in your lsp client
     use_diagnostic_signs = false,
 
+    -- Only display the diagnostics of the current buffer.
+    mode = "document_diagnostics",
+
     signs = {
       -- Icons / text used for a diagnostic.
       error = "✘ ",
