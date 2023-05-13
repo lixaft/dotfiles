@@ -52,9 +52,6 @@ require("lixaft.utilities.option").setup({
   incsearch = true,
   smartcase = true,
 
-  -- Time in milliseconds to wait for a mapped sequence to complete.
-  timeoutlen = 500,
-
   -- Hide intro message.
   shortmess = "I",
 })
