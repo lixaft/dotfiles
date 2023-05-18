@@ -19,12 +19,13 @@ return {
     { "<leader>sc", cmd("commands"), desc = "Find commands" },
     { "<leader>sh", cmd("help_tags"), desc = "Help Pages" },
     { "<leader>st", cmd("colorscheme"), desc = "Pick colorscheme" },
-    { "<leader>sr", cmd("registers"), desc = "Copy register" },
+    { "<leader>sR", cmd("registers"), desc = "Copy register" },
     { "<leader>sk", cmd("keymaps"), desc = "List keymaps" },
     { "<leader>sf", cmd("filetypes"), desc = "Select language" },
 
     -- LSP pickers.
-    { "<leader>sl", cmd("lsp_references"), desc = "Find references" },
+    { "<leader>sr", cmd("lsp_references"), desc = "Find references" },
+    { "<leader>ss", cmd("lsp_document_symbols"), desc = "Find symbols" },
     { "<leader>sd", cmd("diagnostics"), desc = "List diagnostics" },
   },
   opts = {
