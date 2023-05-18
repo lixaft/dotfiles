@@ -23,7 +23,7 @@ map.n("<c-u>", "<c-u>zz")
 map.n("n", "nzz")
 map.n("N", "Nzz")
 
--- Easy clipboapd common operations.
+-- Easy clipboard operations.
 map.n("gP", [["+P]])
 map.n("gp", [["+p]])
 map.v("gy", [["+y]])
@@ -32,6 +32,10 @@ map.x("gp", [["+p]])
 
 -- Do not move cursor on J.
 map.n("J", "mzJ`z")
+
+-- Keep selection on indentation.
+map.v("<", "<gv")
+map.v(">", ">gv")
 
 -- Source current buffer.
 map.n("<leader><leader>", ":source<cr>")
