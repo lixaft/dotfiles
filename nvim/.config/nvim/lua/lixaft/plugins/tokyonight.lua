@@ -33,11 +33,17 @@ return {
     -- function will be called with a Highlights and ColorScheme table.
     on_highlights = function(highlights, colors)
       highlights.CopilotSuggestion = { fg = colors.blue0 }
+
       highlights.DiagnosticVirtualTextError = { fg = colors.red1 }
       highlights.DiagnosticVirtualTextHint = { fg = colors.teal }
       highlights.DiagnosticVirtualTextInfo = { fg = colors.blue2 }
       highlights.DiagnosticVirtualTextWarn = { fg = colors.yellow }
+
       highlights.ExtraWhitespace = { bg = colors.red }
+      highlights.IlluminatedWordWrite = { underline = true }
+      highlights.IlluminatedWordText = { underline = true }
+      highlights.IlluminatedWordRead = { underline = true }
+
       highlights.LineNr = { fg = colors.dark3 }
       highlights.VirtColumn = { fg = colors.dark3 }
     end,
