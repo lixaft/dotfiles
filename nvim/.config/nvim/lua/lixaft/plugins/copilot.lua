@@ -3,16 +3,32 @@
 -- https://github.com/github/copilot.vim
 
 return {
-  "github/copilot.vim",
+  "zbirenbaum/copilot.lua",
   lazy = true,
   event = { "BufReadPre", "BufNewFile" },
-  init = function(_, _)
-    vim.api.nvim_set_keymap(
-      "i",
-      "<c-f>",
-      'copilot#Accept("<CR>")',
-      { silent = true, expr = true }
-    )
-    vim.g.copilot_no_tab_map = true
-  end,
+  config = true,
+  opts = {
+    panel = {
+      auto_refresh = true,
+      keymap = {
+        jump_prev = "[[",
+        jump_next = "]]",
+        accept = "<cr>",
+        refresh = "gr",
+        open = "<m-p>",
+      },
+    },
+
+    suggestion = {
+      auto_trigger = true,
+      keymap = {
+        accept = "<m-cr>",
+        next = "<m-n>",
+        prev = "<m-N>",
+        accept_word = false,
+        accept_line = false,
+        dismiss = nil,
+      },
+    },
+  },
 }
