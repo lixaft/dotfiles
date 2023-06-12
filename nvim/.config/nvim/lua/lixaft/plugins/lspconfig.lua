@@ -77,23 +77,7 @@ return {
           capabilities = require("cmp_nvim_lsp").default_capabilities(),
           on_attach = function(_, buffer)
             local options = { buffer = buffer }
-
-            -- LSP actions.
-            map.i("<c-h>", vim.lsp.buf.signature_help, options)
-            map.n("K", vim.lsp.buf.hover, options)
-            map.n("gD", vim.lsp.buf.declaration, options)
-            map.n("gR", vim.lsp.buf.references, options)
-            map.n("gca", vim.lsp.buf.code_action, options)
-            map.n("gd", vim.lsp.buf.definition, options)
-            map.n("gi", vim.lsp.buf.implementation, options)
             map.n("gr", vim.lsp.buf.rename, options)
-
-            -- Diagnostics.
-            map.n("g<", vim.diagnostic.goto_prev, options)
-            map.n("g>", vim.diagnostic.goto_next, options)
-            map.n("gof", vim.diagnostic.open_float, options)
-
-            -- Formatting.
             map.n("gF", vim.lsp.buf.format)
           end,
         })

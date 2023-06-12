@@ -8,7 +8,7 @@ return {
   lazy = true,
   cmd = { "TroubleToggle", "Trouble" },
   keys = {
-    { "<leader>t", "<cmd>TroubleToggle<cr>", desc = "Toggle trouble" },
+    { "<leader>T", "<cmd>TroubleToggle<cr>", desc = "Toggle trouble" },
   },
   opts = {
     -- Enabling this will use the signs defined in your lsp client
