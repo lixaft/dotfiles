@@ -40,7 +40,6 @@ return {
       },
     },
     ensure_installed = {
-      "autopep8",
       "clang-format",
       "cpplint",
       "flake8",
@@ -49,6 +48,8 @@ return {
       "luacheck",
       "mypy",
       "prettier",
+      "pyink",
+      "ruff",
       "shfmt",
       "stylua",
     },
