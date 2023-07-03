@@ -64,7 +64,6 @@ return {
         exec = "<cr>",
       },
     },
-
     outline = {
       win_position = "left",
       keys = {
