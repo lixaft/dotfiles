@@ -1,32 +1,27 @@
 -- Portable package manager for Neovim that runs everywhere Neovim runs.
 -- Easily install and manage LSP servers, DAP servers, linters, and formatters.
---
--- https://github.com/williamboman/mason.nvim
 
+-- TODO: Auto install packages.
 return {
   "williamboman/mason.nvim",
   cmd = "Mason",
   keys = {
-    { "<leader>m", "<cmd>Mason<cr>", desc = "Open mason" },
+    { "<leader>m", "<cmd>Mason<cr>" },
   },
+
+  build = ":MasonUpdate",
+
   opts = {
-    log_level = vim.log.levels.DEBUG,
     ui = {
-      -- Whether to automatically check for new versions when opening the
-      -- :mason window.
+      border = "rounded",
       check_outdated_packages_on_open = true,
 
-      -- The border to use for the ui window. accepts same border values as
-      -- |nvim_open_win()|.
-      border = "rounded",
-
       icons = {
-        package_installed = "◍",
-        package_pending = "◍",
-        package_uninstalled = "◍",
+        package_installed = "●",
+        package_pending = "○",
+        package_uninstalled = "○",
       },
 
-      -- Define keymaps.
       keymaps = {
         toggle_package_expand = "<cr>",
         install_package = "i",
@@ -39,30 +34,5 @@ return {
         apply_language_filter = "<c-f>",
       },
     },
-    ensure_installed = {
-      "clang-format",
-      "cpplint",
-      "flake8",
-      "gersemi",
-      "isort",
-      "luacheck",
-      "mypy",
-      "prettier",
-      "pyink",
-      "ruff",
-      "shfmt",
-      "stylua",
-    },
   },
-  config = function(_, opts)
-    require("mason").setup(opts)
-    local registry = require("mason-registry")
-
-    for _, name in ipairs(opts.ensure_installed) do
-      local package = registry.get_package(name)
-      if not package:is_installed() then
-        package:install()
-      end
-    end
-  end,
 }

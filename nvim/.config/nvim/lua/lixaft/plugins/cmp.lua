@@ -2,38 +2,62 @@
 
 return {
   "hrsh7th/nvim-cmp",
-  lazy = true,
   event = { "InsertEnter" },
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
+    "L3MON4D3/LuaSnip",
     "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-path",
+    "hrsh7th/nvim-cmp",
+    "petertriho/cmp-git",
     "saadparwaiz1/cmp_luasnip",
   },
+
   opts = function()
     local cmp = require("cmp")
+    local luasnip = require("luasnip")
+
+    local behavior = cmp.ConfirmBehavior.Replace
+
     return {
-      sources = {
+      sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "git" },
         { name = "buffer" },
         { name = "luasnip" },
-        { name = "nvim_lsp" },
         { name = "path" },
+      }),
+
+      snippet = {
+        expand = function(args)
+          luasnip.lsp_expand(args.body)
+        end,
       },
+
+      mapping = cmp.mapping.preset.insert({
+        ["<c-p>"] = cmp.mapping.select_prev_item(),
+        ["<c-n>"] = cmp.mapping.select_next_item(),
+        ["<c-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<c-f>"] = cmp.mapping.scroll_docs(4),
+        ["<c-q>"] = cmp.mapping.abort(),
+        ["<cr>"] = cmp.mapping({
+          i = function(fallback)
+            if cmp.visible() and cmp.get_active_entry() then
+              cmp.confirm({ behavior = behavior, select = false })
+            else
+              fallback()
+            end
+          end,
+          s = cmp.mapping.confirm({ select = true }),
+          c = cmp.mapping.confirm({ behavior = behavior, select = true }),
+        }),
+      }),
+
       window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
       },
-      mapping = cmp.mapping.preset.insert({
-        ["<c-t>"] = cmp.mapping.confirm({ select = false }),
-        ["<m-cr>"] = cmp.mapping.confirm({ select = false }),
-        ["<c-q>"] = cmp.mapping.abort(),
 
-        ["<c-p>"] = cmp.mapping.select_prev_item(),
-        ["<c-n>"] = cmp.mapping.select_next_item(),
-
-        ["<c-b>"] = cmp.mapping.scroll_docs(-4),
-        ["<c-f>"] = cmp.mapping.scroll_docs(4),
-      }),
       formatting = {
         fields = { "kind", "abbr", "menu" },
         format = function(entry, item)
@@ -64,15 +88,14 @@ return {
             Operator = "",
             TypeParameter = "",
           }
-          local sources = {
+          local names = {
             path = "Path",
             buffer = "Buffer",
             nvim_lsp = "LSP",
             luasnip = "LuaSnip",
             nvim_lua = "Lua",
-            latex_symbols = "LaTeX",
           }
-          local source = sources[entry.source.name] or entry.source.name
+          local source = names[entry.source.name] or entry.source.name
 
           item.kind = icons[item.kind] or "?"
           item.menu = "        [" .. source .. "]"
@@ -80,14 +103,5 @@ return {
         end,
       },
     }
-  end,
-  config = function(_, opts)
-    require("cmp").setup(opts)
-
-    vim.lsp.handlers["textDocument/hover"] = -- luacheck: ignore
-      vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-
-    vim.lsp.handlers["textDocument/signatureHelp"] = -- luacheck: ignore
-      vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
   end,
 }

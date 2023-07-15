@@ -1,15 +1,11 @@
 -- The undo history visualizer for VIM.
---
--- https://github.com/mbbill/undotree
 
 return {
   "mbbill/undotree",
-  lazy = true,
+  cmd = {
+    "UndotreeToggle",
+  },
   keys = {
-    {
-      "<leader>ut",
-      "<cmd>UndotreeToggle<cr>",
-      desc = "Toggle undotree",
-    },
+    { "<leader>u", "<cmd>UndotreeToggle<cr>" },
   },
 }

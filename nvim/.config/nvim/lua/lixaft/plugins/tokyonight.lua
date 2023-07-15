@@ -1,51 +1,40 @@
 -- A clean, dark Neovim theme written in Lua, with support for lsp, treesitter
 -- and lots of plugins.
---
--- https://github.com/folke/tokyonight.nvim
 
 return {
   "folke/tokyonight.nvim",
-  lazy = true,
-  opts = {
-    -- The theme comes in three styles, `storm`, `moon`, a darker variant
-    -- `night` and `day`.
-    style = "night",
 
-    -- Enable this to disable setting the background color.
+  opts = {
+    style = "night",
     transparent = true,
 
     styles = {
-      -- Background styles. Can be "dark", "transparent" or "normal".
-      -- Style for sidebars.
-      sidebars = "transparent",
-      -- Style for floating windows.
       floats = "transparent",
+      sidebars = "transparent",
     },
 
-    -- Set a darker background on sidebar-like windows.
-    -- For example: `["qf", "vista_kind", "terminal", "packer"]`.
-    sidebars = {},
-
-    -- When `true`, section headers in the lualine theme will be bold.
     lualine_bold = true,
 
-    -- You can override specific highlights to use other groups or a hex color
-    -- function will be called with a Highlights and ColorScheme table.
-    on_highlights = function(highlights, colors)
-      highlights.CopilotSuggestion = { fg = colors.blue0 }
+    on_highlights = function(hl, colors)
+      hl.LineNr = { fg = colors.dark3 }
+      hl.VirtColumn = { fg = colors.dark3 }
 
-      highlights.DiagnosticVirtualTextError = { fg = colors.red1 }
-      highlights.DiagnosticVirtualTextHint = { fg = colors.teal }
-      highlights.DiagnosticVirtualTextInfo = { fg = colors.blue2 }
-      highlights.DiagnosticVirtualTextWarn = { fg = colors.yellow }
+      hl.DiagnosticVirtualTextError = { fg = colors.red1 }
+      hl.DiagnosticVirtualTextHint = { fg = colors.teal }
+      hl.DiagnosticVirtualTextInfo = { fg = colors.blue2 }
+      hl.DiagnosticVirtualTextWarn = { fg = colors.yellow }
 
-      highlights.ExtraWhitespace = { bg = colors.red }
-      highlights.IlluminatedWordWrite = { underline = true }
-      highlights.IlluminatedWordText = { underline = true }
-      highlights.IlluminatedWordRead = { underline = true }
+      hl.IlluminatedWordRead = { underline = true }
+      hl.IlluminatedWordText = { underline = true }
+      hl.IlluminatedWordWrite = { underline = true }
 
-      highlights.LineNr = { fg = colors.dark3 }
-      highlights.VirtColumn = { fg = colors.dark3 }
+      hl.CopilotSuggestion = { fg = colors.blue0 }
+      hl.ExtraWhitespace = { bg = colors.red }
     end,
   },
+
+  config = function(_, opts)
+    require("tokyonight").setup(opts)
+    vim.cmd("colorscheme tokyonight")
+  end,
 }

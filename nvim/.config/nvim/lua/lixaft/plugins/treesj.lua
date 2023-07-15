@@ -1,12 +1,14 @@
 -- Neovim plugin for splitting/joining blocks of code.
---
--- https://github.com/Wansmer/treesj
 
 return {
   "Wansmer/treesj",
   keys = {
-    { "gj", "<cmd>TSJToggle<cr>", desc = "split / join line" },
+    { "gj", "<cmd>TSJToggle<cr>" },
   },
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter",
+  },
+
   opts = {
     use_default_keymaps = false,
   },

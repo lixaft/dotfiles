@@ -1,12 +1,13 @@
 -- Use Neovim as a language server to inject LSP diagnostics, code actions,
 -- and more via Lua.
---
--- https://github.com/jose-elias-alvarez/null-ls.nvim
 
 return {
   "jose-elias-alvarez/null-ls.nvim",
-  event = { "BufReadPost", "BufNewFile" },
-  dependencies = { "mason.nvim" },
+  event = { "BufNewFile", "BufReadPost" },
+  dependencies = {
+    "mason.nvim",
+  },
+
   opts = function()
     local null_ls = require("null-ls")
     return {
@@ -30,20 +31,14 @@ return {
 
         -- Python.
         null_ls.builtins.diagnostics.mypy,
-        null_ls.builtins.diagnostics.ruff,
         null_ls.builtins.formatting.pyink.with({
           extra_args = {
             "--line-length=79",
           },
         }),
-        null_ls.builtins.formatting.ruff,
 
         -- Cmake.
         null_ls.builtins.formatting.gersemi,
-
-        -- C/C++.
-        null_ls.builtins.diagnostics.cpplint,
-        null_ls.builtins.formatting.clang_format,
 
         -- Well, let's say a lot.
         null_ls.builtins.formatting.prettier,

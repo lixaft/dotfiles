@@ -1,9 +1,6 @@
--- Better whitespace highlighting for Vim
---
--- https://github.com/ntpeters/vim-better-whitespace
+-- Better whitespace highlighting for Vim.
 
 return {
   "ntpeters/vim-better-whitespace",
-  lazy = true,
-  event = { "BufReadPost", "BufNewFile" },
+  event = { "BufNewFile", "BufReadPost" },
 }

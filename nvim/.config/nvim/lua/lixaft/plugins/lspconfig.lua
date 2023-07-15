@@ -1,62 +1,24 @@
--- Quickstart configs for Nvim LSP
---
--- https://github.com/neovim/nvim-lspconfig
+-- Quickstart configs for Nvim LSP.
+local map = require("lixaft.core.keymap").set
 
 return {
   "neovim/nvim-lspconfig",
-  event = { "BufReadPost", "BufNewFile" },
+  event = { "BufNewFile", "BufReadPost" },
   dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
     "hrsh7th/cmp-nvim-lsp",
+    "williamboman/mason.nvim",
   },
-  opts = {
-    diagnostics = {
-      -- Use underline for diagnostics (default true).
-      underline = true,
 
-      -- Use signs for diagnostics.
-      signs = true,
-
-      -- If false, diagnostics are only updated on InsertLeave.
-      update_in_insert = false,
-
-      -- Use virtual text for diagnostics.
-      virtual_text = {
-        spacing = 4,
-        prefix = "■",
-      },
-
+  config = function()
+    vim.diagnostic.config({
       severity_sort = true,
 
-      -- Options for floating windows. See vim.diagnostic.open_float().
       float = {
-        focusable = false,
-        style = "minimal",
         border = "rounded",
         source = "always",
-        header = "",
-        prefix = "",
       },
-    },
+    })
 
-    servers = {
-      lua_ls = {
-        Lua = {
-          diagnostics = {
-            enable = false,
-          },
-          format = {
-            enable = false,
-          },
-        },
-      },
-    },
-  },
-  config = function(_, opts)
-    vim.diagnostic.config(opts.diagnostics)
-
-    -- Add icons instead of letter.
     local signs = {
       Error = "✘ ",
       Warn = "▲ ",
@@ -68,20 +30,76 @@ return {
       vim.fn.sign_define(hl, { text = text, texthl = hl, numhl = hl })
     end
 
-    local map = require("lixaft.utilities.map")
+    local function build_capabilities(opts)
+      return vim.tbl_extend(
+        "force",
+        require("cmp_nvim_lsp").default_capabilities(),
+        opts or {}
+      )
+    end
 
-    require("mason-lspconfig").setup_handlers({
-      function(server_name)
-        require("lspconfig")[server_name].setup({
-          settings = opts.servers[server_name] or {},
-          capabilities = require("cmp_nvim_lsp").default_capabilities(),
-          on_attach = function(_, buffer)
-            local options = { buffer = buffer }
-            map.n("gr", vim.lsp.buf.rename, options)
-            map.n("gF", vim.lsp.buf.format)
-          end,
-        })
-      end,
+    local function on_attach(_, buffer)
+      local opts = { buffer = buffer }
+      map("n", "gl", vim.diagnostic.open_float, opts)
+      map("n", "gr", vim.lsp.buf.rename, opts)
+
+      map("i", "<c-h>", vim.lsp.buf.signature_help, opts)
+
+      map("n", "gF", function()
+        vim.lsp.buf.format({ async = true })
+      end, opts)
+    end
+
+    local no_diagnostics_handlers = {
+      ["textDocument/publishDiagnostics"] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics,
+        {
+          virtual_text = false,
+          signs = false,
+        }
+      ),
+    }
+
+    -- Python.
+    -- TODO: Try to remove the diagnostics in the capabilities, currently they
+    -- are still displayed in the float window.
+    require("lspconfig").pyright.setup({
+      capabilities = build_capabilities(),
+      on_attach = on_attach,
+      handlers = no_diagnostics_handlers,
+    })
+    require("lspconfig").ruff_lsp.setup({
+      capabilities = build_capabilities({
+        hoverProvider = false,
+      }),
+      on_attach = on_attach,
+    })
+
+    -- Lua.
+    require("lspconfig").lua_ls.setup({
+      capabilities = build_capabilities(),
+      on_attach = on_attach,
+      handlers = no_diagnostics_handlers,
+    })
+
+    -- C/C++.
+    require("lspconfig").clangd.setup({
+      capabilities = build_capabilities({
+        offsetEncoding = { "utf-16" },
+      }),
+      on_attach = on_attach,
+    })
+
+    -- Rust.
+    require("lspconfig").rust_analyzer.setup({
+      capabilities = build_capabilities(),
+      on_attach = on_attach,
+    })
+
+    -- Go.
+    require("lspconfig").gopls.setup({
+      capabilities = build_capabilities(),
+      on_attach = on_attach,
     })
   end,
 }

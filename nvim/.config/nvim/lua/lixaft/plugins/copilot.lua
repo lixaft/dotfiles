@@ -1,12 +1,9 @@
 -- Neovim plugin for GitHub Copilot.
---
--- https://github.com/github/copilot.vim
 
 return {
   "zbirenbaum/copilot.lua",
-  lazy = true,
-  event = { "BufReadPre", "BufNewFile" },
-  config = true,
+  event = { "InsertEnter" },
+
   opts = {
     panel = {
       auto_refresh = true,

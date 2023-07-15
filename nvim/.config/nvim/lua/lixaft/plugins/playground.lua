@@ -1,22 +1,13 @@
 -- Treesitter playground integrated into Neovim.
---
--- https://github.com/nvim-treesitter/playground
 
 return {
   "nvim-treesitter/playground",
-  keys = {
-    {
-      "<leader>p",
-      "<cmd>TSPlaygroundToggle<cr>",
-      desc = "Toggle Treesitter Playground",
-    },
-    {
-      "<leader>P",
-      "<cmd>TSHighlightCapturesUnderCursor<cr>",
-      desc = "Show the hightlight group under cursor",
-    },
+  cmd = {
+    "TSHighlightCapturesUnderCursor",
+    "TSNodeUnderCursor",
+    "TSPlaygroundToggle",
   },
-  require = {
+  dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
 }

@@ -1,4 +1,4 @@
-require("lixaft.utilities.option").setup({
-  colorcolumn = { "50", "80", "100" },
-  spell = true,
-})
+local opt = vim.opt_local
+
+opt.colorcolumn = { "50", "80", "100" }
+opt.spell = true

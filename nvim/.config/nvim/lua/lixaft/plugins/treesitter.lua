@@ -1,21 +1,22 @@
 -- Nvim Treesitter configurations and abstraction layer.
---
--- https://github.com/nvim-treesitter/nvim-treesitter
 
 return {
   "nvim-treesitter/nvim-treesitter",
-  lazy = true,
-  build = ":TSUpdate",
-  event = { "BufReadPost", "BufNewFile" },
-  opts = {
-    -- A list of parser names, or "all".
-    ensure_installed = "all",
+  event = { "BufNewFile", "BufReadPost" },
 
-    -- Enable highlight.
+  build = ":TSUpdate",
+
+  opts = {
+    ensure_installed = "all",
     highlight = {
       enable = true,
     },
+
+    indent = {
+      enable = true,
+    },
   },
+
   config = function(_, opts)
     require("nvim-treesitter.configs").setup(opts)
   end,

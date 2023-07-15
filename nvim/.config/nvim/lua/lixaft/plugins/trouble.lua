@@ -1,24 +1,25 @@
 -- A pretty diagnostics, references, telescope results, quickfix and location
 -- list to help you solve all the trouble your code is causing.
---
--- https://github.com/folke/trouble.nvim
 
+-- TODO: Check after installing lsp.
 return {
   "folke/trouble.nvim",
-  lazy = true,
-  cmd = { "TroubleToggle", "Trouble" },
-  keys = {
-    { "<leader>T", "<cmd>TroubleToggle<cr>", desc = "Toggle trouble" },
+  cmd = {
+    "Trouble",
+    "TroubleToggle",
   },
-  opts = {
-    -- Enabling this will use the signs defined in your lsp client
-    use_diagnostic_signs = false,
+  keys = {
+    { "<leader>T", "<cmd>TroubleToggle<cr>" },
+  },
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+  },
 
-    -- Only display the diagnostics of the current buffer.
+  opts = {
+    use_diagnostic_signs = false,
     mode = "document_diagnostics",
 
     signs = {
-      -- Icons / text used for a diagnostic.
       error = "✘ ",
       warning = "▲ ",
       hint = "⚑ ",

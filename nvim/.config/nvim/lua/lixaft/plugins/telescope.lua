@@ -1,52 +1,38 @@
 -- Highly extendable fuzzy finder over lists.
---
--- https://github.com/nvim-telescope/telescope.nvim
-
-local function cmd(name)
-  return "<cmd>Telescope " .. name .. "<cr>"
-end
 
 return {
   "nvim-telescope/telescope.nvim",
-  lazy = true,
   cmd = "Telescope",
   keys = {
-    -- File pickers.
-    { "<c-p>", cmd("find_files"), desc = "Find files" },
-    { "<leader>/", cmd("live_grep"), desc = "Grep files" },
+    { "<c-p>", "<cmd>Telescope find_files<cr>" },
+    { "<leader>/", "<cmd>Telescope live_grep<cr>" },
 
-    -- Vim pickers.
-    { "<leader>sc", cmd("commands"), desc = "Find commands" },
-    { "<leader>sh", cmd("help_tags"), desc = "Help Pages" },
-    { "<leader>st", cmd("colorscheme"), desc = "Pick colorscheme" },
-    { "<leader>sR", cmd("registers"), desc = "Copy register" },
-    { "<leader>sk", cmd("keymaps"), desc = "List keymaps" },
-    { "<leader>sf", cmd("filetypes"), desc = "Select language" },
+    { "<leader>sa", "<cmd>Telescope autocommands<cr>" },
+    { "<leader>sc", "<cmd>Telescope commands<cr>" },
+    { "<leader>sf", "<cmd>Telescope filetypes<cr>" },
+    { "<leader>sh", "<cmd>Telescope help_tags<cr>" },
+    { "<leader>sH", "<cmd>Telescope highlights<cr>" },
+    { "<leader>sm", "<cmd>Telescope man_pages<cr>" },
+    { "<leader>s/", "<cmd>Telescope search_history<cr>" },
+    { "<leader>sn", "<cmd>Telescope spell_suggest<cr>" },
+    { "<leader>sk", "<cmd>Telescope keymaps<cr>" },
+    { "<leader>sr", "<cmd>Telescope registers<cr>" },
 
-    -- LSP pickers.
-    { "<leader>sr", cmd("lsp_references"), desc = "Find references" },
-    { "<leader>ss", cmd("lsp_document_symbols"), desc = "Find symbols" },
-    { "<leader>sd", cmd("diagnostics"), desc = "List diagnostics" },
+    { "<leader>sd", "<cmd>Telescope diagnostics<cr>" },
+    { "<leader>ss", "<cmd>Telescope lsp_document_symbols<cr>" },
+    { "<leader>sS", "<cmd>Telescope lsp_workspace_symbols<cr>" },
   },
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+  },
+
   opts = {
     defaults = {
-      -- The character(s) that will be shown in front of Telescope's
-      -- prompt.
       prompt_prefix = "  ",
-
-      -- The character(s) that will be shown in front of the current
-      -- selection.
       selection_caret = " ",
 
-      -- Determines the default layout of Telescope pickers.
       layout_strategy = "flex",
-
-      -- Determines the default configuration values for layout
-      -- strategies.
       layout_config = {
-
-        -- layout swaps between `horizontal` and `vertical` strategies
-        -- based on the window width.
         flex = {
           flip_columns = 120,
         },
@@ -54,7 +40,6 @@ return {
     },
 
     pickers = {
-      -- Default configuration for builtin pickers.
       find_files = {
         find_command = {
           "rg",
@@ -65,8 +50,6 @@ return {
         },
       },
 
-      -- Search for a string and get results live as you type, respects
-      -- .gitignore.
       live_grep = {
         additional_args = {
           "--hidden",
