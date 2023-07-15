@@ -11,7 +11,10 @@
     undo = reset --soft HEAD^
     fuck = reset --hard HEAD
     yolo = push --force-with-lease origin HEAD
+    norris = push --force origin HEAD
+    quarante-neuf-trois = push --force origin HEAD
 	random = !git commit -m \"$(curl --silent --fail https://whatthecommit.com/index.txt)\"
+    congrat = blame
 
 [color]
     ui = true
