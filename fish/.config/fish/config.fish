@@ -63,7 +63,7 @@ if type --query "starship"
     starship init fish | source
 end
 
-# Quicly return to the tmux session path.
+# Quickly return to the tmux session path.
 function t
     if not test -z $TMUX
         cd (tmux display-message -p "#{session_path}")
