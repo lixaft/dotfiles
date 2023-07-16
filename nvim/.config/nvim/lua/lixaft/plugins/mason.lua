@@ -1,7 +1,6 @@
 -- Portable package manager for Neovim that runs everywhere Neovim runs.
 -- Easily install and manage LSP servers, DAP servers, linters, and formatters.
 
--- TODO: Auto install packages.
 return {
   "williamboman/mason.nvim",
   cmd = "Mason",
@@ -35,4 +34,41 @@ return {
       },
     },
   },
+
+  config = function(_, opts)
+    require("mason").setup(opts)
+
+    local packages = {
+      -- LSP.
+      "bash-language-server",
+      "clangd",
+      "cmake-language-server",
+      "gopls",
+      "lua-language-server",
+      "pyright",
+      "ruff-lsp",
+      "rust-analyzer",
+
+      -- Linters.
+      "luacheck",
+      "mypy",
+
+      -- Formatters.
+      "gersemi",
+      "prettier",
+      "pyink",
+      "ruff",
+      "shfmt",
+      "stylua",
+    }
+
+    local reg = require("mason-registry")
+
+    for _, name in ipairs(packages) do
+      local pkg = reg.get_package(name)
+      if not reg.is_installed(name) then
+        pkg:install()
+      end
+    end
+  end,
 }

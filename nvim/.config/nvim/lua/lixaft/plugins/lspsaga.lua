@@ -29,6 +29,20 @@ return {
       },
     },
 
+    code_action = {
+      keys = {
+        quit = "<esc>",
+      },
+    },
+
+    outline = {
+      win_position = "left",
+      close_after_jump = true,
+      keys = {
+        jump = "<cr>",
+      },
+    },
+
     ui = {
       border = "rounded",
       expand = "▶",

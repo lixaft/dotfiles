@@ -1,5 +1,6 @@
 local set = require("lixaft.core.operator").set
 
+-- TODO: Add an highlight on yank.
 local function system_yank(lines, info)
   local text = table.concat(lines, "\n")
 

@@ -94,6 +94,7 @@ return {
             nvim_lsp = "LSP",
             luasnip = "LuaSnip",
             nvim_lua = "Lua",
+            git = "Git",
           }
           local source = names[entry.source.name] or entry.source.name
 

@@ -1,6 +1,8 @@
 -- Quickstart configs for Nvim LSP.
+
 local map = require("lixaft.core.keymap").set
 
+-- TODO: fix ui border to use rounded.
 return {
   "neovim/nvim-lspconfig",
   event = { "BufNewFile", "BufReadPost" },
@@ -61,8 +63,6 @@ return {
     }
 
     -- Python.
-    -- TODO: Try to remove the diagnostics in the capabilities, currently they
-    -- are still displayed in the float window.
     require("lspconfig").pyright.setup({
       capabilities = build_capabilities(),
       on_attach = on_attach,
@@ -80,6 +80,12 @@ return {
       capabilities = build_capabilities(),
       on_attach = on_attach,
       handlers = no_diagnostics_handlers,
+      settings = {
+        Lua = {
+          diagnostics = { enable = false },
+          format = { enable = false },
+        },
+      },
     })
 
     -- C/C++.
@@ -87,6 +93,12 @@ return {
       capabilities = build_capabilities({
         offsetEncoding = { "utf-16" },
       }),
+      on_attach = on_attach,
+    })
+
+    -- CMake.
+    require("lspconfig").cmake.setup({
+      capabilities = build_capabilities(),
       on_attach = on_attach,
     })
 
@@ -98,6 +110,12 @@ return {
 
     -- Go.
     require("lspconfig").gopls.setup({
+      capabilities = build_capabilities(),
+      on_attach = on_attach,
+    })
+
+    -- Bash.
+    require("lspconfig").bashls.setup({
       capabilities = build_capabilities(),
       on_attach = on_attach,
     })
