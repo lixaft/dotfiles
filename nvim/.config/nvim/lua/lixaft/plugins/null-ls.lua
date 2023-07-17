@@ -30,7 +30,11 @@ return {
         }),
 
         -- Python.
-        null_ls.builtins.diagnostics.mypy,
+        null_ls.builtins.diagnostics.mypy.with({
+          extra_args = {
+            "--ignore-missing-imports",
+          },
+        }),
         null_ls.builtins.formatting.ruff,
         null_ls.builtins.formatting.pyink.with({
           extra_args = {
