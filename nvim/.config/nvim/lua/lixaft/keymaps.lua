@@ -24,9 +24,10 @@ set("n", "<c-u>", "<c-u>zz")
 set("n", "n", "nzz")
 set("n", "N", "Nzz")
 
--- Clipboard operation (yank as operator).
-set({ "n", "x" }, "gp", [["+p]])
-set({ "n", "x" }, "gP", [["+P]])
+-- Clipboard operation.
+set({ "n", "v" }, "gP", [["+P]])
+set({ "n", "v" }, "gP", [["+P]])
+set({ "v" }, "gy", [["+y]])
 
 -- Do not move cursor on join line.
 set("n", "J", "mzJ`z")
