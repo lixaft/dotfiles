@@ -49,7 +49,7 @@ repos:
       - id: mypy
         additional_dependencies: [types-all]
   - repo: https://github.com/JohnnyMorganz/StyLua
-    rev: v0.18.0
+    rev: v0.18.1
     hooks:
       - id: stylua
   - repo: https://github.com/lunarmodules/luacheck
