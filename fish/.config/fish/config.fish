@@ -3,11 +3,17 @@
 # Remove welcome message.
 set fish_greeting ""
 
+# Ensure XDG variables are set.
+set --export XDG_CONFIG_HOME "$HOME/.config"
+set --export XDG_CACHE_HOME "$HOME/.cache"
+set --export XDG_DATA_HOME "$HOME/.local/share"
+set --export XDG_STATE_HOME "$HOME/.local/state"
+
 # Define aliases.
-alias tree="tree -C"
 alias less="less -R"
 alias python="python3"
 alias refresh="source $HOME/.config/fish/config.fish"
+alias tree="tree -C"
 
 # Extend $PATH.
 fish_add_path "$HOME/.local/bin"
