@@ -26,7 +26,7 @@ set("n", "N", "Nzz")
 
 -- Clipboard operation.
 set({ "n", "v" }, "gP", [["+P]])
-set({ "n", "v" }, "gP", [["+P]])
+set({ "n", "v" }, "gp", [["+p]])
 set({ "v" }, "gy", [["+y]])
 
 -- Do not move cursor on join line.
