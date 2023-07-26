@@ -6,6 +6,7 @@ globals = {
   "vim.env",
   "vim.g",
   "vim.go",
+  "vim.lsp",
   "vim.o",
   "vim.opt",
   "vim.opt_local",
