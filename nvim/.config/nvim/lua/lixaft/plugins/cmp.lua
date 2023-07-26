@@ -9,7 +9,6 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-path",
     "hrsh7th/nvim-cmp",
-    "petertriho/cmp-git",
     "saadparwaiz1/cmp_luasnip",
   },
 
@@ -22,7 +21,6 @@ return {
     return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        { name = "git" },
         { name = "buffer" },
         { name = "luasnip" },
         { name = "path" },
@@ -94,7 +92,6 @@ return {
             nvim_lsp = "LSP",
             luasnip = "LuaSnip",
             nvim_lua = "Lua",
-            git = "Git",
           }
           local source = names[entry.source.name] or entry.source.name
 
