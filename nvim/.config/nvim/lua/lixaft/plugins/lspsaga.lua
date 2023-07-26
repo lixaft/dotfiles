@@ -10,6 +10,7 @@ return {
     { "K", "<cmd>Lspsaga hover_doc<cr>" },
     { "ga", "<cmd>Lspsaga code_action<cr>" },
     { "<leader>o", "<cmd>Lspsaga outline<cr>" },
+    { "<leader>r", "<cmd>Lspsaga term_toggle<cr>" },
   },
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
