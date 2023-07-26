@@ -53,13 +53,10 @@ return {
     end
 
     local no_diagnostics_handlers = {
-      ["textDocument/publishDiagnostics"] = vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics,
-        {
-          virtual_text = false,
-          signs = false,
-        }
-      ),
+      ["textDocument/publishDiagnostics"] = function(...)
+        local result = select(2, ...)
+        result.diagnostics = {}
+      end,
     }
 
     -- Python.
