@@ -17,7 +17,7 @@ return {
     extra = {
       above = "gcO",
       below = "gco",
-      eol = "gca",
+      eol = "gcA",
     },
   },
 }
