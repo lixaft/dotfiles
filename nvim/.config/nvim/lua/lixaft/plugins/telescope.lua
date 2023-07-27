@@ -13,6 +13,7 @@ return {
     { "<leader>sh", "<cmd>Telescope help_tags<cr>" },
     { "<leader>sH", "<cmd>Telescope highlights<cr>" },
     { "<leader>sm", "<cmd>Telescope man_pages<cr>" },
+    { "<leader>sM", "<cmd>Telescope marks<cr>" },
     { "<leader>s/", "<cmd>Telescope search_history<cr>" },
     { "<leader>sn", "<cmd>Telescope spell_suggest<cr>" },
     { "<leader>sk", "<cmd>Telescope keymaps<cr>" },
