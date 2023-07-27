@@ -28,6 +28,7 @@ set("n", "N", "Nzz")
 set({ "n", "v" }, "gP", [["+P]])
 set({ "n", "v" }, "gp", [["+p]])
 set({ "v" }, "gy", [["+y]])
+set({ "v" }, "<leader>p", [["_dP]])
 
 -- Do not move cursor on join line.
 set("n", "J", "mzJ`z")
