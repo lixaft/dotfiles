@@ -26,6 +26,7 @@ return {
       keys = {
         close = "<esc>",
         quit = "<esc>",
+        vsplit = "<c-v>",
         toggle_or_open = "<cr>",
       },
     },
