@@ -137,7 +137,7 @@ set $yellow "#e0af68"
 hide_edge_borders smart
 client.focused $green $background $foreground $red $blue
 client.unfocused $green $background $foreground $red $black
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 4
 
 # Configure the status bar.
 bar {
