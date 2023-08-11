@@ -15,6 +15,16 @@ return {
 
     lualine_bold = true,
 
+    on_colors = function(colors)
+      colors.black = "#08080C"
+      colors.bg_highlight = "#111118"
+
+      colors.bg = colors.black
+      colors.bg_visual = colors.bg_highlight
+      colors.bg_statusline = colors.black
+      colors.fg_gutter = colors.bg_highlight
+    end,
+
     on_highlights = function(hl, colors)
       hl.LineNr = { fg = colors.dark3 }
       hl.VirtColumn = { fg = colors.dark3 }
@@ -30,6 +40,9 @@ return {
 
       hl.CopilotSuggestion = { fg = colors.blue0 }
       hl.ExtraWhitespace = { bg = colors.red }
+
+      hl.TreesitterContext = {}
+      hl.TreesitterContextSeparator = { fg = colors.dark3 }
     end,
   },
 

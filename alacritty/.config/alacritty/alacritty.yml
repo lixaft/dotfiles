@@ -15,7 +15,7 @@ font:
 
 colors:
   primary:
-    background: "#1a1b26"
+    background: "#08080c"
     foreground: "#c0caf5"
   normal:
     black: "#15161e"

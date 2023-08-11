@@ -9,8 +9,9 @@ return {
   },
 
   opts = {
+
     options = {
-      theme = "tokyonight",
+      globalstatus = true,
 
       component_separators = {
         left = "।",
@@ -23,10 +24,7 @@ return {
       },
 
       disabled_filetypes = {
-        statusline = {
-          "neo-tree",
-          "Trouble",
-        },
+        statusline = {},
         winbar = {},
       },
 

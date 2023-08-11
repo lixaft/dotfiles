@@ -11,5 +11,9 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
 
+  opts = {
+    separator = "-",
+  },
+
   config = true,
 }
