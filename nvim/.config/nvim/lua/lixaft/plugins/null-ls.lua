@@ -36,7 +36,7 @@ return {
           },
         }),
         null_ls.builtins.formatting.ruff,
-        null_ls.builtins.formatting.pyink.with({
+        null_ls.builtins.formatting.black.with({
           extra_args = {
             "--line-length=79",
           },
