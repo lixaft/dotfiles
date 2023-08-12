@@ -4,6 +4,7 @@ set -eo pipefail
 dirs=(
 	"$HOME"
 	"$HOME/dev"
+	"$HOME/stim"
 )
 
 function filter_dirs() {

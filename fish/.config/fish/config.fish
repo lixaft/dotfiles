@@ -4,8 +4,8 @@
 set fish_greeting ""
 
 # Ensure XDG variables are set.
-set --export XDG_CONFIG_HOME "$HOME/.config"
 set --export XDG_CACHE_HOME "$HOME/.cache"
+set --export XDG_CONFIG_HOME "$HOME/.config"
 set --export XDG_DATA_HOME "$HOME/.local/share"
 set --export XDG_STATE_HOME "$HOME/.local/state"
 
@@ -34,9 +34,9 @@ function __cd_minus
 end
 abbr --add "-" --position command --function __cd_minus
 
-# Tmux go binding.
-bind \cs "tmux-go; commandline -f execute"
-bind \ct "tmux-go /tmp; commandline -f execute"
+# Tmux sessionizer binding.
+bind \cs "tmux-sessionizer; commandline -f execute"
+bind \ct "tmux-sessionizer /tmp; commandline -f execute"
 
 # Replace `ls` by `exa` if available.
 if type --query "exa"
