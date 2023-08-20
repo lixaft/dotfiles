@@ -20,7 +20,7 @@ return {
     { "<leader>sr", "<cmd>Telescope registers<cr>" },
 
     { "<leader>sd", "<cmd>Telescope diagnostics<cr>" },
-    { "<leader>ss", "<cmd>Telescope lsp_document_symbols<cr>" },
+    { "<c-_>", "<cmd>Telescope lsp_document_symbols<cr>" },
     { "<leader>sS", "<cmd>Telescope lsp_workspace_symbols<cr>" },
   },
   dependencies = {
