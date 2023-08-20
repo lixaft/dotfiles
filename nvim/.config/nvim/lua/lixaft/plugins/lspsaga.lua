@@ -5,10 +5,12 @@ return {
   event = "LspAttach",
   cmd = "Lspsaga",
   keys = {
+    { "K", "<cmd>Lspsaga hover_doc<cr>" },
     { "gR", "<cmd>Lspsaga finder<cr>" },
     { "gd", "<cmd>Lspsaga goto_definition<cr>" },
-    { "K", "<cmd>Lspsaga hover_doc<cr>" },
     { "ga", "<cmd>Lspsaga code_action<cr>" },
+    { "[d", "<cmd>Lspsaga diagnostic_jump_previous<cr>" },
+    { "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>" },
     { "<leader>o", "<cmd>Lspsaga outline<cr>" },
     { "<leader>t", "<cmd>Lspsaga term_toggle<cr>" },
   },
