@@ -8,7 +8,7 @@ return {
     "TroubleToggle",
   },
   keys = {
-    { "<leader>t", "<cmd>TroubleToggle<cr>" },
+    { "<leader>d", "<cmd>TroubleToggle<cr>" },
   },
   dependencies = {
     "nvim-tree/nvim-web-devicons",
