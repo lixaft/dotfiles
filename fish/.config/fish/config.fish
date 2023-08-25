@@ -38,6 +38,7 @@ abbr --add "-" --position command --function __cd_minus
 bind \cs "tmux-sessionizer; commandline -f execute"
 bind \ch "tmux-sessionizer ~; commandline -f execute"
 bind \ct "tmux-sessionizer /tmp; commandline -f execute"
+bind \cg "tmux-sessionizer ~/todo.md; commandline -f execute"
 
 # Replace `ls` by `exa` if available.
 if type --query "exa"

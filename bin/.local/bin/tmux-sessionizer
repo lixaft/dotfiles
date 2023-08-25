@@ -17,14 +17,20 @@ function filter_dirs() {
 
 if [[ -z "$1" ]]; then
 	dir="$(find ${dirs[@]} -mindepth 1 -maxdepth 1 -type d | filter_dirs | fzf)"
-else
+	name="$(basename "$dir" | tr "." "_")"
+	cmd=""
+elif [[ -d "$1" ]]; then
 	dir="$1"
+	name="$(basename "$1" | tr "." "_")"
+	cmd=""
+else
+	dir="$(dirname "$1")"
+	name="$(basename "${1%.*}" | tr "." "_")"
+	cmd="$EDITOR $(basename "$1")"
 fi
 
-name="$(basename "$dir" | tr "." "_")"
-
 if ! tmux has-session -t="$name" 2>"/dev/null"; then
-	tmux new-session -d -s "$name" -c "$dir"
+	tmux new-session -d -s "$name" -c "$dir" -- $cmd
 fi
 
 if [[ -z "$TMUX" ]]; then
