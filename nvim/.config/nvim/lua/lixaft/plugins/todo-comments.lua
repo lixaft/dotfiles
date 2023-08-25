@@ -16,6 +16,7 @@ return {
   opts = {
     keywords = {
       NOTE = { icon = "" },
+      PY3 = { icon = "", color = "hint" },
     },
 
     gui_style = {
