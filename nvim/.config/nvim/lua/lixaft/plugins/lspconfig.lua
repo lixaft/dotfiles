@@ -12,6 +12,12 @@ return {
     local map = require("lixaft.core.keymap").set
 
     require("lspconfig.ui.windows").default_options.border = "rounded"
+    local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+    function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+      opts = opts or {}
+      opts.border = "rounded"
+      return orig_util_open_floating_preview(contents, syntax, opts, ...)
+    end
 
     vim.diagnostic.config({
       severity_sort = true,
@@ -60,13 +66,6 @@ return {
       end,
     }
 
-    -- To instead override globally
-    local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-    function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-      opts = opts or {}
-      opts.border = "rounded"
-      return orig_util_open_floating_preview(contents, syntax, opts, ...)
-    end
     -- Python.
     require("lspconfig").pyright.setup({
       capabilities = build_capabilities(),
