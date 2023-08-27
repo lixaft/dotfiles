@@ -20,9 +20,9 @@ return {
     },
 
     textobjects = {
-
       select = {
         enable = true,
+        lookahead = true,
         keymaps = {
           ["af"] = "@function.outer",
           ["if"] = "@function.inner",
@@ -30,13 +30,21 @@ return {
           ["ic"] = "@class.inner",
           ["al"] = "@assignment.lhs",
           ["ar"] = "@assignment.rhs",
+          ["iP"] = "@parameter.inner",
+          ["aP"] = "@parameter.outer",
+          ["iC"] = "@comment.inner",
+          ["aC"] = "@comment.outer",
+          ["ib"] = "@block.inner",
+          ["ab"] = "@block.outer",
         },
-        selection_modes = {
-          ["@class.inner"] = "V",
-          ["@class.outer"] = "V",
-          ["@function.inner"] = "V",
-          ["@function.outer"] = "V",
-        },
+
+        include_surrounding_whitespace = function(opts)
+          local ret = false
+          if string.find(opts.query_string, ".outer") then
+            ret = true
+          end
+          return ret
+        end,
       },
 
       swap = {
@@ -71,12 +79,6 @@ return {
           ["[C"] = "@class.outer",
           ["[F"] = "@function.outer",
           ["[R"] = "@return.outer",
-        },
-        goto_next = {
-          ["]d"] = "@conditional.outer",
-        },
-        goto_previous = {
-          ["[d"] = "@conditional.outer",
         },
       },
     },
