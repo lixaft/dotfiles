@@ -30,8 +30,8 @@ return {
           ["ic"] = "@class.inner",
           ["al"] = "@assignment.lhs",
           ["ar"] = "@assignment.rhs",
-          ["iP"] = "@parameter.inner",
-          ["aP"] = "@parameter.outer",
+          ["ia"] = "@parameter.inner",
+          ["aa"] = "@parameter.outer",
           ["iC"] = "@comment.inner",
           ["aC"] = "@comment.outer",
           ["ib"] = "@block.inner",
@@ -50,10 +50,10 @@ return {
       swap = {
         enable = true,
         swap_next = {
-          ["<leader>pn"] = "@parameter.inner",
+          ["<leader>a"] = "@parameter.inner",
         },
         swap_previous = {
-          ["<leader>pN"] = "@parameter.inner",
+          ["<leader>A"] = "@parameter.inner",
         },
       },
 

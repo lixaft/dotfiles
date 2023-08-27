@@ -23,21 +23,25 @@ opt.signcolumn = "yes"
 -- Keep a minimum number of lines above and below the cursor.
 opt.scrolloff = 8
 
--- Set indentation.
+-- Default indentation.
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.softtabstop = 4
 opt.expandtab = true
 
--- Disable line wrapping.
-opt.linebreak = false
-opt.wrap = false
+-- Wrap.
+opt.linebreak = true
+opt.breakindent = true
+opt.showbreak = "> "
 
--- Search options.
+-- Search.
 opt.hlsearch = true
-opt.ignorecase = true
 opt.incsearch = true
+opt.ignorecase = true
 opt.smartcase = true
+
+-- Better completion experience.
+opt.completeopt = { "menuone", "noselect" }
 
 -- Hide startup message.
 opt.shortmess = "I"

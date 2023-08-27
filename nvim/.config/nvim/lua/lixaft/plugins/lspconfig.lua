@@ -6,6 +6,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "williamboman/mason.nvim",
+    "folke/neodev.nvim",
   },
 
   config = function()
@@ -65,6 +66,9 @@ return {
         result.diagnostics = {}
       end,
     }
+
+    -- Neovim.
+    require("neodev").setup()
 
     -- Python.
     require("lspconfig").pyright.setup({

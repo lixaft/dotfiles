@@ -3,6 +3,10 @@ local set = require("lixaft.core.keymap").set
 -- Source the current file.
 set("n", "<leader><leader>", ":source<cr>")
 
+-- Work with line wraps.
+set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
+set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
+
 -- Make the current file executable.
 set("n", "<leader>x", "<cmd>!chmod +x %<cr>")
 
