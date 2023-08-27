@@ -14,6 +14,7 @@ alias less="less -R"
 alias python="python3"
 alias refresh="source $HOME/.config/fish/config.fish"
 alias tree="tree -C"
+alias ta="tmux attach"
 
 # Extend $PATH.
 fish_add_path "$HOME/.local/bin"
