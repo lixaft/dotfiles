@@ -18,10 +18,6 @@ return {
     { "<leader>sn", "<cmd>Telescope spell_suggest<cr>" },
     { "<leader>sk", "<cmd>Telescope keymaps<cr>" },
     { "<leader>sr", "<cmd>Telescope registers<cr>" },
-
-    { "<leader>sd", "<cmd>Telescope diagnostics<cr>" },
-    { "<c-_>", "<cmd>Telescope lsp_document_symbols<cr>" },
-    { "<leader>sS", "<cmd>Telescope lsp_workspace_symbols<cr>" },
   },
   dependencies = {
     "nvim-lua/plenary.nvim",

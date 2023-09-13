@@ -7,7 +7,7 @@ return {
 
   opts = {
     text = {
-      spinner = "arc",
+      spinner = "dots",
     },
     window = {
       blend = 0,

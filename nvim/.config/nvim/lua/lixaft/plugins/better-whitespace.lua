@@ -3,4 +3,9 @@
 return {
   "ntpeters/vim-better-whitespace",
   event = { "BufNewFile", "BufReadPost" },
+  cmd = {
+    "EnableWhitespace",
+    "DisableWhitespace",
+    "ToggleWhitespace",
+  },
 }

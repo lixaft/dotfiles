@@ -1,5 +1,5 @@
 -- Getting you where you want with the fewest keystrokes.
-local partial = require("lixaft.core.utils").partial
+local partial = require("lixaft.utils.func").partial
 
 return {
   "ThePrimeagen/harpoon",

@@ -1,5 +1,5 @@
 -- Super fast git decorations implemented purely in lua/teal.
-local partial = require("lixaft.core.utils").partial
+local partial = require("lixaft.utils.func").partial
 
 return {
   "lewis6991/gitsigns.nvim",

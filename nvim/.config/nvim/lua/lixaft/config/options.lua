@@ -23,7 +23,7 @@ opt.signcolumn = "yes"
 -- Keep a minimum number of lines above and below the cursor.
 opt.scrolloff = 8
 
--- Default indentation.
+-- Indentation.
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.softtabstop = 4
@@ -40,19 +40,19 @@ opt.incsearch = true
 opt.ignorecase = true
 opt.smartcase = true
 
--- Better completion experience.
-opt.completeopt = { "menuone", "noselect" }
-
--- Hide startup message.
-opt.shortmess = "I"
-
--- A bit of backup, but swapfile can be annoying sometimes...
+-- Backup.
 opt.swapfile = true
 opt.backup = true
 opt.undofile = true
 opt.directory = os.getenv("HOME") .. "/.cache/nvim/swap"
 opt.backupdir = os.getenv("HOME") .. "/.cache/nvim/backup"
 opt.undodir = os.getenv("HOME") .. "/.cache/nvim/undo"
+
+-- Better completion experience.
+opt.completeopt = { "menuone", "noselect" }
+
+-- Hide startup message.
+opt.shortmess = "I"
 
 -- Define where to split windows.
 opt.splitright = true

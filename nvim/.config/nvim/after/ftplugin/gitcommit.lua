@@ -1,4 +1,4 @@
 local opt = vim.opt_local
 
-opt.colorcolumn = { "50", "80", "100" }
+opt.colorcolumn = { "50", "72" }
 opt.spell = true

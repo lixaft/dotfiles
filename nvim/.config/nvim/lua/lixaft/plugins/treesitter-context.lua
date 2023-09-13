@@ -1,5 +1,5 @@
 -- Show code context.
-local partial = require("lixaft.core.utils").partial
+local partial = require("lixaft.utils.func").partial
 
 return {
   "nvim-treesitter/nvim-treesitter-context",
@@ -13,6 +13,7 @@ return {
 
   opts = {
     separator = "-",
+    multiline_threshold = 1,
   },
 
   config = true,

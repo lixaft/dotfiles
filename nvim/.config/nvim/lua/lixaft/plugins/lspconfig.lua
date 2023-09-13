@@ -10,7 +10,7 @@ return {
   },
 
   config = function()
-    local map = require("lixaft.core.keymap").set
+    local map = require("lixaft.utils.keymap").set
 
     require("lspconfig.ui.windows").default_options.border = "rounded"
     local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
@@ -22,7 +22,6 @@ return {
 
     vim.diagnostic.config({
       severity_sort = true,
-
       float = {
         border = "rounded",
         source = "always",
@@ -49,15 +48,26 @@ return {
     end
 
     local function on_attach(_, buffer)
+      local telescope = require("telescope.builtin")
       local opts = { buffer = buffer }
-      map("n", "gl", vim.diagnostic.open_float, opts)
+
+      map("n", "gF", vim.lsp.buf.format, opts)
       map("n", "gr", vim.lsp.buf.rename, opts)
 
+      map("n", "gd", vim.lsp.buf.definition, opts)
+      map("n", "gR", vim.lsp.buf.references, opts)
+      map("n", "gI", vim.lsp.buf.implementation, opts)
+      map("n", "<c-_>", telescope.lsp_document_symbols, opts)
+      map("n", "<m-/>", telescope.lsp_dynamic_workspace_symbols, opts)
+
+      map("n", "K", vim.lsp.buf.hover, opts)
       map("i", "<c-h>", vim.lsp.buf.signature_help, opts)
 
-      map("n", "gF", function()
-        vim.lsp.buf.format({ async = true })
-      end, opts)
+      map("n", "ga", vim.lsp.buf.code_action, opts)
+      map("n", "gD", vim.diagnostic.setqflist, opts)
+      map("n", "gl", vim.diagnostic.open_float, opts)
+      map("n", "]d", vim.diagnostic.goto_next, opts)
+      map("n", "[d", vim.diagnostic.goto_prev, opts)
     end
 
     local no_diagnostics_handlers = {
