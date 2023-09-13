@@ -1,6 +1,5 @@
 # type: ignore
 # Python Debugger configuration file.
-
 from __future__ import annotations
 
 import pdb

@@ -9,14 +9,14 @@ del readline, rlcompleter
 
 # Allow to exit python using `exit` instead of `exit()`.
 try:
-    type(exit).__repr__ = type(exit).__call__
+    type(exit).__repr__ = type(exit).__call__  # type: ignore[method-assign]
 # As `exit` is not a builtin and comes from the `site` module, in some cases it
 # will not be available (when python is run with the `-S` argument).
 except NameError:
     pass
 
 
-def jp(*args, **kwargs):
+def jp(*args, **kwargs):  # type: ignore[no-untyped-def]
     """JSON style print function."""
     import json
 
@@ -24,7 +24,7 @@ def jp(*args, **kwargs):
     print(json.dumps(*args, **kwargs))
 
 
-def pp(*args, **kwargs):
+def pp(*args, **kwargs):  # type: ignore[no-untyped-def]
     """Use PrettyPrint to print the given object."""
     import pprint
 
