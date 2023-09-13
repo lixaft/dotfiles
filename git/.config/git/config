@@ -41,8 +41,14 @@
 [merge]
 	tool = nvimdiff
 
-[url "git@github.com:"]
-    insteadOf = gh:
+[pull]
+  rebase = true
+
+[url "git@github.com:stimstudio/"]
+    insteadOf = s:
+
+[url "git@github.com:lixaft/"]
+    insteadOf = l:
 
 [user]
     email = lixaft@gmail.com
