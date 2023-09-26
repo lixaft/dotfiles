@@ -12,6 +12,7 @@ set --export XDG_STATE_HOME "$HOME/.local/state"
 # Define aliases.
 alias less="less -R"
 alias python="python3"
+alias sqlite="sqlite3"
 alias refresh="source $HOME/.config/fish/config.fish"
 alias tree="tree -C"
 alias ta="tmux attach"
@@ -79,6 +80,14 @@ function t
     else
         echo "not in a tmux session"
     end
+end
+
+# Create and source venv.
+function v
+    if not test -e venv
+        virtualenv venv
+    end
+    source venv/bin/activate.fish
 end
 
 # TokyoNight color palette.
