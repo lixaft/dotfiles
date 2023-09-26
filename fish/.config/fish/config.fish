@@ -81,13 +81,6 @@ function t
     end
 end
 
-# Automatially run `pre-commit install`.
-function __fish_prompt_event --on-event fish_prompt
-    if test -e ".git" && type --query pre-commit && test -e ".pre-commit-config.yaml"
-        pre-commit install &> /dev/null
-    end
-end
-
 # TokyoNight color palette.
 set --local background "#1a1b26"
 set --local foreground "#c0caf5"
