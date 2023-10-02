@@ -43,6 +43,9 @@ return {
 
       hl.TreesitterContext = {}
       hl.TreesitterContextSeparator = { fg = colors.dark3 }
+
+      hl.Folded = { bg = "none" }
+      hl.UfoFoldedBg = { bg = "none" }
     end,
   },
 
