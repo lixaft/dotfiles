@@ -1,0 +1,3 @@
+[submodule "stim"]
+	path = stim
+	url = git@github.com:lixaft/stim
