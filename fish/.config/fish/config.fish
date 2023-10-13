@@ -9,32 +9,27 @@ set --export XDG_CONFIG_HOME "$HOME/.config"
 set --export XDG_DATA_HOME "$HOME/.local/share"
 set --export XDG_STATE_HOME "$HOME/.local/state"
 
-# Define aliases.
-alias less="less -R"
-alias python="python3"
-alias sqlite="sqlite3"
-alias refresh="source $HOME/.config/fish/config.fish"
-alias tree="tree -C"
-alias ta="tmux attach"
-
 # Extend $PATH.
 fish_add_path "$HOME/.local/bin"
 
+# Define aliases.
+alias df="df -h"
+alias du="du -h"
+alias less="less -R"
+alias python="python3"
+alias refresh="source $HOME/.config/fish/config.fish"
+alias sqlite="sqlite3"
+alias ta="tmux attach"
+alias tree="tree -C"
+
 # Python variables.
-set --export PIP_DISABLE_PIP_VERSION_CHECK "1"
 set --export PYTHONSTARTUP "$HOME/.pythonrc"
+set --export PYTHONBREAKPOINT "pdb.set_trace"
+set --export PIP_DISABLE_PIP_VERSION_CHECK "1"
 
 # Implement the equivalant of `!!`.
-function __bang_bang
-    echo -- "$history[1]"
-end
-abbr --add "!!" --position anywhere --function __bang_bang
-
-# Quick `cd -`.
-function __cd_minus
-    echo -- "cd -"
-end
-abbr --add "-" --position command --function __cd_minus
+abbr --add "!!" --position anywhere "$(echo $history[1])"
+abbr --add "-" --position command "cd -"
 
 # Tmux sessionizer binding.
 bind \cs "tmux-sessionizer; commandline -f execute"
@@ -71,23 +66,6 @@ end
 # Initialize starship.
 if type --query "starship"
     starship init fish | source
-end
-
-# Quickly return to the tmux session path.
-function t
-    if not test -z $TMUX
-        cd (tmux display-message -p "#{session_path}")
-    else
-        echo "not in a tmux session"
-    end
-end
-
-# Create and source venv.
-function v
-    if not test -e venv
-        virtualenv venv
-    end
-    source venv/bin/activate.fish
 end
 
 # TokyoNight color palette.
@@ -144,3 +122,9 @@ set --export FZF_DEFAULT_OPTS "\
     --color prompt:$comment \
     --color spinner:$comment \
 "
+
+# Source stim configuration.
+set --local stim_config "$HOME/.config/fish/stim.fish"
+if test -f "$stim_config"
+    source "$stim_config"
+end
