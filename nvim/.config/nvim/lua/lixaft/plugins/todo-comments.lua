@@ -16,11 +16,16 @@ return {
   opts = {
     keywords = {
       NOTE = { icon = "" },
+      TEST = { icon = "" },
       PY3 = { icon = "", color = "hint" },
     },
 
     gui_style = {
       fg = "BOLD",
+    },
+
+    colors = {
+      test = { "String" },
     },
 
     highlight = {
