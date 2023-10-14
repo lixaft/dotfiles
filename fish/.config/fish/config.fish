@@ -1,5 +1,3 @@
-# Fish configuration file.
-
 # Remove welcome message.
 set fish_greeting ""
 
@@ -22,14 +20,14 @@ alias sqlite="sqlite3"
 alias ta="tmux attach"
 alias tree="tree -C"
 
+# Define abbreviations.
+abbr --add "!!" --position anywhere --function "last_command"
+abbr --add "-" --position command "cd -"
+
 # Python variables.
 set --export PYTHONSTARTUP "$HOME/.pythonrc"
 set --export PYTHONBREAKPOINT "pdb.set_trace"
 set --export PIP_DISABLE_PIP_VERSION_CHECK "1"
-
-# Implement the equivalant of `!!`.
-abbr --add "!!" --position anywhere "$(echo $history[1])"
-abbr --add "-" --position command "cd -"
 
 # Tmux sessionizer binding.
 bind \cs "tmux-sessionizer; commandline -f execute"
@@ -66,6 +64,12 @@ end
 # Initialize starship.
 if type --query "starship"
     starship init fish | source
+end
+
+# Source stim configuration.
+set --local stim_config "$HOME/.config/fish/stim.fish"
+if test -f "$stim_config"
+    source "$stim_config"
 end
 
 # TokyoNight color palette.
@@ -122,9 +126,3 @@ set --export FZF_DEFAULT_OPTS "\
     --color prompt:$comment \
     --color spinner:$comment \
 "
-
-# Source stim configuration.
-set --local stim_config "$HOME/.config/fish/stim.fish"
-if test -f "$stim_config"
-    source "$stim_config"
-end
