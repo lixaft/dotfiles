@@ -1,6 +1,13 @@
 # Define the main key.
 set $mod Mod4
 
+# Reload/restart i3.
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+# Exit i3.
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -B 'Exit' 'i3-msg exit'"
+
 # Split window.
 bindsym $mod+s split h
 bindsym $mod+v split v
@@ -69,13 +76,6 @@ mode "resize" {
     bindsym $mod+r mode "default"
 }
 
-# Reload/restart i3.
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
-
-# Exit i3.
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
 # Floating mode.
 floating_modifier $mod
 bindsym $mod+space focus mode_toggle
@@ -84,34 +84,10 @@ bindsym $mod+Shift+space floating toggle
 # Full screen mode.
 bindsym $mod+f fullscreen toggle
 
-# Launcher.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
-# Start a new terminal.
-bindsym $mod+Return exec i3-sensible-terminal
-
-# Volume.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-# Player.
-bindsym XF86AudioPlay exec --no-startup-id "playerctl play-pause"
-bindsym XF86AudioPrev exec --no-startup-id "playerctl previous"
-bindsym XF86AudioNext exec --no-startup-id "playerctl next"
-
-# Sreen.
-bindsym $mod+Shift+b exec --no-startup-id "nitrogen"
-bindsym $mod+b exec --no-startup-id "nitrogen --set-zoom-fill --random"
-bindsym Print exec --no-startup-id "flameshot gui"
-bindsym Shift+Print exec --no-startup-id "peek"
-
 # Mouse.
 focus_follows_mouse no
 
-# Setup Font.
+# Font.
 font pango:DejaVuSansMono Nerd Font 14
 
 # Define color theme.
@@ -141,13 +117,31 @@ bar {
     status_command i3status
 }
 
-# Keyboard.
-exec --no-startup-id "setxkbmap lixaft -option caps:escape"
+# Floating rules.
+for_window [class="__init__.py"] floating enable
+for_window [instance="maya.bin"] floating enable
 
-# Start applications.
+# Applications.
+exec --no-startup-id "setxkbmap lixaft -option caps:escape"
 exec --no-startup-id "1password --silent"
 exec --no-startup-id "flameshot"
 exec --no-startup-id "nitrogen --set-zoom-fill --random"
 exec --no-startup-id "nm-applet"
 exec --no-startup-id "picom -b"
 exec --no-startup-id "uncutter &"
+
+bindsym $mod+d exec --no-startup-id "i3-dmenu-desktop"
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+b exec --no-startup-id "nitrogen"
+bindsym $mod+b exec --no-startup-id "nitrogen --set-zoom-fill --random"
+bindsym Print exec --no-startup-id "flameshot gui"
+bindsym Shift+Print exec --no-startup-id "peek"
+
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioPlay exec --no-startup-id "playerctl play-pause"
+bindsym XF86AudioPrev exec --no-startup-id "playerctl previous"
+bindsym XF86AudioNext exec --no-startup-id "playerctl next"
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
