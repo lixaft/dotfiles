@@ -1,7 +1,3 @@
-# i3status configuration file.
-#
-# https://i3wm.org/docs/i3status.html
-
 general {
     colors = true
     interval = 5

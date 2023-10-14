@@ -1,5 +1,3 @@
-# Git configuration file.
-
 [advice]
     statusHints = false
 
@@ -13,8 +11,8 @@
     yolo = push --force-with-lease origin HEAD
     norris = push --force origin HEAD
     quarante-neuf-trois = push --force origin HEAD
-	random = !git commit -m \"$(curl --silent --fail https://whatthecommit.com/index.txt)\"
     congrat = blame
+	random = "!git commit -m \"$(curl -s https://whatthecommit.com/index.txt)\""
 
 [color]
     ui = true
@@ -44,11 +42,11 @@
 [pull]
   rebase = true
 
-[url "git@github.com:stimstudio/"]
-    insteadOf = s:
-
 [url "git@github.com:lixaft/"]
     insteadOf = l:
+
+[url "git@github.com:stimstudio/"]
+    insteadOf = s:
 
 [user]
     email = lixaft@gmail.com

@@ -1,11 +1,4 @@
-# Alacritty configuration file.
-#
-# https://github.com/alacritty/alacritty/blob/master/alacritty.yml
-
 window:
-  padding:
-    x: 0
-    y: 0
   opacity: 0.8
 
 font:
