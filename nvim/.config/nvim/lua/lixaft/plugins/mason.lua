@@ -54,7 +54,6 @@ return {
       "mypy",
 
       -- Formatters.
-      "black",
       "gersemi",
       "prettier",
       "ruff",

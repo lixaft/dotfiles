@@ -1,24 +1,33 @@
+from __future__ import annotations
+
 import readline
 import rlcompleter
+from typing import Any
+
+import _sitebuiltins
 
 # Enable the completion.
 readline.parse_and_bind("tab: complete")
 del readline, rlcompleter
 
 
-# Allow to exit python using `exit` instead of `exit()`.
-try:
-    type(exit).__repr__ = type(exit).__call__  # type: ignore[method-assign]
-except NameError:
-    pass
+# Override the default exit function.
+class _Quitter:
+    __call__ = _sitebuiltins.Quitter.__call__
+    __repr__ = _sitebuiltins.Quitter.__call__  # type: ignore[assignment]
 
 
-def jp(*args, **kwargs):  # type: ignore[no-untyped-def]
+exit = _Quitter()  # noqa: A001
+del _Quitter, _sitebuiltins
+
+
+# Define some useful functions.
+def jp(*args: Any, **kwargs: Any) -> None:
     """JSON style print function."""
     kwargs.setdefault("indent", 2)
     __import__("json").dumps(*args, **kwargs)
 
 
-def pp(*args, **kwargs):  # type: ignore[no-untyped-def]
+def pp(*args: Any, **kwargs: Any) -> None:
     """Use PrettyPrint to print the given object."""
     __import__("pprint").pprint(*args, **kwargs)

@@ -35,12 +35,6 @@ return {
             "--ignore-missing-imports",
           },
         }),
-        null_ls.builtins.formatting.ruff,
-        null_ls.builtins.formatting.black.with({
-          extra_args = {
-            "--line-length=79",
-          },
-        }),
 
         -- Cmake.
         null_ls.builtins.formatting.gersemi,
