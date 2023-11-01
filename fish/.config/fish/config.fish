@@ -14,6 +14,7 @@ fish_add_path "$HOME/.local/bin"
 alias df="df -h"
 alias du="du -h"
 alias less="less -R"
+alias pydoc="python -m pydoc"
 alias python="python3"
 alias refresh="source $HOME/.config/fish/config.fish"
 alias sqlite="sqlite3"
@@ -24,16 +25,19 @@ alias tree="tree -C"
 abbr --add "!!" --position anywhere --function "last_command"
 abbr --add "-" --position command "cd -"
 
-# Python variables.
-set --export PYTHONSTARTUP "$HOME/.pythonrc"
-set --export PYTHONBREAKPOINT "pdb.set_trace"
-set --export PIP_DISABLE_PIP_VERSION_CHECK "1"
+# Define bindings.
+bind \ev "__editor_paginate"
 
-# Tmux sessionizer binding.
+# Sessionizer bindings.
 bind \cs "tmux-sessionizer; commandline -f execute"
 bind \ch "tmux-sessionizer ~; commandline -f execute"
 bind \ct "tmux-sessionizer /tmp; commandline -f execute"
 bind \cg "tmux-sessionizer ~/todo.md; commandline -f execute"
+
+# Python variables.
+set --export PYTHONSTARTUP "$HOME/.pythonrc"
+set --export PYTHONBREAKPOINT "pdb.set_trace"
+set --export PIP_DISABLE_PIP_VERSION_CHECK "1"
 
 # Replace `ls` by `exa` if available.
 if type --query "exa"
