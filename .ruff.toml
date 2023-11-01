@@ -17,4 +17,5 @@ target-version = "py38"
 convention = "google"
 
 [per-file-ignores]
+".pdbrc" = ["D100", "T100"]
 ".pythonrc" = ["D100"]

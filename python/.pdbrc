@@ -1,7 +1,6 @@
-# type: ignore
 from __future__ import annotations
 
 import pdb
 import rlcompleter
 
-pdb.Pdb.complete = rlcompleter.Completer(locals()).complete
+pdb.Pdb.complete = rlcompleter.Completer(locals()).complete  # type: ignore[assignment]
