@@ -5,6 +5,5 @@ return {
   cmd = { "Git" },
   keys = {
     { "<leader>c", "<cmd>Git<cr>" },
-    { "<leader>B", "<cmd>Git blame -w<cr>" },
   },
 }
