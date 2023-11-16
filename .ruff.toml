@@ -1,3 +1,7 @@
+line-length = 79
+target-version = "py38"
+
+[lint]
 select = ["ALL"]
 ignore = [
     "ANN101",
@@ -10,12 +14,13 @@ fixable = ["ALL"]
 unfixable = [
     "F841",
 ]
-line-length = 79
-target-version = "py38"
 
-[pydocstyle]
+[lint.pydocstyle]
 convention = "google"
 
-[per-file-ignores]
+[lint.per-file-ignores]
 ".pdbrc" = ["D100", "T100"]
 ".pythonrc" = ["D100"]
+
+[format]
+skip-magic-trailing-comma = true

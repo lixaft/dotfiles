@@ -2,6 +2,7 @@
 .luarc.json
 .mypy_cache/
 .netrwhist
+.ruff_cache/
 fish_variables
 lazy-lock.json
 venv/
