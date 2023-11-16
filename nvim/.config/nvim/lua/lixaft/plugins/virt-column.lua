@@ -5,6 +5,6 @@ return {
   event = { "BufEnter" },
 
   opts = {
-    char = " ⃓",
+    char = "·",
   },
 }
