@@ -30,13 +30,5 @@ return {
       local dapui = require("dapui")
       dapui.close()
     end
-
-    table.insert(dap.configurations.python, {
-      type = "python",
-      name = "Attach (Pick Process)",
-      mode = "local",
-      request = "attach",
-      processId = require("dap.utils").pick_process,
-    })
   end,
 }
