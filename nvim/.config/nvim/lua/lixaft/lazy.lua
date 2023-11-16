@@ -25,4 +25,5 @@ require("lazy").setup({ import = "lixaft.plugins" }, {
   },
 })
 
+-- require("lazy.view.config").keys.abort = "<c-q>"
 set("n", "<leader>l", "<cmd>Lazy<cr>")

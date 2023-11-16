@@ -29,7 +29,7 @@ return {
         update_all_packages = "u",
         check_outdated_packages = "c",
         uninstall_package = "x",
-        cancel_installation = "<c-c>",
+        cancel_installation = "<c-x>",
         apply_language_filter = "<c-f>",
       },
     },
@@ -49,6 +49,9 @@ return {
       "ruff-lsp",
       "rust-analyzer",
 
+      -- DAP.
+      "debugpy",
+
       -- Linters.
       "luacheck",
       "mypy",
@@ -56,7 +59,6 @@ return {
       -- Formatters.
       "gersemi",
       "prettier",
-      "ruff",
       "shfmt",
       "stylua",
     }

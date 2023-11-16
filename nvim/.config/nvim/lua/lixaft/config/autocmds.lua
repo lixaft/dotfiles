@@ -15,6 +15,8 @@ vim.api.nvim_create_autocmd("FileType", {
   group = augroup("q_exit"),
   pattern = {
     "checkhealth",
+    "fugitive",
+    "harpoon",
     "help",
     "lazy",
     "lspinfo",
@@ -22,7 +24,6 @@ vim.api.nvim_create_autocmd("FileType", {
     "mason",
     "notify",
     "qf",
-    "spectre_panel",
     "startuptime",
     "tsplayground",
   },
@@ -33,14 +34,18 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("esc_exit"),
+  group = augroup("escape_exit"),
   pattern = {
+    "harpoon",
     "lazy",
     "lspinfo",
     "mason",
+    "qf",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
     map("n", "<esc>", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+    map("n", "<c-c>", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+    map("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
 })

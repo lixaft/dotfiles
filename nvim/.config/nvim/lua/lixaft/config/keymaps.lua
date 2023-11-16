@@ -42,10 +42,9 @@ set("n", "<c-k>", ":cprev<cr>zz")
 set("n", "<leader>j", ":lnext<cr>zz")
 set("n", "<leader>k", ":lprev<cr>zz")
 
--- Jump on `_`.
-set({ "n", "v", "o" }, "-", "f_")
-set({ "n", "v", "o" }, "_", "F_")
-
 -- Make `n` and `N` search consistent between `/` and `?`.
 set({ "n", "x", "o" }, "n", "'Nn'[v:searchforward]", { expr = true })
 set({ "n", "x", "o" }, "N", "'nN'[v:searchforward]", { expr = true })
+
+-- Escape (keep it hidden in the bottom of the file :s)
+set({ "n", "i" }, "<c-c>", "<esc>")

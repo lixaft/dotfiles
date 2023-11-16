@@ -122,7 +122,7 @@ for_window [class="__init__.py"] floating enable
 for_window [instance="maya.bin"] floating enable
 
 # Applications.
-exec --no-startup-id "setxkbmap lixaft -option caps:escape"
+exec --no-startup-id "setxkbmap us"
 exec --no-startup-id "1password --silent"
 exec --no-startup-id "flameshot"
 exec --no-startup-id "nitrogen --set-zoom-fill --random"

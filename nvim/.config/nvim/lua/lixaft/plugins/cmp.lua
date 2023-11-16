@@ -37,7 +37,7 @@ return {
         ["<c-n>"] = cmp.mapping.select_next_item(),
         ["<c-b>"] = cmp.mapping.scroll_docs(-4),
         ["<c-f>"] = cmp.mapping.scroll_docs(4),
-        ["<c-q>"] = cmp.mapping.abort(),
+        ["<c-e>"] = cmp.mapping.abort(),
         ["<cr>"] = cmp.mapping({
           i = function(fallback)
             if cmp.visible() and cmp.get_active_entry() then

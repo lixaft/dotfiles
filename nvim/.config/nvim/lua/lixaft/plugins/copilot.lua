@@ -19,9 +19,9 @@ return {
     suggestion = {
       auto_trigger = true,
       keymap = {
-        accept = "<m-cr>",
+        accept = "<c-f>",
         next = "<m-n>",
-        prev = "<m-N>",
+        prev = "<m-p>",
         accept_word = false,
         accept_line = false,
         dismiss = nil,

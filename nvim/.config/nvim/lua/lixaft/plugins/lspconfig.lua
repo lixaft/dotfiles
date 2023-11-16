@@ -55,19 +55,22 @@ return {
       map("n", "gr", vim.lsp.buf.rename, opts)
 
       map("n", "gd", vim.lsp.buf.definition, opts)
+      map("n", "gD", vim.lsp.buf.declaration, opts)
       map("n", "gR", vim.lsp.buf.references, opts)
-      map("n", "gI", vim.lsp.buf.implementation, opts)
+      map("n", "gi", vim.lsp.buf.implementation, opts)
       map("n", "<c-_>", telescope.lsp_document_symbols, opts)
-      map("n", "<m-/>", telescope.lsp_dynamic_workspace_symbols, opts)
+      map("n", "g<c-_>", telescope.lsp_dynamic_workspace_symbols, opts)
 
       map("n", "K", vim.lsp.buf.hover, opts)
+      map("n", "H", vim.lsp.buf.signature_help, opts)
       map("i", "<c-h>", vim.lsp.buf.signature_help, opts)
+      map("n", "<c-k>", vim.lsp.buf.type_definition, opts)
 
-      map("n", "ga", vim.lsp.buf.code_action, opts)
-      map("n", "gD", vim.diagnostic.setqflist, opts)
+      map("n", "<leader>D", vim.diagnostic.setqflist, opts)
       map("n", "gl", vim.diagnostic.open_float, opts)
       map("n", "]d", vim.diagnostic.goto_next, opts)
       map("n", "[d", vim.diagnostic.goto_prev, opts)
+      map({ "n", "v" }, "ga", vim.lsp.buf.code_action, opts)
     end
 
     local no_diagnostics_handlers = {
