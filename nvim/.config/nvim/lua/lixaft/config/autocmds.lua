@@ -49,3 +49,17 @@ vim.api.nvim_create_autocmd("FileType", {
     map("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
 })
+
+vim.api.nvim_create_autocmd("TermOpen", {
+  group = augroup("term"),
+  pattern = "*",
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+    vim.opt_local.signcolumn = "no"
+    vim.opt_local.spell = false
+    vim.opt_local.cursorline = false
+    vim.cmd("startinsert")
+    vim.cmd("DisableWhitespace")
+  end,
+})
