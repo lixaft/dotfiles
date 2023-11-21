@@ -46,5 +46,8 @@ set("n", "<leader>k", ":lprev<cr>zz")
 set({ "n", "x", "o" }, "n", "'Nn'[v:searchforward]", { expr = true })
 set({ "n", "x", "o" }, "N", "'nN'[v:searchforward]", { expr = true })
 
+-- Teminal.
+set("n", "<leader>t", "<cmd>term<cr>")
+
 -- Escape (keep it hidden in the bottom of the file :s)
 set({ "n", "i" }, "<c-c>", "<esc>")

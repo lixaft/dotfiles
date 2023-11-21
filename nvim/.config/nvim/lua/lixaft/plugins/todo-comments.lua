@@ -10,7 +10,7 @@ return {
     "TodoTrouble",
   },
   keys = {
-    { "<leader>t", "<cmd>TodoQuickFix<cr>" },
+    { "g<c-t>", "<cmd>TodoQuickFix<cr>" },
   },
 
   opts = {
