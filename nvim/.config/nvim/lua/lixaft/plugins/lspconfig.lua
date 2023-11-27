@@ -64,7 +64,6 @@ return {
       map("n", "K", vim.lsp.buf.hover, opts)
       map("n", "H", vim.lsp.buf.signature_help, opts)
       map("i", "<c-h>", vim.lsp.buf.signature_help, opts)
-      map("n", "<c-k>", vim.lsp.buf.type_definition, opts)
 
       map("n", "<leader>D", vim.diagnostic.setqflist, opts)
       map("n", "gl", vim.diagnostic.open_float, opts)
