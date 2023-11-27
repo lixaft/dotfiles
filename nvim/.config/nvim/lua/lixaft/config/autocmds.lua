@@ -15,15 +15,11 @@ vim.api.nvim_create_autocmd("FileType", {
   group = augroup("q_exit"),
   pattern = {
     "checkhealth",
-    "fugitive",
-    "harpoon",
     "help",
     "lazy",
     "lspinfo",
     "man",
-    "mason",
     "notify",
-    "qf",
     "startuptime",
     "tsplayground",
   },
@@ -36,6 +32,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("escape_exit"),
   pattern = {
+    "fugitive",
     "harpoon",
     "lazy",
     "lspinfo",
