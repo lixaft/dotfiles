@@ -39,6 +39,9 @@ set --export PYTHONSTARTUP "$HOME/.pythonrc"
 set --export PYTHONBREAKPOINT "pdb.set_trace"
 set --export PIP_DISABLE_PIP_VERSION_CHECK "1"
 
+# Rust variables.
+fish_add_path "$HOME/.cargo/bin"
+
 # Replace `ls` by `exa` if available.
 if type --query "exa"
     alias ls="exa"
