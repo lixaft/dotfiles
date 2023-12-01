@@ -30,7 +30,7 @@ return {
 
     window = {
       mappings = {
-        ["P"] = { "toggle_preview" },
+        ["P"] = "toggle_preview",
       },
     },
 
@@ -45,6 +45,12 @@ return {
           ".git",
           "Thumbs.db",
           "__pycache__",
+        },
+      },
+      window = {
+        mappings = {
+          ["."] = "none",
+          ["<bs>"] = "none",
         },
       },
     },
