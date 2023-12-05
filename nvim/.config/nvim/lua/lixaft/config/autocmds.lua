@@ -33,6 +33,7 @@ vim.api.nvim_create_autocmd("FileType", {
   group = augroup("escape_exit"),
   pattern = {
     "fugitive",
+    "fugitiveblame",
     "harpoon",
     "lazy",
     "lspinfo",
