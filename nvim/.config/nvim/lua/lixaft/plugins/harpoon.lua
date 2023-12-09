@@ -4,7 +4,7 @@ local partial = require("lixaft.utils.func").partial
 return {
   "ThePrimeagen/harpoon",
   keys = {
-    { ",", partial("harpoon.mark", "add_file") },
+    { "<leader>e", partial("harpoon.mark", "add_file") },
     { "<c-g>", partial("harpoon.ui", "toggle_quick_menu") },
     { "<c-h>", partial("harpoon.ui", "nav_file", { 1 }) },
     { "<c-t>", partial("harpoon.ui", "nav_file", { 2 }) },
