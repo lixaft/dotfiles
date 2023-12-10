@@ -30,6 +30,7 @@ return {
       show_hidden = false,
       is_hidden_file = function(file, _)
         local name = {
+          "..",
           ".DS_Store",
           ".git",
           ".mypy_cache",
@@ -70,6 +71,7 @@ return {
     keymaps = {
       ["-"] = "actions.close",
       ["+"] = "actions.close",
+      ["<esc>"] = "actions.close",
       ["<c-c>"] = "actions.close",
       ["<cr>"] = "actions.select",
       ["<c-t>"] = "actions.select_tab",
@@ -86,6 +88,12 @@ return {
         require("oil.actions").send_to_qflist.callback()
         vim.cmd("copen")
       end,
+      -- Disable harpoon mappings.
+      ["<leader>e"] = false,
+      ["<c-h>"] = false,
+      ["<c-n>"] = false,
+      ["<c-s>"] = false,
+      ["<c-g>"] = false,
     },
   },
 }
