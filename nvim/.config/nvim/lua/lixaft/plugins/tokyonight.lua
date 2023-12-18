@@ -46,6 +46,11 @@ return {
 
       hl.Folded = { bg = "none" }
       hl.UfoFoldedBg = { bg = "none" }
+
+      hl.DapBreakpoint = { fg = colors.red }
+      hl.DapLogPoint = { fg = colors.purple }
+      hl.DapStopped = { fg = colors.yellow }
+      hl.DapUIBreakpointsLine = { bg = colors.yellow }
     end,
   },
 
