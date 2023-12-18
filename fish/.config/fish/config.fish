@@ -57,7 +57,9 @@ end
 
 # Pick neovim as editor <3
 if type --query "nvim"
+    alias vi="nvim"
     alias vim="nvim"
+    alias vimdiff="nvim -d"
     set --export EDITOR "nvim"
     set --export VISUAL "nvim"
 end
