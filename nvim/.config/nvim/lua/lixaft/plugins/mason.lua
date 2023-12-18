@@ -48,13 +48,13 @@ return {
       "pyright",
       "ruff-lsp",
       "rust-analyzer",
+      "typescript-language-server",
 
       -- DAP.
       "debugpy",
 
       -- Linters.
       "luacheck",
-      "mypy",
 
       -- Formatters.
       "gersemi",
