@@ -49,5 +49,11 @@ set({ "n", "x", "o" }, "N", "'nN'[v:searchforward]", { expr = true })
 -- Teminal.
 set("n", "<leader>t", "<cmd>term<cr>")
 
--- Escape (keep it hidden in the bottom of the file :s)
+-- Better window navigation.
+set("n", "<up>", "<c-w>k")
+set("n", "<down>", "<c-w>j")
+set("n", "<left>", "<c-w>h")
+set("n", "<right>", "<c-w>l")
+
+-- Escape (keep it hidden in the bottom of the file :s).
 set({ "n", "i" }, "<c-c>", "<esc>")

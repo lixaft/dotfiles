@@ -35,8 +35,7 @@ return {
       mapping = cmp.mapping.preset.insert({
         ["<c-p>"] = cmp.mapping.select_prev_item(),
         ["<c-n>"] = cmp.mapping.select_next_item(),
-        ["<c-b>"] = cmp.mapping.scroll_docs(-4),
-        ["<c-f>"] = cmp.mapping.scroll_docs(4),
+        ["<c-y>"] = cmp.mapping.confirm({ select = true }),
         ["<c-e>"] = cmp.mapping.abort(),
         ["<cr>"] = cmp.mapping({
           i = function(fallback)

@@ -51,7 +51,7 @@ return {
       local telescope = require("telescope.builtin")
       local opts = { buffer = buffer }
 
-      map("n", "gF", vim.lsp.buf.format, opts)
+      map("n", "<c-f>", vim.lsp.buf.format, opts)
       map("n", "gr", vim.lsp.buf.rename, opts)
 
       map("n", "gd", vim.lsp.buf.definition, opts)
@@ -92,6 +92,12 @@ return {
       capabilities = build_capabilities({
         hoverProvider = false,
       }),
+      on_attach = on_attach,
+    })
+
+    -- JavaScript/TypeScript.
+    require("lspconfig").tsserver.setup({
+      capabilities = build_capabilities(),
       on_attach = on_attach,
     })
 
