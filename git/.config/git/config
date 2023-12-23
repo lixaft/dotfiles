@@ -12,7 +12,7 @@
     norris = push --force origin HEAD
     quarante-neuf-trois = push --force origin HEAD
     congrat = blame
-	random = "!git commit -m \"$(curl -s https://whatthecommit.com/index.txt)\""
+    random = "!git commit -m \"$(curl -s https://whatthecommit.com/index.txt)\""
 
 [color]
     ui = true
@@ -34,10 +34,10 @@
     extendedRegexp = true
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
 
 [merge]
-	tool = nvimdiff
+    tool = nvimdiff
 
 [pull]
   rebase = true
