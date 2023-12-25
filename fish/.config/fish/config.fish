@@ -41,6 +41,7 @@ set --export PIP_DISABLE_PIP_VERSION_CHECK "1"
 
 # Rust variables.
 fish_add_path "$HOME/.cargo/bin"
+fish_add_path "$HOME/go/bin"
 
 # Replace `ls` by `exa` if available.
 if type --query "exa"
