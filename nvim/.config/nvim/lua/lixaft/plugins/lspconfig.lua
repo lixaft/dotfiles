@@ -51,7 +51,13 @@ return {
       local telescope = require("telescope.builtin")
       local opts = { buffer = buffer }
 
-      map("n", "<c-f>", vim.lsp.buf.format, opts)
+      map("n", "<c-f>", function()
+        vim.lsp.buf.format()
+        vim.lsp.buf.code_action({
+          context = { only = { "source.organizeImports" } },
+          apply = true,
+        })
+      end, opts)
       map("n", "gr", vim.lsp.buf.rename, opts)
 
       map("n", "gd", vim.lsp.buf.definition, opts)
