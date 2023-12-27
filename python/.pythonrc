@@ -25,7 +25,7 @@ del _Quitter, _sitebuiltins
 def jp(*args: Any, **kwargs: Any) -> None:
     """JSON style print function."""
     kwargs.setdefault("indent", 2)
-    __import__("json").dumps(*args, **kwargs)
+    print(__import__("json").dumps(*args, **kwargs))  # noqa: T201
 
 
 def pp(*args: Any, **kwargs: Any) -> None:
