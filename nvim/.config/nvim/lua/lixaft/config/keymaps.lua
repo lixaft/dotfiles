@@ -57,3 +57,6 @@ set("n", "<right>", "<c-w>l")
 
 -- Escape (keep it hidden in the bottom of the file :s).
 set({ "n", "i" }, "<c-c>", "<esc>")
+
+-- Used for formatting.
+set("n", "<c-f>", function() end)
