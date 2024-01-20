@@ -49,6 +49,7 @@ return {
       "ruff-lsp",
       "rust-analyzer",
       "typescript-language-server",
+      "zls",
 
       -- DAP.
       "debugpy",

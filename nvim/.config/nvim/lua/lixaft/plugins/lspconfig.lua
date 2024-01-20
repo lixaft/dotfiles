@@ -133,6 +133,12 @@ return {
       on_attach = on_attach,
     })
 
+    -- Zig.
+    require("lspconfig").zls.setup({
+      capabilities = build_capabilities(),
+      on_attach = on_attach,
+    })
+
     -- Rust.
     require("lspconfig").rust_analyzer.setup({
       capabilities = build_capabilities(),
