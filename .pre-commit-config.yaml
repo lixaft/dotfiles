@@ -22,11 +22,11 @@ repos:
       - id: mixed-line-ending
       - id: trailing-whitespace
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.11
+    rev: v0.1.13
     hooks:
       - id: ruff-format
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.11
+    rev: v0.1.13
     hooks:
       - id: ruff
         args: [--fix, --exit-non-zero-on-fix]
