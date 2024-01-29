@@ -34,14 +34,15 @@ bind \ch "tmux-sessionizer ~; commandline -f execute"
 bind \ct "tmux-sessionizer /tmp; commandline -f execute"
 bind \cg "tmux-sessionizer ~/todo.md; commandline -f execute"
 
+# Language configuration.
+fish_add_path "$HOME/.cargo/bin"
+fish_add_path "$HOME/go/bin"
+source "$HOME/.opam/opam-init/init.fish"
+
 # Python variables.
 set --export PYTHONSTARTUP "$HOME/.pythonrc"
 set --export PYTHONBREAKPOINT "pdb.set_trace"
 set --export PIP_DISABLE_PIP_VERSION_CHECK "1"
-
-# Rust variables.
-fish_add_path "$HOME/.cargo/bin"
-fish_add_path "$HOME/go/bin"
 
 # Replace `ls` by `exa` if available.
 if type --query "exa"
