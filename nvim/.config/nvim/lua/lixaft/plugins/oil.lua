@@ -42,6 +42,8 @@ return {
           "build",
           "dist",
           "venv",
+          "zig-cache",
+          "zig-out",
         }
         local ext = {
           ".egg-info",
