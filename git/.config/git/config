@@ -51,3 +51,6 @@
 [user]
     email = lixaft@gmail.com
     name = Fabien Taxil
+
+[includeIf "gitdir:~/stim/"]
+  path = ~/.config/git/stim
