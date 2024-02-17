@@ -7,6 +7,9 @@ set --export XDG_CONFIG_HOME "$HOME/.config"
 set --export XDG_DATA_HOME "$HOME/.local/share"
 set --export XDG_STATE_HOME "$HOME/.local/state"
 
+# Term colors.
+set --export TERM "xterm-256color"
+
 # Extend $PATH.
 fish_add_path "$HOME/.local/bin"
 
