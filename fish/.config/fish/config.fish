@@ -7,9 +7,6 @@ set --export XDG_CONFIG_HOME "$HOME/.config"
 set --export XDG_DATA_HOME "$HOME/.local/share"
 set --export XDG_STATE_HOME "$HOME/.local/state"
 
-# Term colors.
-set --export TERM "xterm-256color"
-
 # Extend $PATH.
 fish_add_path "$HOME/.local/bin"
 
@@ -21,7 +18,7 @@ alias pydoc="python -m pydoc"
 alias python="python3"
 alias refresh="source $HOME/.config/fish/config.fish"
 alias sqlite="sqlite3"
-alias ta="tmux attach"
+alias ta="TERM=xterm-256color tmux attach"
 alias tree="tree -C"
 
 # Define abbreviations.
@@ -32,10 +29,10 @@ abbr --add "-" --position command "cd -"
 bind \ev "__editor_paginate"
 
 # Sessionizer bindings.
-bind \cs "tmux-sessionizer; commandline -f execute"
-bind \ch "tmux-sessionizer ~; commandline -f execute"
-bind \ct "tmux-sessionizer /tmp; commandline -f execute"
-bind \cg "tmux-sessionizer ~/todo.md; commandline -f execute"
+bind \cs "env TERM=xterm-256color tmux-sessionizer; commandline -f execute"
+bind \ch "env TERM=xterm-256color tmux-sessionizer ~; commandline -f execute"
+bind \ct "env TERM=xterm-256color tmux-sessionizer /tmp; commandline -f execute"
+bind \cg "env TERM=xterm-256color tmux-sessionizer ~/todo.md; commandline -f execute"
 
 # Language configuration.
 fish_add_path "$HOME/.cargo/bin"
