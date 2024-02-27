@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+
+import argparse
+import subprocess
+import sys
+
+BUILTINS = set(sys.builtin_module_names) | set(sys.stdlib_module_names)
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("path", nargs="?", default=".")
+    args = parser.parse_args()
+
+    output = subprocess.check_output((
+        "/usr/bin/git",
+        *("-C", args.path),
+        "grep",
+        "-h",
+        "--extended-regexp",
+        "^(import|from)",
+    ))
+
+    imports = {
+        line.replace(".", " ").split()[1]
+        for line in output.decode().splitlines()
+    }
+
+    sys.stdout.write("\n".join(imports - BUILTINS) + "\n")
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

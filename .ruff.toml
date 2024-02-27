@@ -12,6 +12,7 @@ ignore = [
     "PTH",
     "TD002",
     "TD003",
+    "S603",
 ]
 fixable = ["ALL"]
 
