@@ -1,0 +1,5 @@
+packages_path = [
+    "~/packages",
+    "~/.rez/packages/int",
+    "~/.rez/packages/ext",
+]

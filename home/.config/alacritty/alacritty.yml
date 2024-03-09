@@ -34,4 +34,6 @@ colors:
 
 shell:
   program: /usr/bin/fish
-  args: [-c, ta]
+  args:
+    - -c
+    - env TERM=xterm-256color tmux attach || env TERM=xterm-256color /home/lixaft/.local/bin/tmux-sessionizer ~

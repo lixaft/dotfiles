@@ -8,9 +8,13 @@ set --export XDG_DATA_HOME "$HOME/.local/share"
 set --export XDG_STATE_HOME "$HOME/.local/state"
 
 # Extend $PATH.
+fish_add_path "$HOME/.cargo/bin"
 fish_add_path "$HOME/.local/bin"
+fish_add_path "$HOME/.opt/rez/bin/rez"
+fish_add_path "$HOME/go/bin"
+source "$HOME/.opam/opam-init/init.fish"
 
-# Define aliases.
+# Aliases.
 alias df="df -h"
 alias du="du -h"
 alias less="less -R"
@@ -21,23 +25,16 @@ alias sqlite="sqlite3"
 alias ta="TERM=xterm-256color tmux attach"
 alias tree="tree -C"
 
-# Define abbreviations.
+# Abbreviations.
 abbr --add "!!" --position anywhere --function "last_command"
 abbr --add "-" --position command "cd -"
 
-# Define bindings.
+# Bindings.
 bind \ev "__editor_paginate"
-
-# Sessionizer bindings.
 bind \cs "env TERM=xterm-256color tmux-sessionizer; commandline -f execute"
 bind \ch "env TERM=xterm-256color tmux-sessionizer ~; commandline -f execute"
 bind \ct "env TERM=xterm-256color tmux-sessionizer /tmp; commandline -f execute"
 bind \cg "env TERM=xterm-256color tmux-sessionizer ~/todo.md; commandline -f execute"
-
-# Language configuration.
-fish_add_path "$HOME/.cargo/bin"
-fish_add_path "$HOME/go/bin"
-source "$HOME/.opam/opam-init/init.fish"
 
 # Python variables.
 set --export PYTHONSTARTUP "$HOME/.pythonrc"

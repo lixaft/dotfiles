@@ -53,4 +53,4 @@
     name = Fabien Taxil
 
 [includeIf "gitdir:~/stim/"]
-  path = ~/.config/git/stim
+    path = ~/.config/git/stim

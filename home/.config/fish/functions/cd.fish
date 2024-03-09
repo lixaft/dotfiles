@@ -1,3 +1,5 @@
+# From commit: 1a11cee55940d655ea0a7d353b4b0b9410979fd0
+
 function cd --description "Change directory"
     set -l MAX_DIR_HIST 25
 
