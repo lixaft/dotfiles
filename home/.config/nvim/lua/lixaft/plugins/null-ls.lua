@@ -2,46 +2,46 @@
 -- and more via Lua.
 
 return {
-  "jose-elias-alvarez/null-ls.nvim",
-  event = { "BufNewFile", "BufReadPost" },
-  dependencies = {
-    "mason.nvim",
-  },
+    "nvimtools/none-ls.nvim",
+    event = { "BufNewFile", "BufReadPost" },
+    dependencies = {
+        "mason.nvim",
+    },
 
-  opts = function()
-    local null_ls = require("null-ls")
-    return {
-      sources = {
-        -- Shell.
-        null_ls.builtins.formatting.shfmt,
+    opts = function()
+        local null_ls = require("null-ls")
+        return {
+            sources = {
+                -- Shell.
+                null_ls.builtins.formatting.shfmt,
 
-        -- Lua.
-        null_ls.builtins.diagnostics.luacheck,
-        null_ls.builtins.formatting.stylua.with({
-          extra_args = {
-            "--call-parentheses=Always",
-            "--collapse-simple-statement=Never",
-            "--column-width=79",
-            "--indent-type=Spaces",
-            "--indent-width=2",
-            "--line-endings=Unix",
-            "--quote-style=AutoPreferDouble",
-          },
-        }),
+                -- Lua.
+                null_ls.builtins.diagnostics.luacheck,
+                null_ls.builtins.formatting.stylua.with({
+                    extra_args = {
+                        "--call-parentheses=Always",
+                        "--collapse-simple-statement=Never",
+                        "--column-width=79",
+                        "--indent-type=Spaces",
+                        "--indent-width=2",
+                        "--line-endings=Unix",
+                        "--quote-style=AutoPreferDouble",
+                    },
+                }),
 
-        -- Python.
-        null_ls.builtins.diagnostics.mypy.with({
-          extra_args = {
-            "--ignore-missing-imports",
-          },
-        }),
+                -- Python.
+                null_ls.builtins.diagnostics.mypy.with({
+                    extra_args = {
+                        "--ignore-missing-imports",
+                    },
+                }),
 
-        -- Cmake.
-        null_ls.builtins.formatting.gersemi,
+                -- Cmake.
+                null_ls.builtins.formatting.gersemi,
 
-        -- Well, let's say a lot.
-        null_ls.builtins.formatting.prettier,
-      },
-    }
-  end,
+                -- Well, let's say a lot.
+                null_ls.builtins.formatting.prettier,
+            },
+        }
+    end,
 }

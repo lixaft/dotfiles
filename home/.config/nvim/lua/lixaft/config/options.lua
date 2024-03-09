@@ -1,59 +1,54 @@
-local opt = vim.opt
-
--- I hate you but you can still be useful sometimes...
-opt.mouse = "a"
-
 -- Make sure colors are enable.
-opt.termguicolors = true
-
--- Enable all syntax highlighting.
-opt.syntax = "on"
-
--- Turn that damn bell off...
-opt.belloff = "all"
-
--- Add cursor position indication.
-opt.colorcolumn = { "80", "100" }
-opt.number = true
-opt.relativenumber = true
-
--- Always show the sign column.
-opt.signcolumn = "yes"
-
--- Keep a minimum number of lines above and below the cursor.
-opt.scrolloff = 8
-
--- Indentation.
-opt.tabstop = 4
-opt.shiftwidth = 4
-opt.softtabstop = 4
-opt.expandtab = true
-
--- Wrap.
-opt.linebreak = true
-opt.breakindent = true
-opt.showbreak = "> "
-
--- Search.
-opt.hlsearch = true
-opt.incsearch = true
-opt.ignorecase = true
-opt.smartcase = true
-
--- Backup.
-opt.swapfile = true
-opt.backup = true
-opt.undofile = true
-opt.directory = os.getenv("HOME") .. "/.cache/nvim/swap"
-opt.backupdir = os.getenv("HOME") .. "/.cache/nvim/backup"
-opt.undodir = os.getenv("HOME") .. "/.cache/nvim/undo"
-
--- Better completion experience.
-opt.completeopt = { "menuone", "noselect" }
+vim.opt.termguicolors = true
 
 -- Hide startup message.
-opt.shortmess = "I"
+vim.opt.shortmess = "I"
+
+-- I hate you but you can still be useful sometimes...
+vim.opt.mouse = "a"
+
+-- Turn that damn bell off...
+vim.opt.belloff = "all"
+
+-- Enable all syntax highlighting.
+vim.opt.syntax = "on"
+
+-- Always show the sign column.
+vim.opt.signcolumn = "yes"
+
+-- Add cursor position indication.
+vim.opt.colorcolumn = { "80", "100" }
+vim.opt.number = true
+vim.opt.relativenumber = true
+
+-- Keep a minimum number of lines above and below the cursor.
+vim.opt.scrolloff = 8
+
+-- Indentation.
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+
+-- Search.
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Wrap.
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+vim.opt.showbreak = "> "
 
 -- Define where to split windows.
-opt.splitright = true
-opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- Backup.
+vim.opt.swapfile = true
+vim.opt.backup = true
+vim.opt.undofile = true
+vim.opt.directory = os.getenv("HOME") .. "/.cache/nvim/swap"
+vim.opt.backupdir = os.getenv("HOME") .. "/.cache/nvim/backup"
+vim.opt.undodir = os.getenv("HOME") .. "/.cache/nvim/undo"

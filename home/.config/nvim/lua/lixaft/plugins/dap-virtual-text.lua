@@ -1,7 +1,7 @@
 -- Plugin that adds virtual text support to nvim-dap.
 
 return {
-  "theHamsta/nvim-dap-virtual-text",
-  lazy = true,
-  config = true,
+    "theHamsta/nvim-dap-virtual-text",
+    lazy = true,
+    config = true,
 }

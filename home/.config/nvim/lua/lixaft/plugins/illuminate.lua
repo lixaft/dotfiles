@@ -2,10 +2,10 @@
 -- the cursor using either LSP, Tree-sitter, or regex matching.
 
 return {
-  "RRethy/vim-illuminate",
-  event = { "BufNewFile", "BufReadPost" },
+    "RRethy/vim-illuminate",
+    event = { "BufNewFile", "BufReadPost" },
 
-  config = function(_, opts)
-    require("illuminate").configure(opts)
-  end,
+    config = function(_, opts)
+        require("illuminate").configure(opts)
+    end,
 }

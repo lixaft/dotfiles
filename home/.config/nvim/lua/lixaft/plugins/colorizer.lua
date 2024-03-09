@@ -2,22 +2,22 @@
 -- dependencies! Written in performant Luajit.
 
 return {
-  "norcalli/nvim-colorizer.lua",
-  event = { "BufReadPre", "BufNewFile" },
+    "norcalli/nvim-colorizer.lua",
+    event = { "BufReadPre", "BufNewFile" },
 
-  opts = {
-    filetypes = {
-      "*",
-      css = { css = true },
+    opts = {
+        filetypes = {
+            "*",
+            css = { css = true },
+        },
+        default = {
+            RGB = false,
+            RRGGBBAA = true,
+            names = false,
+        },
     },
-    default = {
-      RGB = false,
-      RRGGBBAA = true,
-      names = false,
-    },
-  },
 
-  config = function(_, opts)
-    require("colorizer").setup(opts.filetypes, opts.default)
-  end,
+    config = function(_, opts)
+        require("colorizer").setup(opts.filetypes, opts.default)
+    end,
 }
