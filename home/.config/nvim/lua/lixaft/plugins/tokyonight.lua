@@ -51,6 +51,8 @@ return {
             hl.DapLogPoint = { fg = colors.purple }
             hl.DapStopped = { fg = colors.yellow }
             hl.DapUIBreakpointsLine = { bg = colors.yellow }
+
+            hl.ShotFGraph = { fg = colors.red }
         end,
     },
 
